@@ -1,0 +1,27 @@
+    <div align="center">
+        <p>{{ object.created | date:"d-m-Y" }}</p>
+    </div>
+    <div class="small-12 medium-8 medium-offset-1 columns" style="color: #93a1a1;">
+        {{ object.text | safe }}
+    </div>
+
+    <div class="small-12 medium-3 columns" align="center">
+
+        <div>
+            <h5>Tags:</h5>
+            <p>
+                {% for tag in object.tags.all %}
+                    <a href="http://idg.se">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </p>
+        </div>
+
+        {% if object.gh_url %}
+            <h5>GitHub:</h5>
+            <div>
+                {% if object.gh_url %}
+                    <a href="{{ object.gh_url }}" target="_blank">{{ project.name }}</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>

@@ -1,0 +1,124 @@
+html body{
+    height: 100%;
+    width: 100%;
+    background-color: #002b36;
+}
+
+h1, h2, h3, h4, h5{
+    color: #b58900;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+p {
+    color: #93a1a1;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+a {
+    color: #cb4b16;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #cb4b16;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+
+.menu-button {
+    display:inline;
+    position:absolute;
+    right:50px;
+    top:6px;
+    z-index:999;
+    font-size:30px;
+    color: #cb4b16;
+}
+
+.menu-button a {
+    text-decoration:none;
+}
+
+.menu {
+    display:none;
+    position:fixed;
+    top:0;
+    left: 0;
+    height:100%;
+    width:100%;
+    background:#073642;
+    overflow:auto;
+    z-index:99;
+}
+
+.menu .menu-internal-link .row{
+    margin-top: 1em;
+}
+
+.menu .menu-internal-link a{
+    font-size: 2em;
+    margin-top: 1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #cb4b16;
+}
+
+
+
+.menu .menu-signature {
+    font-family: 'Lobster', cursive;
+    color: #e7e7e7;
+}
+
+
+.menu a {
+    text-decoration:none;
+}
+
+.btn-open:after {
+    color: #cb4b16;
+    content:"\f0c9";
+    font-family:"FontAwesome";
+    transition-property:all .2s linear 0s;
+    -moz-transition:all .2s linear 0s;
+    -webkit-transition:all .2s linear 0s;
+    -o-transition:all .2s linear 0s;
+}
+.btn-open:hover:after {
+    color: #cb4b16;
+}
+.btn-close:after {
+    color: #cb4b16;
+    content:"\f00d";
+    font-family:"FontAwesome";
+    transition-property:all .2s linear 0s;
+    -moz-transition:all .2s linear 0s;
+    -webkit-transition:all .2s linear 0s;
+    -o-transition:all .2s linear 0s;
+}
+.btn-close:hover:after {
+    color: #cb4b16;
+}
+
+
+@media screen and (max-width:48em) {
+
+	nav ul {
+		opacity:0;
+		visibility:hidden;
+	}
+	.social {
+		color:#c1c1c1;
+		font-size:25px;
+		padding:15px 0;
+	}
+	.social-icon {
+        align-content: center;
+		width:75%;
+		height:50px;
+		background:#fff;
+		color:#333;
+		display:block;
+		margin:5px 0;
+	}
+}
