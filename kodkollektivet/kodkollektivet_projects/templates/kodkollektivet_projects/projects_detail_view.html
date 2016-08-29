@@ -24,4 +24,29 @@
                 {% endif %}
             </div>
         {% endif %}
+
+        {% for c in contributors %}
+        <h3><a href="{% url "projects:contributordetailview" c.slug %}">{{ c.name }}</a></h3>
+        {% endfor %}
+
+
     </div>
+
+
+    <hr>
+
+    {% if frameworks %}
+        {% for f in frameworks %}
+            {{ f.name }}<br>
+        {% endfor %}
+    {% endif %}
+
+
+    <hr>
+
+    {% if languages %}
+        {% for l in languages %}
+            {{ l.name }}<br>
+        {% endfor %}
+    {% endif %}
+

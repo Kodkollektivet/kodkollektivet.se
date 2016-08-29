@@ -28,7 +28,7 @@ class Project(models.Model):
     class Meta:
         ordering = ['slug']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
 
@@ -43,7 +43,7 @@ class Role(models.Model):
         self.slug = slugify(self.role)
         super(Role, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
 
@@ -75,7 +75,7 @@ class Contributor(models.Model):
 
         super(Contributor, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
 
@@ -90,7 +90,7 @@ class Language(models.Model):
         self.slug = self.name
         super(Language, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
 
@@ -105,7 +105,7 @@ class Framework(models.Model):
         self.slug = self.name
         super(Framework, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
 

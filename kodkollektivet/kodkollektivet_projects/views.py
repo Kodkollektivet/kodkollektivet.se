@@ -1,24 +1,44 @@
 from django.views.generic import ListView, DetailView
 
-from .models import Project, Contributor, ProCon
+from . import models
 
 
 class ProjectsListView(ListView):
-    model = Project
+    """Project List View"""
+    model = models.Project
     template_name = 'kodkollektivet_projects/projects.html'
 
 
 class ProjectsDetailView(DetailView):
-    model = Project
+    """Project Detail View"""
+    model = models.Project
     template_name = 'kodkollektivet_projects/projects_detail_view.html'
 
     def get_context_data(self, **kwargs):
         context = super(ProjectsDetailView, self).get_context_data(**kwargs)
         gh_id = kwargs['object'].gh_id
-        print(gh_id)
-        procons = ProCon.objects.filter(project__gh_id=gh_id)
-        for i in procons:
-            print(i.project.gh_id)
+        procons = models.ProCon.objects.filter(project__gh_id=gh_id)
+        profras = models.ProFra.objects.filter(project__gh_id=gh_id)
+        prolans= models.ProLan.objects.filter(project__gh_id=gh_id)
+        languages = [i.language for i in prolans]
+        contributors = [i.contributor for i in procons]
+        frameworks = [i.framework for i in profras]
+        context['languages'] = languages
+        context['contributors'] = contributors
+        context['frameworks'] = frameworks
         return context
 
+
+class ContributorDetailView(DetailView):
+    """Contributor Detail View"""
+    model = models.Contributor
+    template_name = 'kodkollektivet_projects/contributor_detail_view.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ContributorDetailView, self).get_context_data(**kwargs)
+        gh_id = kwargs['object'].gh_id
+        procons = models.ProCon.objects.filter(contributor__gh_id=gh_id)
+        projects = [i.project for i in procons]
+        context['projects'] = projects
+        return context
 
