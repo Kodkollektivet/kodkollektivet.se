@@ -48,9 +48,6 @@ class Role(models.Model):
 
 
 class Contributor(models.Model):
-    class Meta:
-        ordering = ['slug']
-
     name = models.CharField(max_length=254, blank=True)
     slug = models.CharField(max_length=254, blank=True)
     email = models.EmailField(max_length=254, blank=True)
@@ -64,6 +61,9 @@ class Contributor(models.Model):
     gh_id = models.IntegerField()
     gh_html = models.CharField(max_length=254, blank=True)
     gh_avatar = models.CharField(max_length=254, blank=True)
+
+    class Meta:
+        ordering = ['slug']
 
     def save(self, *args, **kwargs):
         """
