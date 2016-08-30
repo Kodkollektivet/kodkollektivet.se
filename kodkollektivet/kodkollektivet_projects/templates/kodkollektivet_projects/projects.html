@@ -1,11 +1,18 @@
-{% if object_list %}
+{% extends 'core/core.html' %}
 
-    {% for project in object_list %}
-        <h3><a href="{% url "projects:projectdetailview" project.slug %}">{{ project.name }}</a></h3>
+{% block body %}
 
-        <p>{{ project.created | date:"d-m-Y" }}</p>
-    {% endfor %}
 
-{% else %}
-    No projects
-{% endif %}
+    {% if object_list %}
+
+        {% for project in object_list %}
+            <h3><a href="{% url "projects:projectdetailview" project.slug %}">{{ project.name }}</a></h3>
+
+            <p>{{ project.created | date:"d-m-Y" }}</p>
+        {% endfor %}
+
+    {% else %}
+        No projects
+    {% endif %}
+
+{% endblock %}

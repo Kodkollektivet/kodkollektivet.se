@@ -1,31 +1,3 @@
-html body{
-    height: 100%;
-    width: 100%;
-    background-color: #002b36;
-}
-
-h1, h2, h3, h4, h5{
-    color: #b58900;
-    font-family:"Lucida Console", Monaco, monospace;
-}
-
-p {
-    color: #93a1a1;
-    font-family:"Lucida Console", Monaco, monospace;
-}
-
-a {
-    color: #cb4b16;
-    font-family:"Lucida Console", Monaco, monospace;
-}
-
-a:hover{
-    text-decoration: none;
-    color: #cb4b16;
-    font-family:"Lucida Console", Monaco, monospace;
-}
-
-
 .menu-button {
     display:inline;
     position:absolute;
@@ -47,7 +19,7 @@ a:hover{
     left: 0;
     height:100%;
     width:100%;
-    background:#073642;
+    background:#5E412F;
     overflow:auto;
     z-index:99;
 }
@@ -60,7 +32,7 @@ a:hover{
     font-size: 2em;
     margin-top: 1em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #cb4b16;
+    color: #FCEBB6;
 }
 
 

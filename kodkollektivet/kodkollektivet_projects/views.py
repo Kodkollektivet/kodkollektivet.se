@@ -8,6 +8,11 @@ class ProjectsListView(ListView):
     model = models.Project
     template_name = 'kodkollektivet_projects/projects.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsListView, self).get_context_data(**kwargs)
+        context['header_text'] = 'Projects'
+        return context
+
 
 class ProjectsDetailView(DetailView):
     """Project Detail View"""
@@ -23,6 +28,7 @@ class ProjectsDetailView(DetailView):
         languages = [i.language for i in prolans]
         contributors = [i.contributor for i in procons]
         frameworks = [i.framework for i in profras]
+        context['header_text'] = kwargs['object'].name
         context['languages'] = languages
         context['contributors'] = contributors
         context['frameworks'] = frameworks

@@ -1,3 +1,6 @@
+{% extends 'core/core.html' %}
+
+{% block body %}
     <div align="center">
         <p>{{ object.created | date:"d-m-Y" }}</p>
     </div>
@@ -5,16 +8,7 @@
         {{ object.text | safe }}
     </div>
 
-    <div class="small-12 medium-3 columns" align="center">
-
-        <div>
-            <h5>Tags:</h5>
-            <p>
-                {% for tag in object.tags.all %}
-                    <a href="http://idg.se">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}
-                {% endfor %}
-            </p>
-        </div>
+    <div class="small-12 columns" align="center">
 
         {% if object.gh_url %}
             <h5>GitHub:</h5>
@@ -25,28 +19,42 @@
             </div>
         {% endif %}
 
+        <hr>
+
+        <h5>Contributors:</h5>
         {% for c in contributors %}
         <h3><a href="{% url "projects:contributordetailview" c.slug %}">{{ c.name }}</a></h3>
         {% endfor %}
+
+        <hr>
+
+        <h5>Languages:</h5>
+
+        {% if languages %}
+            {% for l in languages %}
+                {{ l.name }}<br>
+            {% endfor %}
+        {% endif %}
+
+
+        <hr>
+
+
+
+        {% if frameworks %}
+            <h5>Frameworks:</h5>
+
+            {% for f in frameworks %}
+                {{ f.name }}<br>
+            {% endfor %}
+        {% endif %}
+
 
 
     </div>
 
 
-    <hr>
-
-    {% if frameworks %}
-        {% for f in frameworks %}
-            {{ f.name }}<br>
-        {% endfor %}
-    {% endif %}
 
 
-    <hr>
 
-    {% if languages %}
-        {% for l in languages %}
-            {{ l.name }}<br>
-        {% endfor %}
-    {% endif %}
-
+{% endblock %}

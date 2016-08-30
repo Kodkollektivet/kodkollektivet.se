@@ -20,6 +20,6 @@ from core.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', IndexView.as_view()),
+    url(r'^$', IndexView.as_view(), name='home'),
     url(r'^projects/', include('kodkollektivet_projects.urls', namespace='projects'), name='projects'),
 ]

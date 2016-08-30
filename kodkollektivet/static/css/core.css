@@ -1,0 +1,26 @@
+html body{
+    height: 100%;
+    width: 100%;
+    background-color: #FCEBB6;
+}
+
+h1, h2, h3, h4, h5{
+    color: #5E412F;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+p {
+    color: #93a1a1;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+a {
+    color: #cb4b16;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #5E412F;
+    font-family:"Lucida Console", Monaco, monospace;
+}

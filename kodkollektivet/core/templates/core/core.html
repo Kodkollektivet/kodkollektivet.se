@@ -12,12 +12,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
     <!---->
 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
 
 
 
 </head>
 <body>
+
+    <div class="header" style="background-color: #073642; height: 15em; position: relative;">
+        <h2 style="margin: 0; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
+            {% if header_text %}
+                {{ header_text }}
+            {% else %}
+                Kodkollektivet
+            {% endif %}
+        </h2>
+    </div>
+
+    <div class="container">
+        {% block body %}
+            <div class="small-12 columns">
+                <h2>A gathering Point</h2>
+                <p>
+                    Kodkollektivet is a central point where committed university students can be introduced to each other, solve problems, and be creative. The goals of Kodkollektivet are to give students a place to work on and share both their own and external projects, as well as to provide an environment where we can all learn from each other and evolve as developers.
+
+                    The focus in these projects is to gain early-on experiences in fields that are relevant and makes students more attractive to the modern market. This could include for instance, specific frameworks that are commonly used in practise but are not being taught in the university.
+                </p>
+
+                <h2>A Practical Experience</h2>
+                <p>
+                    We are continuously working with external companies, building a network of connections that benefits both Kodkollektivet and its members. These benefits could be in the form of external, customer driven projects where members get to interact and work with a customer on a professional level.
+
+                    This results in a great opportunity to build and show off experiences and capabilities to future employers.
+                </p>
+            </div>
+        {% endblock %}
+    </div>
 
 
     <!-- jQuery -->
@@ -35,3 +66,7 @@
 
 </body>
 </html>
+
+
+
+
