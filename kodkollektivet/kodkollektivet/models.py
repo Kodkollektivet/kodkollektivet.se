@@ -2,6 +2,40 @@ from django.db import models
 from django.utils.text import slugify
 
 
+class PostQuerySet(models.QuerySet):
+    def published(self):
+        return self.filter(publish=True)
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    edited_date = models.DateTimeField(auto_now=True)
+    publish = models.BooleanField(default=False)
+    slug = models.SlugField(max_length=200, unique=True)
+
+    objects = PostQuerySet.as_manager()
+
+    def get_absolute_url(self):
+        return reverse('blog:detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        """Set slug"""
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Event, self).save(*args, **kwargs)
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Event post"
+        verbose_name_plural = "Event posts"
+        ordering = ["-created_date"]
+
+
 class Project(models.Model):
     name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(blank=True)
@@ -141,4 +175,3 @@ class ProRol(models.Model):
     class Meta:
         verbose_name = 'Project-Role-Contributor relation'
 
-        

@@ -3,6 +3,11 @@ from django.contrib import admin
 from . import models
 
 
+class EventAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'created_date',)
+
+
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('name',)
     exclude = ('slug', 'gh_name', 'gh_id', 'gh_url')
@@ -43,7 +48,9 @@ class ProLanAdmin(admin.ModelAdmin):
 class ProRolAdmin(admin.ModelAdmin):
     list_display = ('project', 'contributor', 'role',)
 
-
+    
+admin.site.register(models.Event, EventAdmin)
+    
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Language, LanguageAdmin)
 admin.site.register(models.Contributor, ContributorAdmin)

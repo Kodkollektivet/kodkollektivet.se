@@ -1,0 +1,19 @@
+{% extends 'core/core.html' %}
+{% load markdown_deux_tags %}
+
+{% block body %}
+
+  {% if object_list %}
+    {% for object in object_list %}
+      <article>
+        <h1>{{ object.title }}</h1>
+        <p>created on {{ object.created_date|date }}</p>
+        <p>{{ object.body | markdown }}</p>
+      </article>
+      <hr>
+    {% endfor %}
+  {% else %}
+    No events
+  {% endif %}
+
+{% endblock %}

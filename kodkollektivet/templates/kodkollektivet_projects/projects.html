@@ -2,17 +2,18 @@
 
 {% block body %}
 
+  {% if object_list %}
 
-    {% if object_list %}
+    {% for project in object_list %}
+      <section class="projectlist">
+        <ul>
+          <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a></li>
+        </ul>
+      <section>      
+    {% endfor %}
 
-        {% for project in object_list %}
-            <h3><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a></h3>
-
-            <p>{{ project.created | date:"d-m-Y" }}</p>
-        {% endfor %}
-
-    {% else %}
-        No projects
-    {% endif %}
+  {% else %}
+    No projects
+  {% endif %}
 
 {% endblock %}

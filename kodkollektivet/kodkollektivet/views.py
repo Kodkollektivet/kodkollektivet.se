@@ -7,6 +7,17 @@ class IndexView(TemplateView):
     template_name = 'core/core.html'
 
 
+class EventsListView(ListView):
+    queryset = models.Event.objects.published()
+    template_name = "events/events_list_view.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(EventsListView, self).get_context_data(**kwargs)
+        context['header_text'] = 'Events'
+        return context
+
+
+
 class ProjectsListView(ListView):
     """Project List View"""
     model = models.Project
