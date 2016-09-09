@@ -1,31 +1,8 @@
-<div class="menu-button">
-    <a class="btn-open" href="#">Menu</a>
-</div>
-
-<div class="menu">
-
-    <div class="menu-internal-link" align="center">
-        <div class="row">
-            <a href={% url "home"%}>Home</a>
-        </div>
-
-        <div class="row">
-            <a href="{% url "kodkollektivet:projectslistview"%}">Projects</a>
-        </div>
-
-        <div class="row">
-            <a href="http://kodkollektivet.se/" target="_blank">Kodkollektivet</a>
-        </div>
-
-        <div class="row">
-            <a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a>
-        </div>
-
-        <div class="row">
-            <a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">Stadgar</a>
-        </div>
-
-
-    </div>
-
-</div>
+<nav>
+  <ul>
+    <li><a href={% url "home"%}>Home</a></li>
+    <li><a href="{% url "kodkollektivet:projectslistview"%}">Projects</a></li>
+    <li><a href="http://kodkollektivet.se/" target="_blank">Kodkollektivet</a></li>
+    <li><a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a></li>
+    <li><a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">Stadgar</a><li>
+</nav>

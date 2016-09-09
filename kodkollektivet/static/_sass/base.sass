@@ -1,0 +1,61 @@
+
+$header_color: #073642
+$header_text_color: #db671b
+$main_color: white
+
+
+html,
+body
+  background-color: $main_color
+  margin: 0
+
+
+nav
+  margin: auto
+  text-align: center
+  background: $header_color
+  
+  ul
+    list-style-type: none
+    display: inline-block     
+
+    li
+      float: left
+      margin-left: 20px
+      background-color: $header_color
+      
+      a
+        color: $header_text_color
+        text-decoration: none
+        &:hover
+          color: white
+
+
+header
+  background-color: $header_color
+  height: 10em
+  position: relative
+  margin-left: -1em
+  margin-right: -1em  
+
+  h1
+    color: $header_text_color
+    margin: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-right: -50%
+    transform: translate(-50%, -50%)
+    
+  img
+    margin: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-right: -50%
+    transform: translate(-50%, -50%)
+
+
+main
+  margin-left: 2em
+  margin-right: 2em  

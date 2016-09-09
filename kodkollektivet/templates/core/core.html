@@ -4,65 +4,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Kodkollektivet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kodkollektivet</title>
 
-    <!-- Foundation CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
-    <!---->
+  <meta property="og:title" content="➜ Kodkollektivet!" />
+  <meta property="og:type" content="organization" />
+  <meta property="og:url" content="http://kodkollektivet.se" />
+  <meta property="og:image" content="{% static 'img/logo.png' %}" />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
-
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 <body>
+  
+  <header>
+      {% if header_text %}
+        <h1>{{ header_text }}</h1>
+      {% else %}
+        <img src="{% static 'img/logo.png' %}" />
+      {% endif %}
+  </header>
 
-    <div class="header" style="background-color: #073642; height: 15em; position: relative;">
-        <h2 style="margin: 0; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
-            {% if header_text %}
-                {{ header_text }}
-            {% else %}
-                Kodkollektivet
-            {% endif %}
-        </h2>
-    </div>
+  <main>
+    {% block body %}
+      <article>
+        <h2>A gathering Point</h2>
+        <p>
+          Kodkollektivet is a central point where committed university students can be introduced to each other, solve problems, and be creative. The goals of Kodkollektivet are to give students a place to work on and share both their own and external projects, as well as to provide an environment where we can all learn from each other and evolve as developers.
 
-    <div class="container">
-        {% block body %}
-            <div class="small-12 columns">
-                <h2>A gathering Point</h2>
-                <p>
-                    Kodkollektivet is a central point where committed university students can be introduced to each other, solve problems, and be creative. The goals of Kodkollektivet are to give students a place to work on and share both their own and external projects, as well as to provide an environment where we can all learn from each other and evolve as developers.
+          The focus in these projects is to gain early-on experiences in fields that are relevant and makes students more attractive to the modern market. This could include for instance, specific frameworks that are commonly used in practise but are not being taught in the university.
+        </p>
 
-                    The focus in these projects is to gain early-on experiences in fields that are relevant and makes students more attractive to the modern market. This could include for instance, specific frameworks that are commonly used in practise but are not being taught in the university.
-                </p>
+        <h2>A Practical Experience</h2>
+        <p>
+          We are continuously working with external companies, building a network of connections that benefits both Kodkollektivet and its members. These benefits could be in the form of external, customer driven projects where members get to interact and work with a customer on a professional level.
 
-                <h2>A Practical Experience</h2>
-                <p>
-                    We are continuously working with external companies, building a network of connections that benefits both Kodkollektivet and its members. These benefits could be in the form of external, customer driven projects where members get to interact and work with a customer on a professional level.
+          This results in a great opportunity to build and show off experiences and capabilities to future employers.
+        </p>
+      </article>
+    {% endblock %}
+  </main>
 
-                    This results in a great opportunity to build and show off experiences and capabilities to future employers.
-                </p>
-            </div>
-        {% endblock %}
-    </div>
-
-
-    <!-- jQuery -->
-    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-    <!---->
-
-    <!-- Foundation JS -->
-    <script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-    <!---->
-
-    <script src="{% static 'js/menu.js' %}"></script>
+  
+  <script src="{% static 'js/menu.js' %}"></script>
 
 </body>
 </html>
