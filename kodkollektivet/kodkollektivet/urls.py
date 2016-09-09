@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from kodkollektivet_projects import github
-from kodkollektivet_projects import views
+from kodkollektivet import github
+from kodkollektivet import views
 
 urlpatterns = [
     url(r'^$', views.ProjectsListView.as_view(), name='projectslistview'),

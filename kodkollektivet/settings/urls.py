@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from core.views import IndexView
+from kodkollektivet import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', IndexView.as_view(), name='home'),
-    url(r'^projects/', include('kodkollektivet_projects.urls', namespace='projects'), name='projects'),
+    url(r'^$', views.IndexView.as_view(), name='home'),
+    url(r'^k/', include('kodkollektivet.urls', namespace='kodkollektivet'), name='kodkollektivet'),
 ]

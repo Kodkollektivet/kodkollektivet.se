@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 
-from kodkollektivet_projects.models import Project, Contributor, ProCon, ProLan, Language
-from kodkollektivet_projects.forms import ProjectForm
+from kodkollektivet.models import Project, Contributor, ProCon, ProLan, Language
+from kodkollektivet.forms import ProjectForm
 
 # If develop, use settings.settings, else
 # use settings.production.
@@ -69,6 +69,8 @@ def getcontribs():
     Project <-> Contributor
     """
 
+    log.debug('Getting contributors...')
+
     projects = Project.objects.all()  # Get all projects
 
     for project in projects:  # iterate over them
@@ -88,7 +90,10 @@ def getcontribs():
 
 
 def getprocon():
-
+    """Get the project contributor relations."""
+    
+    log.debug('Getting procons...')
+    
     projects = Project.objects.all()
 
     for project in projects:
@@ -109,4 +114,5 @@ class GithubHook(APIView):
         getrepos()
         getcontribs()
         getprocon()
+        log.debug('Getting repos... DONE')
         return Response(status=status.HTTP_200_OK)

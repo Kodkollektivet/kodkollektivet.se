@@ -23,7 +23,7 @@
 
         <h5>Contributors:</h5>
         {% for c in contributors %}
-        <h3><a href="{% url "projects:contributordetailview" c.slug %}">{{ c.name }}</a></h3>
+        <h3><a href="{% url "kodkollektivet:contributordetailview" c.slug %}">{{ c.name }}</a></h3>
         {% endfor %}
 
         <hr>
@@ -52,9 +52,5 @@
 
 
     </div>
-
-
-
-
 
 {% endblock %}
