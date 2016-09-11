@@ -1,5 +1,8 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from django.utils.text import slugify
+from django.utils import timezone
 
 
 class PostQuerySet(models.QuerySet):
@@ -12,10 +15,15 @@ class Event(models.Model):
     body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     edited_date = models.DateTimeField(auto_now=True)
+    date = models.DateField()
+    time = models.TimeField()
     publish = models.BooleanField(default=False)
     slug = models.SlugField(max_length=200, unique=True)
 
-    objects = PostQuerySet.as_manager()
+    #objects = PostQuerySet.as_manager()
+
+    def is_upcomming_event(self):
+        return self.datetime >= timezone.now()
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'slug': self.slug})

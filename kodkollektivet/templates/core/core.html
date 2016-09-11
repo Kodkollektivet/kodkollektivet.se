@@ -20,9 +20,9 @@
   
   <header>
       {% if header_text %}
-        <h1>{{ header_text }}</h1>
+        <a class="btn-open" href="#"><h1>{{ header_text }}</h1></a>
       {% else %}
-        <img src="{% static 'img/logo.png' %}" />
+        <a class="btn-open" href="#"><img src="{% static 'img/logo.png' %}" /></a>
       {% endif %}
   </header>
 
@@ -43,10 +43,23 @@
           This results in a great opportunity to build and show off experiences and capabilities to future employers.
         </p>
       </article>
+
+      <aside>
+        <section>
+          {% if upcomming_events %}
+            <h3>Upcomming events:</h3>
+            <ul>
+              {% for event in upcomming_events %}
+                <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </section>
+      </aside>
     {% endblock %}
   </main>
 
-  
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   <script src="{% static 'js/menu.js' %}"></script>
 
 </body>

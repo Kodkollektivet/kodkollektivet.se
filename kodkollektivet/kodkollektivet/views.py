@@ -1,4 +1,7 @@
+from datetime import datetime, timedelta, time
+
 from django.views.generic import TemplateView, ListView, DetailView
+from django.utils import timezone
 
 from . import models
 
@@ -6,9 +9,15 @@ from . import models
 class IndexView(TemplateView):
     template_name = 'core/core.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        m = models.Event.objects.filter(date__gte=datetime.now())
+        context['upcomming_events'] = m
+        return context
+    
 
 class EventsListView(ListView):
-    queryset = models.Event.objects.published()
+    queryset = models.Event.objects.all()
     template_name = "events/events_list_view.html"
 
     def get_context_data(self, **kwargs):
@@ -16,6 +25,10 @@ class EventsListView(ListView):
         context['header_text'] = 'Events'
         return context
 
+
+class EventsDetailView(DetailView):
+    model = models.Event
+    template_name = "events/events_detail_view.html"
 
 
 class ProjectsListView(ListView):

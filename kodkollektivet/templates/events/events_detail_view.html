@@ -1,0 +1,13 @@
+{% extends 'core/core.html' %}
+{% load markdown_deux_tags %}
+
+{% block body %}
+
+  <article>
+    <h1>{{ object.title }}</h1>
+    <p>Date: {{ object.date|date }}</p>
+    <p>Time: {{ object.time|time:"H:i" }}</p>        
+    <p>{{ object.body | markdown }}</p>
+  </article>
+
+{% endblock %}

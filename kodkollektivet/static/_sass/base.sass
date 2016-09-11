@@ -7,36 +7,34 @@ $main_color: white
 html,
 body
   background-color: $main_color
-  margin: 0
 
 
 nav
-  margin: auto
-  text-align: center
-  background: $header_color
-  
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  overflow: auto
+  z-index: 99
+  background: #073642
+
   ul
     list-style-type: none
-    display: inline-block     
+    text-align: center
 
-    li
-      float: left
-      margin-left: 20px
-      background-color: $header_color
-      
-      a
-        color: $header_text_color
-        text-decoration: none
-        &:hover
-          color: white
+    a
+      text-decoration: none
+      font-size: 2em
+      color: $header_text_color
 
 
 header
   background-color: $header_color
   height: 10em
   position: relative
-  margin-left: -1em
-  margin-right: -1em  
+  margin: -1em
 
   h1
     color: $header_text_color
