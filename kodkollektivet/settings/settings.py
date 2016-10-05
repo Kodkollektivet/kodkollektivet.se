@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'userprofile',
+    'kodkollektivet',
+
     'rest_framework',
     'markdown_deux',
-
-    'kodkollektivet',
+    
 ]
 
 MIDDLEWARE = [
@@ -109,6 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# AUTH_PROFILE_MODUL
+AUTH_USER_MODEL = 'userprofile.Member'
 
 
 # Internationalization

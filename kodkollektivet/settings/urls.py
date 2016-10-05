@@ -23,6 +23,6 @@ from kodkollektivet import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.IndexView.as_view(), name='home'),
-    url(r'^k/', include('kodkollektivet.urls', namespace='kodkollektivet'), name='kodkollektivet'),
+    url(r'^', include('kodkollektivet.urls', namespace='kodkollektivet'), name='kodkollektivet'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
