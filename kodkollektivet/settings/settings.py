@@ -128,10 +128,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+MEDIA_ROOT = '../media/'
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
 
 
 REST_FRAMEWORK = {
@@ -175,14 +178,6 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'verbose'
         },
-        'kodkollektivet_projects': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/kodkollektivet_projects.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5MB
-            'backupCount': 5,
-            'formatter': 'verbose'
-        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -192,11 +187,6 @@ LOGGING = {
     'loggers': {
         'kodkollektivet': {
             'handlers': ['kodkollektivet', 'console'],
-            'level': 'DEBUG',
-            'propagate': True
-        },
-        'kodkollektivet_projects': {
-            'handlers': ['kodkollektivet_projects', 'console'],
             'level': 'DEBUG',
             'propagate': True
         },

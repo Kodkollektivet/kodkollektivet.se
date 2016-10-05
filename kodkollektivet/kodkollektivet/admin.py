@@ -2,6 +2,10 @@ from django.contrib import admin
 
 from . import models
 
+class MemberAdmin(admin.ModelAdmin):
+    search_fields = ['first_name', 'last_name', 'email', 'phone']
+    list_display = ('id', 'first_name', 'last_name', 'email', 'valid_to')
+
 
 class EventAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
@@ -48,7 +52,7 @@ class ProLanAdmin(admin.ModelAdmin):
 class ProRolAdmin(admin.ModelAdmin):
     list_display = ('project', 'contributor', 'role',)
 
-    
+admin.site.register(models.Member, MemberAdmin)    
 admin.site.register(models.Event, EventAdmin)
     
 admin.site.register(models.Project, ProjectAdmin)

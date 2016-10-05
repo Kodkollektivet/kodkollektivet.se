@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from datetime import datetime, timedelta
 
 from django.db import models
@@ -5,6 +7,36 @@ from django.utils.text import slugify
 from django.utils import timezone
 
 
+def get_upload_file_name(instance, filename):
+    return '{}'.format(str(datetime.now().strftime('%Y-%m-%d'))+'-'+instance.first_name+instance.last_name)+'.jpg'
+
+MEMBER_TYPES = (
+    ('Student', 'Student'),
+    ('Board', 'Board'),
+    ('Support', 'Support')
+)
+
+BOARD_TYPES = (
+    ('None', 'None'),
+    ('President', 'President'),
+    ('Vice President', 'Vice President'),
+    ('Treasurer', 'Treasurer'),
+    ('Internal Relations', 'Internal Relations'),
+    ('External Relations', 'External Relations'),    
+)
+
+class Member(models.Model):
+    member_type = models.CharField(max_length=200, choices=MEMBER_TYPES, default='Student')
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    phone = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    valid_to = models.DateField(auto_now=False, auto_now_add=False)
+    board_position = models.CharField(max_length=200, choices=BOARD_TYPES, default='None')
+    picture = models.ImageField(upload_to=get_upload_file_name, blank=True)
+
+    
 class PostQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish=True)
