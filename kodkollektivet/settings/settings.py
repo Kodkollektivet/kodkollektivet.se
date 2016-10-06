@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # AUTH_PROFILE_MODUL
-AUTH_USER_MODEL = 'userprofile.Member'
+#AUTH_USER_MODEL = 'userprofile.Member'
 
 
 # Internationalization
@@ -139,6 +139,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Django-registration
+ACCOUNT_ACTIVATION_DAYS = 7
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 

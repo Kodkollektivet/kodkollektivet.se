@@ -7,7 +7,7 @@ from . import models
 
 
 class IndexView(TemplateView):
-    template_name = 'core/core.html'
+    template_name = 'base.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -34,7 +34,7 @@ class EventsDetailView(DetailView):
 class ProjectsListView(ListView):
     """Project List View"""
     model = models.Project
-    template_name = 'kodkollektivet_projects/projects.html'
+    template_name = 'projects/projects.html'
 
     def get_context_data(self, **kwargs):
         context = super(ProjectsListView, self).get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class ProjectsListView(ListView):
 class ProjectsDetailView(DetailView):
     """Project Detail View"""
     model = models.Project
-    template_name = 'kodkollektivet_projects/projects_detail_view.html'
+    template_name = 'projects/projects_detail_view.html'
 
     def get_context_data(self, **kwargs):
         context = super(ProjectsDetailView, self).get_context_data(**kwargs)
@@ -66,7 +66,7 @@ class ProjectsDetailView(DetailView):
 class ContributorDetailView(DetailView):
     """Contributor Detail View"""
     model = models.Contributor
-    template_name = 'kodkollektivet_projects/contributor_detail_view.html'
+    template_name = 'projects/contributor_detail_view.html'
 
     def get_context_data(self, **kwargs):
         context = super(ContributorDetailView, self).get_context_data(**kwargs)
