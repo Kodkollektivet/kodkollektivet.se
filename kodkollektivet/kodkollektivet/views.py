@@ -14,6 +14,16 @@ class IndexView(TemplateView):
         m = models.Event.objects.filter(date__gte=datetime.now())
         context['upcomming_events'] = m
         return context
+
+
+class BoardTemplateView(TemplateView):
+    template_name = 'board.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BoardTemplateView, self).get_context_data(**kwargs)
+        context['header_text'] = 'Styrelsen'
+        return context
+    
     
 
 class EventsListView(ListView):
