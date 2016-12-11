@@ -14,7 +14,7 @@ class PostQuerySet(models.QuerySet):
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    body = models.TextField()
+    body = models.TextField(help_text="Markdown syntax can be used!")
     created_date = models.DateTimeField(auto_now_add=True)
     edited_date = models.DateTimeField(auto_now=True)
     date = models.DateField()

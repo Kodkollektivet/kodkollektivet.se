@@ -7,7 +7,8 @@
     {% for object in object_list %}
       <article>
         <h1>{{ object.title }}</h1>
-        <p>created on {{ object.created_date|date }}</p>
+        <p>Date: {{ object.date|date }}</p>
+        <p>Time: {{ object.time|time:"H:i" }}</p>        
         <p>{{ object.body | markdown }}</p>
       </article>
       <hr>
