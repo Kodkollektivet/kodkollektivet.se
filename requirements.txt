@@ -4,3 +4,4 @@ djangorestframework
 requests
 django-markdown-deux
 Pillow
+gunicorn
