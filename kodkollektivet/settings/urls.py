@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.conf import settings
 
 from kodkollektivet import views
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.IndexView.as_view(), name='home'),
     url(r'^', include('kodkollektivet.urls', namespace='kodkollektivet'), name='kodkollektivet'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
