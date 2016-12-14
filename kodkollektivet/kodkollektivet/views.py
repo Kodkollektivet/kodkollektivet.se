@@ -14,6 +14,7 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         m = models.Event.objects.filter(date__gte=datetime.now())
         context['upcomming_events'] = m
+        context['header_text'] = 'Kodkollektivet'
         return context
 
 
