@@ -1,0 +1,1 @@
+./favicon-maker <image file>

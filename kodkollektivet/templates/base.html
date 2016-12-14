@@ -15,7 +15,9 @@
     <meta property="og:type" content="organization" />
     <meta property="og:url" content="http://kodkollektivet.se" />
     <meta property="og:image" content="{% static 'img/logo.png' %}" />
-
+    
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
+    
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">  
     <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css">
 
@@ -38,7 +40,10 @@
       <article>
         <h2 align="center">{% trans "Vad är Kodkollektivet" %}? </h2>
         <p>
-          {% blocktrans %}Kodkollektivet består av en grupp studenter med ett brinnande intresse, främst inom programmering, nätverk och andra IT-relaterade ämnen. Vi startade under sommaren 2015 med ett hav av idéer som vi sedan dess har provat på, finslipat men framför allt lärt oss en hel del av gällande både samarbete, planering och fokus. Med detta i bagaget startar Kodkollektivet nu som studentförening och skiftar fokus en aning från projektarbeten och kodträffar till en mer social platform inriktad på studenter (med ingen till full kompetens inom sitt område) likaväl som företag med intresse av att komma i tidig kontakt med framtida arbetstagare. Detta gör vi med hjälp av en mötesplats där studenter får komma i kontakt med båda varandra och näringsliv genom diverse aktiviteter såsom tema-kvällar, hackathons, workshops, studiebesök och kortare gästföreläsningar från företag i regionen.{% endblocktrans %}            
+          {% blocktrans %}
+          Kodkollektivet består av en grupp studenter med ett brinnande intresse, främst inom programmering, nätverk och andra IT-relaterade ämnen. Vi startade under sommaren 2015 med ett hav av idéer som vi sedan dess har provat på, finslipat men framför allt lärt oss en hel del av gällande både samarbete, planering och fokus. Med detta i bagaget startar Kodkollektivet nu som studentförening och skiftar fokus en aning från projektarbeten och kodträffar till en mer social platform inriktad på studenter (med ingen till full kompetens inom sitt område) likaväl som företag med intresse av att komma i tidig kontakt med framtida arbetstagare. Detta gör vi med hjälp av en mötesplats där studenter får komma i kontakt med båda varandra och näringsliv genom diverse aktiviteter såsom tema-kvällar, hackathons, workshops, studiebesök och kortare gästföreläsningar från företag i regionen.
+          
+          {% endblocktrans %}            
         </p>
 
         <h2 align="center">{% trans "Student, har du vad som krävs" %}?</h2>
