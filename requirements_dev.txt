@@ -1,0 +1,11 @@
+jedi
+flake8
+importmagic
+autopep8
+django
+django-registration
+djangorestframework
+requests
+django-markdown-deux
+Pillow
+gunicorn
