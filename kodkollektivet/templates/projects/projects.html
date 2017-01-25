@@ -1,19 +1,49 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-  {% if object_list %}
+{% blocktrans %}
+Members of Kodkollektivet can get together and create projects.
+Below is a list of the projects that we have in our GitHub organization.
+If you wanna make a project within the Kodkollektivet organization you are
+very welcome. Just hit us up on Slack or email and we help you setting up a repo!
+{% endblocktrans %}
 
-    {% for project in object_list %}
-      <section class="projectlist">
-        <ul>
-          <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a></li>
-        </ul>
-      <section>      
+
+{% if object_list %}
+
+{% for project in object_list %}
+<section class="projectlist">
+  <ul>
+    <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a></li>
+  </ul>
+  <section>
     {% endfor %}
 
-  {% else %}
+    {% else %}
     No projects
-  {% endif %}
+    {% endif %}
+
+    <article>
+    <h2 align="center">{% trans "Services and applications" %}</h2>
+    <p>
+      {% blocktrans %}
+      We encurage members to set up services or creating applications.
+      If you have something that you wanna have in the list, just hit us up
+      on Slack or by email. If you have a project that you wanna host
+      under https://api.kodkollektivet.se/YOUR_PROJECT_NAME we could help
+      out with that!
+      {% endblocktrans %}
+    </p>
+
+    <h3>Unitime API</h3>
+    <p>UniTime API is a JSON Rest API for getting data related to courses
+      and lectures on LNU Växjö.
+      By some simple requests you can get the schedule data for a specific course.
+      Check it out on: <a href="https://api.kodkollektivet.se/unitime/">https://api.kodkollektivet.se/unitime/</a>
+    </p>
+    </article>
+
 
 {% endblock %}

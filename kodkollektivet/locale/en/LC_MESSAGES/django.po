@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-22 18:41+0100\n"
+"POT-Creation-Date: 2017-01-25 20:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,6 +125,19 @@ msgstr ""
 msgid "Get in contact"
 msgstr ""
 
+#: templates/base.html:112
+msgid "We are using Slack"
+msgstr ""
+
+#: templates/base.html:115
+msgid ""
+"\n"
+"          As for now you need to send a mail to info@kodkollektivet.se and "
+"get an invite!\n"
+"          Talk to you on Slack!\n"
+"          "
+msgstr ""
+
 #: templates/board.html:10
 msgid "President"
 msgstr ""
@@ -160,6 +173,31 @@ msgstr ""
 
 #: templates/menu.html:11
 msgid "Statutes"
+msgstr ""
+
+#: templates/projects/projects.html:6
+msgid ""
+"\n"
+"Members of Kodkollektivet can get together and create projects.\n"
+"Below is a list of the projects that we have in our GitHub organization.\n"
+"If you wanna make a project within the Kodkollektivet organization you are\n"
+"very welcome. Just hit us up on Slack or email and we help you setting up a "
+"repo!\n"
+msgstr ""
+
+#: templates/projects/projects.html:29
+msgid "Services and applications"
+msgstr ""
+
+#: templates/projects/projects.html:31
+msgid ""
+"\n"
+"      We encurage members to set up services or creating applications.\n"
+"      If you have something that you wanna have in the list, just hit us up\n"
+"      on Slack or by email. If you have a project that you wanna host\n"
+"      under https://api.kodkollektivet.se/YOUR_PROJECT_NAME we could help\n"
+"      out with that!\n"
+"      "
 msgstr ""
 
 #: templates/registration/activate.html:6
