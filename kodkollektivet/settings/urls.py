@@ -26,5 +26,5 @@ urlpatterns = i18n_patterns(
     url(r'^$', views.IndexView.as_view(), name='home'),
     url(r'^', include('kodkollektivet.urls', namespace='kodkollektivet'), name='kodkollektivet'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
