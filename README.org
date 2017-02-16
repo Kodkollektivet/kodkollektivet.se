@@ -1,0 +1,38 @@
+#+TITLE: kodkollektivet.se
+#+AUTHOR: kodkollektivet
+
+* Development environment
+
+  Its highly recommended to use [[https://virtualenv.pypa.io/en/stable/][virtualenv]] but its optional.
+  =pip= may need to be installed depending on OS.
+  Navigate to folder where the project is located.
+
+  #+BEGIN_SRC sh
+    pip install -r requirements.txt  # Install dependencies
+    mkdir logs  # Create a folder for logs
+    cd kodkollektivet/  # Go into the project
+    python manage.py makemigrations  # Make a migration scheme
+    python manage.py migrate  # Create a DB with the scheme
+    python manage.py createsuperuser  # Create a superuser
+    python manage.py runserver  # Start development server
+  #+END_SRC
+
+  Django provides a managment backend by default.
+  Visit is on [[http://127.0.0.1:8000/admin][127.0.0.1:8000/admin]]
+
+* Create translations
+
+#+BEGIN_SRC sh
+# Create .po files
+python manage.py makemessages -l en -l sv
+
+# Compile the files
+python manage.py compilemessages -l sv -l en
+#+END_SRC
+
+
+* Publications
+
+Added here as a note! Maybe we should have a page for publications?
+
+- http://iec2020.se/det-ar-vi-som-ar-framtidens-utvecklare/
