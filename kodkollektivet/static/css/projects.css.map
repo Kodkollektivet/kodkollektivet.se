@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACA,mBAAmB;EACjB,MAAM,EAAE,IAAI;EAEZ,sBAAE;IACA,eAAe,EAAE,IAAI;IACrB,UAAU,EAAE,MAAM;IAElB,wBAAC;MACC,eAAe,EAAE,IAAI",
-"sources": ["../_sass/projects.sass"],
-"names": [],
-"file": "projects.css"
-}
