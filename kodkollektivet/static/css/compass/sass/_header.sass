@@ -1,16 +1,26 @@
 header
+  height: 80px
   padding: 15px
   background-color: $main-color-grey
   .logo
+    display: inline-block
     img
       width: 200px 
   nav
-    text-align: center
     display: inline-block
+    margin: 0 auto
     ul
       li
         display: inline-block
+        &:not(:first-child)
+          margin-left: 10px  
         a
           color: $main-color-light
+          text-transform: uppercase
+          text-decoration: none
+          letter-spacing: 1px
+          &:hover
+            color: white
+
   #changelang
     float: right

@@ -4,10 +4,102 @@ body, main, p, h1, h2, h3, h4, h5, aside, ul, li, header, footer {
 }
 
 /* line 4, compass/sass/_base.sass */
-nav {
-  text-align: center;
+h1, h2, h3, h4, h5 {
+  margin-bottom: 30px;
+  letter-spacing: 1.5px;
+  color: #1F3D6A;
 }
-/* line 7, compass/sass/_base.sass */
-nav ul li {
+
+/* line 9, compass/sass/_base.sass */
+p {
+  margin-bottom: 15px;
+  max-width: 600px;
+}
+
+/* line 13, compass/sass/_base.sass */
+a {
+  color: #8CB3ED;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+/* line 17, compass/sass/_base.sass */
+a:hover {
+  color: white;
+}
+/* line 19, compass/sass/_base.sass */
+a:visited {
+  color: #8CB3ED;
+}
+
+/* line 23, compass/sass/_base.sass */
+main {
+  padding: 40px;
+}
+/* line 25, compass/sass/_base.sass */
+main section {
+  max-width: 600px;
+}
+/* line 27, compass/sass/_base.sass */
+main section:not(:first-child) {
+  margin-top: 50px;
+}
+
+/* line 1, compass/sass/_header.sass */
+header {
+  height: 80px;
+  padding: 15px;
+  background-color: #3F506A;
+}
+/* line 5, compass/sass/_header.sass */
+header .logo {
   display: inline-block;
+}
+/* line 7, compass/sass/_header.sass */
+header .logo img {
+  width: 200px;
+}
+/* line 9, compass/sass/_header.sass */
+header nav {
+  display: inline-block;
+  margin: 0 auto;
+}
+/* line 13, compass/sass/_header.sass */
+header nav ul li {
+  display: inline-block;
+}
+/* line 15, compass/sass/_header.sass */
+header nav ul li:not(:first-child) {
+  margin-left: 10px;
+}
+/* line 17, compass/sass/_header.sass */
+header nav ul li a {
+  color: #8CB3ED;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+/* line 22, compass/sass/_header.sass */
+header nav ul li a:hover {
+  color: white;
+}
+/* line 25, compass/sass/_header.sass */
+header #changelang {
+  float: right;
+}
+
+/* line 1, compass/sass/_footer.sass */
+footer {
+  padding: 20px 40px;
+  background-color: #526279;
+  color: white;
+}
+/* line 5, compass/sass/_footer.sass */
+footer .contact {
+  display: inline-block;
+  width: 50%;
+}
+/* line 8, compass/sass/_footer.sass */
+footer .contact h3 {
+  text-align: center;
+  color: #4386EA;
 }

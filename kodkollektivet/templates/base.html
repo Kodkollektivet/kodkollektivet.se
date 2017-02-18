@@ -43,56 +43,62 @@
     <main>
       {% block content %}
       <article>
-        <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
-        <p>
-          {% blocktrans %}
-          Kodkollektivet consists of a group of students with a great interest
-          in programming, computer networking and tons of other IT and business
-          related topics. We started in the summer of 2015 with tons of ideas
-          that we since then have been trying out, refined and most importantly
-          learned a great deal from in terms of cooperation, planning and
-          focus.
+      	<section>
+          <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
+          <p>
+            {% blocktrans %}
+            Kodkollektivet consists of a group of students with a great interest
+            in programming, computer networking and tons of other IT and business
+            related topics. We started in the summer of 2015 with tons of ideas
+            that we since then have been trying out, refined and most importantly
+            learned a great deal from in terms of cooperation, planning and
+            focus.
 
-          With all of this Kodkollektivet is now taking the shape of a student
-          organization at Linnaeus University. Focus has shifted slightly from
-          project development and code meetups to more of a social platform
-          where students and local businesses can find, meet and get to know
-          each other through events and activities such as theme-nights,
-          hackathons, workshops, study visits, guest lectures and more.
+            With all of this Kodkollektivet is now taking the shape of a student
+            organization at Linnaeus University. Focus has shifted slightly from
+            project development and code meetups to more of a social platform
+            where students and local businesses can find, meet and get to know
+            each other through events and activities such as theme-nights,
+            hackathons, workshops, study visits, guest lectures and more.
 
-          As a result of this students at Linnaeus University are provided with
-          a place to find other students with a shared or similar interest,
-          while at the same time giving companies in the Vaxjo area the
-          opportunity to get a head start with potential employees.
-          {% endblocktrans %}
-        </p>
+            As a result of this students at Linnaeus University are provided with
+            a place to find other students with a shared or similar interest,
+            while at the same time giving companies in the Vaxjo area the
+            opportunity to get a head start with potential employees.
+            {% endblocktrans %}
+          </p>
+        </section>
+       
+      	<section>
+          <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
+          <p>
+            {% blocktrans %}
+            Absolutely! No previous experience or particular skills are required
+            to take part of Kodkollektivet. We welcome anyone who wants to learn,
+            share, improve their resume or just want to make more friends with
+            similar interests!
+ 
+            Kodkollektivet puts no requirements on you as a student, but is rather
+            a provider of opportunities. You are free to decide for yourself how
+            much you would like to participate and how much time you want to put
+            into the activities and events we host.
+            {% endblocktrans %}
+          </p>
+        </section>
 
-        <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
-        <p>
-          {% blocktrans %}
-          Absolutely! No previous experience or particular skills are required
-          to take part of Kodkollektivet. We welcome anyone who wants to learn,
-          share, improve their resume or just want to make more friends with
-          similar interests!
-
-          Kodkollektivet puts no requirements on you as a student, but is rather
-          a provider of opportunities. You are free to decide for yourself how
-          much you would like to participate and how much time you want to put
-          into the activities and events we host.
-          {% endblocktrans %}
-        </p>
-
-        <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
-        <p>
-          {% blocktrans %}
-          The university students of today are the very people who will be
-          urging new thoughts and ideas in tomorrows businesses. Through
-          Kodkollektivet is the possibility to meet these students in a social,
-          comfortable environment without prestige. Kodkollektivet is always
-          open to any type of suggestions from you as a company, in regards of
-          ideas for events and activities.
-          {% endblocktrans %}
-        </p>
+      	<section>
+          <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
+          <p>
+            {% blocktrans %}
+            The university students of today are the very people who will be
+            urging new thoughts and ideas in tomorrows businesses. Through
+            Kodkollektivet is the possibility to meet these students in a social,
+            comfortable environment without prestige. Kodkollektivet is always
+            open to any type of suggestions from you as a company, in regards of
+            ideas for events and activities.
+            {% endblocktrans %}
+          </p>
+      	</section>  
       </article>
 
       <aside>
@@ -113,16 +119,21 @@
     </main>
 
     <footer>
-      <hr>
-      <h3>{% trans "Get in contact" %}:</h3>
-      Email: info@kodkollektivet.se<br><br>
-      {% trans "We are using Slack" %}, <a href="https://kodkollektivet.slack.com">
-        https://kodkollektivet.slack.com
-      </a><br>
-      {% blocktrans %}
-      As for now you need to send a mail to info@kodkollektivet.se and get an invite!
-      Talk to you on Slack!
-      {% endblocktrans %}
+      <div class="contact">
+        <h3>{% trans "Get in contact" %}:</h3>
+        <p>
+          Email: info@kodkollektivet.se
+        </p>
+        {% trans "We are using Slack" %}, <a href="https://kodkollektivet.slack.com">
+          https://kodkollektivet.slack.com
+        </a>
+        <p>
+          {% blocktrans %}
+          As for now you need to send a mail to info@kodkollektivet.se and get an invite!
+          Talk to you on Slack!
+          {% endblocktrans %}
+        </p>
+      </div>
     </footer>
   </body>
 </html>
