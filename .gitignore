@@ -13,6 +13,5 @@ docs/_templates/
 production.py
 *.mo
 *.swp
-kodkollektivet/static/css/compass
 
 .sass-cache
