@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% include 'menu.html' %}
 {% load i18n %}
 
 <!DOCTYPE html>
@@ -21,34 +20,25 @@
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
 
   </head>
+
   <body>
-
-    <form action="{% url 'set_language' %}" method="post" id="changelang">
-      {% csrf_token %}
-      <input name="next" type="hidden" value="{{ redirect_to }}" />
-      <select name="language" onchange="this.form.submit()">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% for lang in LANGUAGES %}
-        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
-          {{ lang.1 }} ({{ lang.0 }})
-        </option>
-        {% endfor %}
-      </select>
-    </form>
-
-
     <header>
-      <div align="center">
-        {% if header_text %}
-        <h1>{{ header_text }}</h1>
-        {% else %}
-        <h1>Kodkollektivet</h1>
-        <!-- <a class="btn-open" href="#"><img src="{% static 'img/logo.png' %}" /></a> -->
-        {% endif %}
-      </div>
+      <a class="btn-open logo" href="#"><img src="{% static 'img/logo.png' %}" /></a>
+      {% include 'menu.html' %}
+      <form action="{% url 'set_language' %}" method="post" id="changelang">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <select name="language" onchange="this.form.submit()">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for lang in LANGUAGES %}
+          <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+            {{ lang.1 }} ({{ lang.0 }})
+          </option>
+          {% endfor %}
+        </select>
+      </form>
     </header>
-
 
     <main>
       {% block content %}
