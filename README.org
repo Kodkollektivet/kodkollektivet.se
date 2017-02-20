@@ -20,11 +20,11 @@
   Django provides a managment backend by default.
   Visit is on [[http://127.0.0.1:8000/admin][127.0.0.1:8000/admin]]
 
-  Styling is done with compass(stand-alone).
+  Styling is done with compass + neat. (stand-alone)
   To write your sass changes to main.css do:
   #+BEGIN_SRC sh
     # First install ruby if needed
-    gem install compass  # Then we install compass
+    gem install compass neat-compass # Then we install compass + neat plugin
     cd kodkollektivet/static/css/compass  # Go to folder with compass config file
     compass watch  # Tell compass to watch for changes and write them to main.css
   #+END_SRC
