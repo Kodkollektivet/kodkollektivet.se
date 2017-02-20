@@ -1,10 +1,20 @@
 footer
-  padding: 20px 40px
-  background-color: tint($main-color-grey, 10%)
+  @include outer-container()
+  padding: 20px 0px
+  background-color: $main-color-grey
   color: white
-  .contact
-    display: inline-block
-    width: 50%
+  .contact,.goto
+    @include span-columns(5)
+    text-align: center 
     h3
-      text-align: center
-      color: $main-color-lighter
+      color: white
+  .logo-footer
+    @include span-columns(2)
+    text-align: center 
+    img
+      width: 200px
+  .goto
+    display: inline-block
+  @media screen and (max-width: $breakpoint-tablet)
+    .contact,.goto,.logo-footer
+      @include span-columns(12)   

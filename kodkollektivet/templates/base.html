@@ -23,7 +23,7 @@
 
   <body>
     <header>
-      <a class="btn-open logo" href="#"><img src="{% static 'img/logo.png' %}" /></a>
+      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
       {% include 'menu.html' %}
       <form action="{% url 'set_language' %}" method="post" id="changelang">
         {% csrf_token %}
@@ -133,6 +133,25 @@
           Talk to you on Slack!
           {% endblocktrans %}
         </p>
+      </div>
+
+      <div class="logo-footer">
+        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+      </div>
+
+      <div class="goto">
+        <div class="links">
+          <h3>Go to:</h3>
+          <ul>
+            <li><a href="{% url "home" %}">{% trans "Home" %}</a></li>
+            <li><a href="{% url "kodkollektivet:eventslistview" %}">{% trans "Events" %}</a></li>
+            <li><a href="{% url "kodkollektivet:boardtemplateview" %}">{% trans "Board" %}</a></li>
+            <li><a href="{% url "kodkollektivet:projectslistview" %}">{% trans "Projects" %}</a></li>
+            <li><a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a></li>
+            <li><a href="https://www.facebook.com/kodkollektivet/" target="_blank">Facebook</a></li>
+            <li><a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">{% trans "Statutes" %}</a></li>
+          </ul>   
+        </div>
       </div>
     </footer>
   </body>
