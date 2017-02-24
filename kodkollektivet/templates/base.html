@@ -23,7 +23,8 @@
 
   <body>
     <header>
-      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+      <h1>KODK<>LLEKTIVET</h1>
+      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
       {% include 'menu.html' %}
       <form action="{% url 'set_language' %}" method="post" id="changelang">
         {% csrf_token %}
@@ -120,37 +121,62 @@
 
     <footer>
       <div class="contact">
-        <h3>{% trans "Get in contact" %}:</h3>
-        <p>
-          Email: info@kodkollektivet.se
-        </p>
-        {% trans "We are using Slack" %}, <a href="https://kodkollektivet.slack.com">
-          https://kodkollektivet.slack.com
-        </a>
-        <p>
-          {% blocktrans %}
-          As for now you need to send a mail to info@kodkollektivet.se and get an invite!
-          Talk to you on Slack!
-          {% endblocktrans %}
-        </p>
+        <div>
+          <h3>{% trans "Get in contact" %}</h3>
+          <p>
+            Email: info@kodkollektivet.se
+          </p>
+          <p>
+            {% trans "We are using Slack" %},
+            <a href="https://kodkollektivet.slack.com">
+              https://kodkollektivet.slack.com
+            </a>
+          </p>
+          <p>
+            {% blocktrans %}
+            As for now you need to send a mail to info@kodkollektivet.se and get an invite!
+            Talk to you on Slack!
+            {% endblocktrans %}
+          </p>
+        </div>
       </div>
-
       <div class="logo-footer">
-        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
       </div>
 
       <div class="goto">
-        <div class="links">
-          <h3>Go to:</h3>
-          <ul>
-            <li><a href="{% url "home" %}">{% trans "Home" %}</a></li>
-            <li><a href="{% url "kodkollektivet:eventslistview" %}">{% trans "Events" %}</a></li>
-            <li><a href="{% url "kodkollektivet:boardtemplateview" %}">{% trans "Board" %}</a></li>
-            <li><a href="{% url "kodkollektivet:projectslistview" %}">{% trans "Projects" %}</a></li>
-            <li><a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a></li>
-            <li><a href="https://www.facebook.com/kodkollektivet/" target="_blank">Facebook</a></li>
-            <li><a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">{% trans "Statutes" %}</a></li>
-          </ul>   
+        <h3>Go to</h3>
+        <div>
+          <div class="links">
+            <ul class="pages">
+              <h4>Pages</h4>
+              <li><a href="{% url "home" %}">{% trans "Home" %}</a></li>
+              <li><a href="{% url "kodkollektivet:eventslistview" %}">{% trans "Events" %}</a></li>
+              <li><a href="{% url "kodkollektivet:boardtemplateview" %}">{% trans "Board" %}</a></li>
+              <li><a href="{% url "kodkollektivet:projectslistview" %}">{% trans "Projects" %}</a></li>
+            </ul>
+            <ul class="sites">
+              <h4>Sites</h4>
+              <li><a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a></li>
+              <li><a href="https://www.facebook.com/kodkollektivet/" target="_blank">Facebook</a></li>
+              <li><a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">{% trans "Statutes" %}</a></li>
+            </ul>   
+          </div>
+
+          <div class="links">
+            <ul class="events">
+              <h4>Events</h4>
+              <li><a href="">Event1</a></li>
+              <li><a href="">Event2</a></li>
+              <li><a href="">Event3</a></li>
+            </ul>   
+            <ul class="projects">   
+              <h4>Projects</h4>
+              <li><a href="#project1" target="_blank">Project1</a></li>
+              <li><a href="#2" target="_blank">Project2</a></li>
+              <li><a href="#3" target="_blank">Project3</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,20 +1,49 @@
 footer
   @include outer-container()
-  padding: 20px 0px
-  background-color: $main-color-grey
+  padding: 40px
+  background-color: $main-color-darker
   color: white
   .contact,.goto
     @include span-columns(5)
     text-align: center 
     h3
+      margin-bottom: 20px
+      font-size: 22px
+      letter-spacing: 2px
       color: white
+  .contact
+    div
+      display: inline-block
+      margin: 0 auto
+      p
+        text-align: left
   .logo-footer
     @include span-columns(2)
     text-align: center 
     img
       width: 200px
   .goto
-    display: inline-block
+    div
+      display: inline-block
+      margin: 0 auto
+      .links
+        display: block
+        @include outer-container()
+        &:last-child
+          margin-top: 10px
+        ul
+          @include span-columns(6)
+          display: inline-block
+          margin: 0 auto
+          list-style-type: none
+          font-size: 14px
+          h4
+            margin: 0 0 5px -5px
+            color: white
+            font-size: 12px
+          text-align: left
   @media screen and (max-width: $breakpoint-tablet)
     .contact,.goto,.logo-footer
       @include span-columns(12)   
+      &:not(:first-child)
+        margin-top: 30px

@@ -1,27 +1,49 @@
 header
   position: relative
-  height: 80px
+  height: 400px
   padding: 15px
-  background-color: $main-color-grey
+  @include background(image_url("kk_background.jpg"), no-repeat)
+  @include background-size(cover)
+  h1
+    display: inline-block
+    position: absolute
+    left: 50% 
+    top: 45% 
+    color: white
+    font-size: 64px
+    letter-spacing: 3px
+    margin-left: -400px
   .logo
     display: inline-block
+    border: 5px solid white
     img
-      width: 200px 
+      width: 50px 
   nav
     display: inline-block
-    margin: 0 auto
+    position: absolute
+    top: 40px
+    left: 80px
     ul
       li
+        background-color: white
+        border-radius: 5px
+        padding: 3px 5px
         display: inline-block
         &:not(:first-child)
           margin-left: 10px  
+        border: 1px solid white
+        &:hover
+          border-color: $main-color-light
         a
-          color: $main-color-light
+          color: $main-color-dark
+          font-weight: 600
           text-transform: uppercase
           text-decoration: none
           letter-spacing: 1px
-          &:hover
-            color: white
+          &:visited
+            color: $main-color-dark
+          &:hover  
+            color: $main-color-light
 
   #changelang
     position: absolute
@@ -29,3 +51,9 @@ header
     right: 0
     select
       font-size: 12px
+  @media screen and (max-width: 830px)
+    h1
+      font-size: 32px
+      letter-spacing: 2px
+      margin-left: -202px
+

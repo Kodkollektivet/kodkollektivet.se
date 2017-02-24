@@ -47,12 +47,13 @@ a:visited {
 main {
   padding: 40px;
   background-color: white;
+  min-height: 300px;
 }
-/* line 30, compass/sass/_base.sass */
+/* line 31, compass/sass/_base.sass */
 main section {
   max-width: 600px;
 }
-/* line 32, compass/sass/_base.sass */
+/* line 33, compass/sass/_base.sass */
 main section:not(:first-child) {
   margin-top: 50px;
 }
@@ -60,51 +61,90 @@ main section:not(:first-child) {
 /* line 1, compass/sass/_header.sass */
 header {
   position: relative;
-  height: 80px;
+  height: 400px;
   padding: 15px;
-  background-color: #3F506A;
+  background: url('../img/kk_background.jpg?1487881801'), no-repeat;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
-/* line 6, compass/sass/_header.sass */
-header .logo {
+/* line 7, compass/sass/_header.sass */
+header h1 {
   display: inline-block;
-}
-/* line 8, compass/sass/_header.sass */
-header .logo img {
-  width: 200px;
-}
-/* line 10, compass/sass/_header.sass */
-header nav {
-  display: inline-block;
-  margin: 0 auto;
-}
-/* line 14, compass/sass/_header.sass */
-header nav ul li {
-  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  color: white;
+  font-size: 64px;
+  letter-spacing: 3px;
+  margin-left: -400px;
 }
 /* line 16, compass/sass/_header.sass */
+header .logo {
+  display: inline-block;
+  border: 5px solid white;
+}
+/* line 19, compass/sass/_header.sass */
+header .logo img {
+  width: 50px;
+}
+/* line 21, compass/sass/_header.sass */
+header nav {
+  display: inline-block;
+  position: absolute;
+  top: 40px;
+  left: 80px;
+}
+/* line 27, compass/sass/_header.sass */
+header nav ul li {
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px 5px;
+  display: inline-block;
+  border: 1px solid white;
+}
+/* line 32, compass/sass/_header.sass */
 header nav ul li:not(:first-child) {
   margin-left: 10px;
 }
-/* line 18, compass/sass/_header.sass */
+/* line 35, compass/sass/_header.sass */
+header nav ul li:hover {
+  border-color: #8CB3ED;
+}
+/* line 37, compass/sass/_header.sass */
 header nav ul li a {
-  color: #8CB3ED;
+  color: #1F3D6A;
+  font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
 }
-/* line 23, compass/sass/_header.sass */
-header nav ul li a:hover {
-  color: white;
+/* line 43, compass/sass/_header.sass */
+header nav ul li a:visited {
+  color: #1F3D6A;
 }
-/* line 26, compass/sass/_header.sass */
+/* line 45, compass/sass/_header.sass */
+header nav ul li a:hover {
+  color: #8CB3ED;
+}
+/* line 48, compass/sass/_header.sass */
 header #changelang {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 30, compass/sass/_header.sass */
+/* line 52, compass/sass/_header.sass */
 header #changelang select {
   font-size: 12px;
+}
+@media screen and (max-width: 830px) {
+  /* line 55, compass/sass/_header.sass */
+  header h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-left: -202px;
+  }
 }
 
 /* line 1, compass/sass/_footer.sass */
@@ -112,8 +152,8 @@ footer {
   max-width: 2000px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px 0px;
-  background-color: #3F506A;
+  padding: 40px;
+  background-color: #19437d;
   color: white;
 }
 /* line 15, ../../../../../.rvm/gems/ruby-2.3.3/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
@@ -136,9 +176,21 @@ footer .contact:last-child, footer .goto:last-child {
 }
 /* line 9, compass/sass/_footer.sass */
 footer .contact h3, footer .goto h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  letter-spacing: 2px;
   color: white;
 }
-/* line 11, compass/sass/_footer.sass */
+/* line 15, compass/sass/_footer.sass */
+footer .contact div {
+  display: inline-block;
+  margin: 0 auto;
+}
+/* line 18, compass/sass/_footer.sass */
+footer .contact div p {
+  text-align: left;
+}
+/* line 20, compass/sass/_footer.sass */
 footer .logo-footer {
   float: left;
   display: block;
@@ -150,16 +202,56 @@ footer .logo-footer {
 footer .logo-footer:last-child {
   margin-right: 0;
 }
-/* line 14, compass/sass/_footer.sass */
+/* line 23, compass/sass/_footer.sass */
 footer .logo-footer img {
   width: 200px;
 }
-/* line 16, compass/sass/_footer.sass */
-footer .goto {
+/* line 26, compass/sass/_footer.sass */
+footer .goto div {
   display: inline-block;
+  margin: 0 auto;
+}
+/* line 29, compass/sass/_footer.sass */
+footer .goto div .links {
+  display: block;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, ../../../../../.rvm/gems/ruby-2.3.3/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+footer .goto div .links:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 32, compass/sass/_footer.sass */
+footer .goto div .links:last-child {
+  margin-top: 10px;
+}
+/* line 34, compass/sass/_footer.sass */
+footer .goto div .links ul {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  display: inline-block;
+  margin: 0 auto;
+  list-style-type: none;
+  font-size: 14px;
+  text-align: left;
+}
+/* line 38, ../../../../../.rvm/gems/ruby-2.3.3/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+footer .goto div .links ul:last-child {
+  margin-right: 0;
+}
+/* line 40, compass/sass/_footer.sass */
+footer .goto div .links ul h4 {
+  margin: 0 0 5px -5px;
+  color: white;
+  font-size: 12px;
 }
 @media screen and (max-width: 768px) {
-  /* line 19, compass/sass/_footer.sass */
+  /* line 46, compass/sass/_footer.sass */
   footer .contact, footer .goto, footer .logo-footer {
     float: left;
     display: block;
@@ -169,5 +261,9 @@ footer .goto {
   /* line 38, ../../../../../.rvm/gems/ruby-2.3.3/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
   footer .contact:last-child, footer .goto:last-child, footer .logo-footer:last-child {
     margin-right: 0;
+  }
+  /* line 48, compass/sass/_footer.sass */
+  footer .contact:not(:first-child), footer .goto:not(:first-child), footer .logo-footer:not(:first-child) {
+    margin-top: 30px;
   }
 }
