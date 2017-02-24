@@ -165,16 +165,22 @@
 
           <div class="links">
             <ul class="events">
-              <h4>Events</h4>
-              <li><a href="">Event1</a></li>
-              <li><a href="">Event2</a></li>
-              <li><a href="">Event3</a></li>
+	      {% if upcomming_events %}
+              <h4>Events</h4>	      
+	      {% for event in upcomming_events %}
+              <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
+	      {% endfor %}
+	      {% else %}
+	      {% for event in old_events %}
+              <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
+	      {% endfor %}
+	      {% endif %}
             </ul>   
             <ul class="projects">   
               <h4>Projects</h4>
-              <li><a href="#project1" target="_blank">Project1</a></li>
-              <li><a href="#2" target="_blank">Project2</a></li>
-              <li><a href="#3" target="_blank">Project3</a></li>
+	      {% for project in projects %}
+              <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{project}}</a></li>
+	      {% endfor %}
             </ul>
           </div>
         </div>
