@@ -12,5 +12,6 @@ docs/_static/
 docs/_templates/
 production.py
 *.mo
+*.swp
 
 .sass-cache

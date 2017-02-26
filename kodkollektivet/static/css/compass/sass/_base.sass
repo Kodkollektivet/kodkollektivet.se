@@ -1,0 +1,46 @@
+body,main,p,h1,h2,h3,h4,h5,aside,ul,li,header,footer,div
+  margin: 0px
+
+body
+  background-color: $main-color-grey
+  font-family: 'Poppoins', sans-serif
+
+main
+  padding: 40px
+  background-color: white
+  min-height: 300px
+  @include outer-container()
+  aside
+    @include span-columns(5)
+  article
+    @include span-columns(7)
+    section
+      max-width: 600px
+      &:not(:first-child)
+        margin-top: 50px
+
+h1,h2,h3,h4,h5
+  margin-bottom: 30px
+  letter-spacing: 0px
+  color: $main-color-dark
+
+h2
+  font-size: 36px
+h3
+  font-size: 26px
+  
+p
+  margin-bottom: 15px
+  font-weight: 300
+  max-width: 600px
+
+a
+  color: $main-color-light
+  text-decoration: none
+  letter-spacing: 1px
+  &:hover
+    color: white
+  &:visited
+    color: $main-color-light
+
+

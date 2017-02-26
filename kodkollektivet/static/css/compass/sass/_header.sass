@@ -1,0 +1,64 @@
+header
+  position: relative
+  height: 400px
+  padding: 15px
+  @include background(image_url("kk_background.jpg"), no-repeat)
+  @include background-size(cover)
+  h1
+    display: inline-block
+    position: absolute
+    left: 50% 
+    top: 37% 
+    color: white
+    font-size: 82px
+    font-weight: 700
+    margin-left: -368px
+    letter-spacing: -10px
+  .logo
+    display: inline-block
+    padding: 3px
+    background-color: white
+    border: 2px solid white
+    img
+      width: 50px
+    &:hover
+      border-color: $main-color-light
+  nav
+    display: inline-block
+    position: absolute
+    top: 40px
+    left: 80px
+    ul
+      li
+        background-color: white
+        border-radius: 5px
+        padding: 3px 5px
+        display: inline-block
+        &:not(:first-child)
+          margin-left: 10px  
+        border: 1px solid white
+        &:hover
+          border-color: $main-color-light
+        a
+          color: $main-color-dark
+          font-weight: 600
+          text-transform: uppercase
+          text-decoration: none
+          letter-spacing: 1px
+          &:visited
+            color: $main-color-dark
+          &:hover  
+            color: $main-color-light
+
+  #changelang
+    position: absolute
+    top: 0
+    right: 0
+    select
+      font-size: 12px
+  @media screen and (max-width: 830px)
+    h1
+      font-size: 48px
+      letter-spacing: -6px
+      margin-left: -215px
+

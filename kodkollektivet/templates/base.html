@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% include 'menu.html' %}
 {% load i18n %}
 
 <!DOCTYPE html>
@@ -18,92 +17,89 @@
 
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
 
-    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
 
   </head>
+
   <body>
-
-    <form action="{% url 'set_language' %}" method="post" id="changelang">
-      {% csrf_token %}
-      <input name="next" type="hidden" value="{{ redirect_to }}" />
-      <select name="language" onchange="this.form.submit()">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% for lang in LANGUAGES %}
-        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
-          {{ lang.1 }} ({{ lang.0 }})
-        </option>
-        {% endfor %}
-      </select>
-    </form>
-
-
     <header>
-      <div align="center">
-        {% if header_text %}
-        <h1>{{ header_text }}</h1>
-        {% else %}
-        <h1>Kodkollektivet</h1>
-        <!-- <a class="btn-open" href="#"><img src="{% static 'img/logo.png' %}" /></a> -->
-        {% endif %}
-      </div>
+      <h1>KODK<>LLEKTIVET</h1>
+      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
+      {% include 'menu.html' %}
+      <form action="{% url 'set_language' %}" method="post" id="changelang">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <select name="language" onchange="this.form.submit()">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for lang in LANGUAGES %}
+          <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+            {{ lang.1 }} ({{ lang.0 }})
+          </option>
+          {% endfor %}
+        </select>
+      </form>
     </header>
-
 
     <main>
       {% block content %}
       <article>
-        <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
-        <p>
-          {% blocktrans %}
-          Kodkollektivet consists of a group of students with a great interest
-          in programming, computer networking and tons of other IT and business
-          related topics. We started in the summer of 2015 with tons of ideas
-          that we since then have been trying out, refined and most importantly
-          learned a great deal from in terms of cooperation, planning and
-          focus.
+      	<section>
+          <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
+          <p>
+            {% blocktrans %}
+            Kodkollektivet consists of a group of students with a great interest
+            in programming, computer networking and tons of other IT and business
+            related topics. We started in the summer of 2015 with tons of ideas
+            that we since then have been trying out, refined and most importantly
+            learned a great deal from in terms of cooperation, planning and
+            focus.
 
-          With all of this Kodkollektivet is now taking the shape of a student
-          organization at Linnaeus University. Focus has shifted slightly from
-          project development and code meetups to more of a social platform
-          where students and local businesses can find, meet and get to know
-          each other through events and activities such as theme-nights,
-          hackathons, workshops, study visits, guest lectures and more.
+            With all of this Kodkollektivet is now taking the shape of a student
+            organization at Linnaeus University. Focus has shifted slightly from
+            project development and code meetups to more of a social platform
+            where students and local businesses can find, meet and get to know
+            each other through events and activities such as theme-nights,
+            hackathons, workshops, study visits, guest lectures and more.
 
-          As a result of this students at Linnaeus University are provided with
-          a place to find other students with a shared or similar interest,
-          while at the same time giving companies in the Vaxjo area the
-          opportunity to get a head start with potential employees.
-          {% endblocktrans %}
-        </p>
+            As a result of this students at Linnaeus University are provided with
+            a place to find other students with a shared or similar interest,
+            while at the same time giving companies in the Vaxjo area the
+            opportunity to get a head start with potential employees.
+            {% endblocktrans %}
+          </p>
+        </section>
+       
+      	<section>
+          <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
+          <p>
+            {% blocktrans %}
+            Absolutely! No previous experience or particular skills are required
+            to take part of Kodkollektivet. We welcome anyone who wants to learn,
+            share, improve their resume or just want to make more friends with
+            similar interests!
+ 
+            Kodkollektivet puts no requirements on you as a student, but is rather
+            a provider of opportunities. You are free to decide for yourself how
+            much you would like to participate and how much time you want to put
+            into the activities and events we host.
+            {% endblocktrans %}
+          </p>
+        </section>
 
-        <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
-        <p>
-          {% blocktrans %}
-          Absolutely! No previous experience or particular skills are required
-          to take part of Kodkollektivet. We welcome anyone who wants to learn,
-          share, improve their resume or just want to make more friends with
-          similar interests!
-
-          Kodkollektivet puts no requirements on you as a student, but is rather
-          a provider of opportunities. You are free to decide for yourself how
-          much you would like to participate and how much time you want to put
-          into the activities and events we host.
-          {% endblocktrans %}
-        </p>
-
-        <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
-        <p>
-          {% blocktrans %}
-          The university students of today are the very people who will be
-          urging new thoughts and ideas in tomorrows businesses. Through
-          Kodkollektivet is the possibility to meet these students in a social,
-          comfortable environment without prestige. Kodkollektivet is always
-          open to any type of suggestions from you as a company, in regards of
-          ideas for events and activities.
-          {% endblocktrans %}
-        </p>
+      	<section>
+          <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
+          <p>
+            {% blocktrans %}
+            The university students of today are the very people who will be
+            urging new thoughts and ideas in tomorrows businesses. Through
+            Kodkollektivet is the possibility to meet these students in a social,
+            comfortable environment without prestige. Kodkollektivet is always
+            open to any type of suggestions from you as a company, in regards of
+            ideas for events and activities.
+            {% endblocktrans %}
+          </p>
+      	</section>  
       </article>
 
       <aside>
@@ -120,23 +116,75 @@
         </section>
       </aside>
 
-      <aside>
-        <section>
-          <hr>
-          <h3>{% trans "Get in contact" %}:</h3>
-          Email: info@kodkollektivet.se<br><br>
-          {% trans "We are using Slack" %}, <a href="https://kodkollektivet.slack.com">
-            https://kodkollektivet.slack.com
-          </a><br>
-          {% blocktrans %}
-          As for now you need to send a mail to info@kodkollektivet.se and get an invite!
-          Talk to you on Slack!
-          {% endblocktrans %}
-        </section>
-      </aside>
-
       {% endblock %}
     </main>
 
+    <footer>
+      <div class="logo-footer">
+        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/banner_stand.png' %}" /></a>
+      </div>
+      <div class="contact">
+        <div>
+          <h3>{% trans "Get in contact" %}</h3>
+          <p>
+            Email: info@kodkollektivet.se
+          </p>
+          <p>
+            {% trans "We are using Slack" %},
+            <a href="https://kodkollektivet.slack.com">
+              https://kodkollektivet.slack.com
+            </a>
+          </p>
+          <p>
+            {% blocktrans %}
+            As for now you need to send a mail to info@kodkollektivet.se and get an invite!
+            Talk to you on Slack!
+            {% endblocktrans %}
+          </p>
+        </div>
+      </div>
+      
+      <div class="goto">
+        <h3>Go to</h3>
+        <div>
+          <div class="links">
+            <ul class="pages">
+              <h4>Pages</h4>
+              <li><a href="{% url "home" %}">{% trans "Home" %}</a></li>
+              <li><a href="{% url "kodkollektivet:eventslistview" %}">{% trans "Events" %}</a></li>
+              <li><a href="{% url "kodkollektivet:boardtemplateview" %}">{% trans "Board" %}</a></li>
+              <li><a href="{% url "kodkollektivet:projectslistview" %}">{% trans "Projects" %}</a></li>
+            </ul>
+            <ul class="sites">
+              <h4>Sites</h4>
+              <li><a href="https://github.com/Kodkollektivet" target="_blank">GitHub</a></li>
+              <li><a href="https://www.facebook.com/kodkollektivet/" target="_blank">Facebook</a></li>
+              <li><a href="https://github.com/Kodkollektivet/documents/blob/master/stadgar/stadgar.md" target="_blank">{% trans "Statutes" %}</a></li>
+            </ul>   
+          </div>
+
+          <div class="links">
+            <ul class="events">
+	      {% if upcomming_events %}
+              <h4>Events</h4>	      
+	      {% for event in upcomming_events %}
+              <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
+	      {% endfor %}
+	      {% else %}
+	      {% for event in old_events %}
+              <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
+	      {% endfor %}
+	      {% endif %}
+            </ul>   
+            <ul class="projects">   
+              <h4>Projects</h4>
+	      {% for project in projects %}
+              <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{project}}</a></li>
+	      {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

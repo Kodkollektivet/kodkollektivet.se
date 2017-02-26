@@ -49,6 +49,7 @@ class Event(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(blank=True)
+    in_focus = models.BooleanField(default=False)
 
     # Github specific
     gh_name = models.CharField(max_length=254, blank=True)

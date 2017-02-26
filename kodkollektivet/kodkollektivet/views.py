@@ -3,22 +3,30 @@ from datetime import datetime, timedelta, time
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
+from django.views.generic.base import ContextMixin
 
 from . import models
 
 
-class IndexView(TemplateView):
+class FooterView(ContextMixin):
+    def get_context_data(self, **kwargs):
+        context = super(FooterView, self).get_context_data(**kwargs)
+        context['upcomming_events'] = models.Event.objects.filter(date__gte=datetime.now())
+        context['old_events'] = models.Event.objects.all().order_by('date')
+        context['projects'] = models.Project.objects.all()[:3]
+        return context
+    
+
+class IndexView(FooterView, TemplateView):
     template_name = 'base.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        m = models.Event.objects.filter(date__gte=datetime.now())
-        context['upcomming_events'] = m
         context['header_text'] = 'Kodkollektivet'
         return context
 
 
-class BoardTemplateView(TemplateView):
+class BoardTemplateView(FooterView, TemplateView):
     template_name = 'board.html'
 
     def get_context_data(self, **kwargs):
@@ -27,7 +35,7 @@ class BoardTemplateView(TemplateView):
         return context
     
 
-class EventsListView(ListView):
+class EventsListView(FooterView, ListView):
     queryset = models.Event.objects.all()
     template_name = "events/events_list_view.html"
 
@@ -37,12 +45,12 @@ class EventsListView(ListView):
         return context
 
 
-class EventsDetailView(DetailView):
+class EventsDetailView(FooterView, DetailView):
     model = models.Event
     template_name = "events/events_detail_view.html"
 
 
-class ProjectsListView(ListView):
+class ProjectsListView(FooterView, ListView):
     """Project List View"""
     model = models.Project
     template_name = 'projects/projects.html'
@@ -53,7 +61,7 @@ class ProjectsListView(ListView):
         return context
 
 
-class ProjectsDetailView(DetailView):
+class ProjectsDetailView(FooterView, DetailView):
     """Project Detail View"""
     model = models.Project
     template_name = 'projects/projects_detail_view.html'
@@ -74,7 +82,7 @@ class ProjectsDetailView(DetailView):
         return context
 
 
-class ContributorDetailView(DetailView):
+class ContributorDetailView(FooterView, DetailView):
     """Contributor Detail View"""
     model = models.Contributor
     template_name = 'projects/contributor_detail_view.html'
