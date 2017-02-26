@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,700");
 /* line 2, ../../../../../.rvm/gems/ruby-2.3.3/gems/neat-compass-1.6.0/stylesheets/neat/grid/_grid.scss */
 * {
   -webkit-box-sizing: border-box;
@@ -13,6 +14,7 @@ body, main, p, h1, h2, h3, h4, h5, aside, ul, li, header, footer, div {
 /* line 4, compass/sass/_base.sass */
 body {
   background-color: #3F506A;
+  font-family: "Poppoins", sans-serif;
 }
 
 /* line 8, compass/sass/_base.sass */
@@ -25,35 +27,36 @@ h1, h2, h3, h4, h5 {
 /* line 13, compass/sass/_base.sass */
 p {
   margin-bottom: 15px;
+  font-weight: 300;
   max-width: 600px;
 }
 
-/* line 17, compass/sass/_base.sass */
+/* line 18, compass/sass/_base.sass */
 a {
   color: #8CB3ED;
   text-decoration: none;
   letter-spacing: 1px;
 }
-/* line 21, compass/sass/_base.sass */
+/* line 22, compass/sass/_base.sass */
 a:hover {
   color: white;
 }
-/* line 23, compass/sass/_base.sass */
+/* line 24, compass/sass/_base.sass */
 a:visited {
   color: #8CB3ED;
 }
 
-/* line 27, compass/sass/_base.sass */
+/* line 28, compass/sass/_base.sass */
 main {
   padding: 40px;
   background-color: white;
   min-height: 300px;
 }
-/* line 31, compass/sass/_base.sass */
+/* line 32, compass/sass/_base.sass */
 main section {
   max-width: 600px;
 }
-/* line 33, compass/sass/_base.sass */
+/* line 34, compass/sass/_base.sass */
 main section:not(:first-child) {
   margin-top: 50px;
 }
@@ -63,7 +66,7 @@ header {
   position: relative;
   height: 400px;
   padding: 15px;
-  background: url('../img/kk_background.jpg?1487881801'), no-repeat;
+  background: url('../img/kk_background.jpg?1487955799'), no-repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -74,29 +77,30 @@ header h1 {
   display: inline-block;
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 40%;
   color: white;
-  font-size: 64px;
-  letter-spacing: 3px;
-  margin-left: -400px;
+  font-size: 82px;
+  font-weight: 700;
+  margin-left: -368px;
+  letter-spacing: -10px;
 }
-/* line 16, compass/sass/_header.sass */
+/* line 17, compass/sass/_header.sass */
 header .logo {
   display: inline-block;
   border: 5px solid white;
 }
-/* line 19, compass/sass/_header.sass */
+/* line 20, compass/sass/_header.sass */
 header .logo img {
   width: 50px;
 }
-/* line 21, compass/sass/_header.sass */
+/* line 22, compass/sass/_header.sass */
 header nav {
   display: inline-block;
   position: absolute;
   top: 40px;
   left: 80px;
 }
-/* line 27, compass/sass/_header.sass */
+/* line 28, compass/sass/_header.sass */
 header nav ul li {
   background-color: white;
   border-radius: 5px;
@@ -104,15 +108,15 @@ header nav ul li {
   display: inline-block;
   border: 1px solid white;
 }
-/* line 32, compass/sass/_header.sass */
+/* line 33, compass/sass/_header.sass */
 header nav ul li:not(:first-child) {
   margin-left: 10px;
 }
-/* line 35, compass/sass/_header.sass */
+/* line 36, compass/sass/_header.sass */
 header nav ul li:hover {
   border-color: #8CB3ED;
 }
-/* line 37, compass/sass/_header.sass */
+/* line 38, compass/sass/_header.sass */
 header nav ul li a {
   color: #1F3D6A;
   font-weight: 600;
@@ -120,30 +124,30 @@ header nav ul li a {
   text-decoration: none;
   letter-spacing: 1px;
 }
-/* line 43, compass/sass/_header.sass */
+/* line 44, compass/sass/_header.sass */
 header nav ul li a:visited {
   color: #1F3D6A;
 }
-/* line 45, compass/sass/_header.sass */
+/* line 46, compass/sass/_header.sass */
 header nav ul li a:hover {
   color: #8CB3ED;
 }
-/* line 48, compass/sass/_header.sass */
+/* line 49, compass/sass/_header.sass */
 header #changelang {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 52, compass/sass/_header.sass */
+/* line 53, compass/sass/_header.sass */
 header #changelang select {
   font-size: 12px;
 }
 @media screen and (max-width: 830px) {
-  /* line 55, compass/sass/_header.sass */
+  /* line 56, compass/sass/_header.sass */
   header h1 {
-    font-size: 32px;
-    letter-spacing: 2px;
-    margin-left: -202px;
+    font-size: 48px;
+    letter-spacing: -6px;
+    margin-left: -215px;
   }
 }
 
