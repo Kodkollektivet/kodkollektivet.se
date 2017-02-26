@@ -24,7 +24,7 @@
   <body>
     <header>
       <h1>KODK<>LLEKTIVET</h1>
-      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
+      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo_website.png' %}" /></a>
       {% include 'menu.html' %}
       <form action="{% url 'set_language' %}" method="post" id="changelang">
         {% csrf_token %}
@@ -45,7 +45,7 @@
       {% block content %}
       <article>
       	<section>
-          <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
+          <h2>{% trans "What is Kodkollektivet" %}? </h2>
           <p>
             {% blocktrans %}
             Kodkollektivet consists of a group of students with a great interest
@@ -71,7 +71,8 @@
         </section>
        
       	<section>
-          <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
+          <!-- <h2>{% trans "Student, do you have what it takes" %}?</h2> -->
+	  <h2>Student<span>, do you have what it takes?</span></h2>
           <p>
             {% blocktrans %}
             Absolutely! No previous experience or particular skills are required
@@ -88,7 +89,8 @@
         </section>
 
       	<section>
-          <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
+          <!-- <h2>{% trans "Employers, come and meet the future" %}!</h2> -->
+	  <h2>Employers<span>, come and meet the future!</span></h2>
           <p>
             {% blocktrans %}
             The university students of today are the very people who will be
@@ -104,12 +106,36 @@
 
       <aside>
         <section>
-          {% if upcomming_events %}
-          <hr>
-          <h3>{% trans "Upcoming event" %}:</h3>
+          {% if upcoming_events %}
+          <h3>{% trans "Next Event" %}</h3>
+	  <a href="{% url "kodkollektivet:eventdetailview" next_event.slug %}" class="next-event">
+
+	    <h4>{{ next_event.title }}</h4>
+	    <p>{{ next_event.body|truncatechars:300 }}</p>
+	    <span class="event-datetime">
+	      {{ next_event.date }}, {{ next_event.time }}
+	    </span>  
+	  </a>
+	  <ul class="upcoming-events">
+	    <span>More upcoming:</span>
+            {% for event in upcoming_events %}
+            <li>
+	      <a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a>
+	    </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </section>
+	
+	<section class="right-now">
+          {% if focused_projects %}
+          <h3>{% trans "Right Now" %}</h3>
           <ul>
-            {% for event in upcomming_events %}
-            <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a></li>
+            {% for project in focused_projects %}
+            <li>
+	      <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
+	      <p>{{ project.gh_readme|truncatechars:200 }}</p>
+	    </li>
             {% endfor %}
           </ul>
           {% endif %}

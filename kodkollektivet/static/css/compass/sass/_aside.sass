@@ -1,0 +1,42 @@
+aside
+  @include span-columns(5)
+  padding: 0 40px 40px 40px
+  background-color: $main-color-darker
+  color: white
+  overflow-y: scroll
+  h3,h4
+    color: white
+    text-align: center
+  h4
+    font-size: 22px
+    letter-spacing: 1px
+  section
+    margin-top: 50px
+    ul
+  .next-event
+    display: block
+    min-width: 80%
+    border: 10px solid white
+    padding: 15px 30px
+    &:hover
+      border-color: $main-color-light
+    p,span
+      color: white
+    .event-datetime
+      border-bottom: 1px solid white
+      font-size: 18px
+      font-weight: bold
+  .upcoming-events
+    padding: 0px
+    margin-top: 20px
+    li
+      display: inline-block
+      &:not(:last-child)
+        &::after
+          content: ','
+  .right-now
+    ul
+      li
+        a
+          font-size: 18px
+          
