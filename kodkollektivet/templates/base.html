@@ -120,6 +120,9 @@
     </main>
 
     <footer>
+      <div class="logo-footer">
+        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/banner_stand.png' %}" /></a>
+      </div>
       <div class="contact">
         <div>
           <h3>{% trans "Get in contact" %}</h3>
@@ -140,10 +143,7 @@
           </p>
         </div>
       </div>
-      <div class="logo-footer">
-        <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
-      </div>
-
+      
       <div class="goto">
         <h3>Go to</h3>
         <div>
