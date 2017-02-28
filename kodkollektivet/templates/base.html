@@ -14,18 +14,38 @@
     <meta property="og:type" content="organization" />
     <meta property="og:url" content="http://kodkollektivet.se" />
     <meta property="og:image" content="{% static 'img/logo.png' %}" />
-
+    
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
-
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    
+    <script src="https://use.fontawesome.com/5c79208c6f.js"></script>
 
   </head>
 
   <body>
     <header>
-      <h1>KODK<>LLEKTIVET</h1>
-      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/logo_website.png' %}" /></a>
+      <div class="side">
+	<a class="btn-open logo" href="{% url 'home' %}">
+	  <img src="{% static 'img/logo_website.png' %}" />
+	</a>
+	
+	<div class="social-icons">
+	  <a href="https://www.facebook.com/kodkollektivet/" target="_blank">
+	    <i class="fa fa-facebook-square" aria-hidde="true"></i>
+	  </a>
+	  <a href="https://github.com/Kodkollektivet" target="_blank">
+	    <i class="fa fa-github" aria-hidde="true"></i>
+	  </a>
+	</div>
+      </div>
+
       {% include 'menu.html' %}
+
+      <div class="header-text">
+	<i class="fa fa-chevron-right" aria-hidde="true"></i>
+	<h1>We are<br>Kodkollektivet</h1>
+      </div>
+
       <form action="{% url 'set_language' %}" method="post" id="changelang">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}" />
