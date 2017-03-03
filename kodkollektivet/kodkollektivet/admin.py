@@ -5,7 +5,7 @@ from . import models
 
 class EventAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ('title', 'created_date',)
+    list_display = ('title', 'date')
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -50,7 +50,7 @@ class ProRolAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Event, EventAdmin)
-    
+
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Language, LanguageAdmin)
 admin.site.register(models.Contributor, ContributorAdmin)
@@ -61,4 +61,3 @@ admin.site.register(models.ProCon, ProConAdmin)
 admin.site.register(models.ProLan, ProLanAdmin)
 admin.site.register(models.ProRol, ProRolAdmin)
 admin.site.register(models.ProFra, ProFraAdmin)
-
