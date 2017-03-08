@@ -9,9 +9,11 @@ from . import models
 
 
 class FooterView(ContextMixin):
+
     def get_context_data(self, **kwargs):
         context = super(FooterView, self).get_context_data(**kwargs)
-        context['upcomming_events'] = models.Event.objects.filter(date__gte=datetime.now())
+        context['upcomming_events'] = models.Event.objects.filter(
+            date__gte=datetime.now())
         context['old_events'] = models.Event.objects.all().order_by('date')
         context['projects'] = models.Project.objects.all()[:3]
         return context
@@ -32,6 +34,15 @@ class BoardTemplateView(FooterView, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(BoardTemplateView, self).get_context_data(**kwargs)
         context['header_text'] = _('Board')
+        return context
+
+
+class ThanksTemplateView(FooterView, TemplateView):
+    template_name = 'thanks.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ThanksTemplateView, self).get_context_data(**kwargs)
+        context['header_text'] = _('Thanks')
         return context
 
 
@@ -71,7 +82,7 @@ class ProjectsDetailView(FooterView, DetailView):
         gh_id = kwargs['object'].gh_id
         procons = models.ProCon.objects.filter(project__gh_id=gh_id)
         profras = models.ProFra.objects.filter(project__gh_id=gh_id)
-        prolans= models.ProLan.objects.filter(project__gh_id=gh_id)
+        prolans = models.ProLan.objects.filter(project__gh_id=gh_id)
         languages = [i.language for i in prolans]
         contributors = [i.contributor for i in procons]
         frameworks = [i.framework for i in profras]
