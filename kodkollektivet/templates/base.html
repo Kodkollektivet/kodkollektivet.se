@@ -64,6 +64,7 @@
     <main>
       {% block content %}
       <article>
+	<img src="{% static '/img/kodkollektivet-ppl2.jpg' %}"/>
       	<section>
           <h2>{% trans "What is Kodkollektivet" %}? </h2>
           <p>
@@ -217,6 +218,7 @@
               <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
 	      {% endfor %}
 	      {% else %}
+	      <h4>Events</h4>
 	      {% for event in old_events %}
               <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
 	      {% endfor %}
