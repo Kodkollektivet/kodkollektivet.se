@@ -12,11 +12,18 @@ main
   @include outer-container()
   article
     @include span-columns(7)
+    text-align: center
     section
+      text-align: left
+      display: inline-block
       margin-top: 50px
       h2
+        display: inline-block
         span
           font-size: 26px
+      img
+        display: inline-block
+        max-width: 60%
 
 h1,h2,h3,h4,h5
   margin-bottom: 30px
