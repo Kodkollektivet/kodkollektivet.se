@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+
+<section align="center">
+  <h2>Special Thanks To</h2>
+</section>
+<hr/>
+
+<section>
+  <div align="center">
+    <h1>Information Engineering Center (IEC)</h1>
+    <p>IEC have been a huge help for Kodkollektivet since the beginning. They have been
+      helping out not only with contacts and finance, but also with general guidance and
+      structure in our growth as an organization.</p>
+    <a href="http://iec2020.se/">iec2020.se</a></br>
+    <img src="{% static 'img/companies/iec2016.png' %}"
+         width="300" height="150" alt="IEC2020" />
+  </div>
+</section>
+<hr>
+
+{% endblock content %}
