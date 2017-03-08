@@ -16,7 +16,7 @@ class FooterView(ContextMixin):
         context['old_events'] = models.Event.objects.all().order_by('date')
         context['projects'] = models.Project.objects.all()[:3]
         return context
-    
+
 
 class IndexView(FooterView, TemplateView):
     template_name = 'base.html'
@@ -35,10 +35,10 @@ class BoardTemplateView(FooterView, TemplateView):
         context = super(BoardTemplateView, self).get_context_data(**kwargs)
         context['header_text'] = _('Board')
         return context
-    
+
 
 class EventsListView(FooterView, ListView):
-    queryset = models.Event.objects.all()
+    queryset = models.Event.objects.all().order_by('-date')
     template_name = "events/events_list_view.html"
 
     def get_context_data(self, **kwargs):
@@ -96,4 +96,3 @@ class ContributorDetailView(FooterView, DetailView):
         projects = [i.project for i in procons]
         context['projects'] = projects
         return context
-    
