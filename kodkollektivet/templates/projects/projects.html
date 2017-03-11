@@ -3,30 +3,38 @@
 
 {% block content %}
 
-{% blocktrans %}
-Members of Kodkollektivet can get together and create projects.
-Below is a list of the projects that we have in our GitHub organization.
-If you wanna make a project within the Kodkollektivet organization you are
-very welcome. Just hit us up on Slack or email and we help you setting up a repo!
-{% endblocktrans %}
+<div class="projects">
+  <div class="creating">
+    <h1>{% trans "Projects" %}</h1>
+    <p>
+    {% blocktrans %}
+    Members of Kodkollektivet can get together and create projects.
+    Below is a list of the projects that we have in our GitHub organization.
+    If you wanna make a project within the Kodkollektivet organization you are
+    very welcome. Just hit us up on Slack or email and we help you setting up a repo!
+    {% endblocktrans %}
+    </p>
 
-
-{% if object_list %}
-
-{% for project in object_list %}
-<section class="projectlist">
-  <ul>
-    <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a></li>
-  </ul>
-  <section>
+    {% if object_list %}
+    <h3>{% trans "Current" %}</h3>
+    {% for project in object_list %}
+    <section class="projectlist">
+      <ul>
+	<li>
+	  <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
+	</li>
+      </ul>
+    <section>
     {% endfor %}
 
     {% else %}
-    No projects
+    <p>No projects</p>
     {% endif %}
+  </div>
 
+  <div class="services-apps">
     <article>
-    <h2 align="center">{% trans "Services and applications" %}</h2>
+    <h2>{% trans "Services and applications" %}</h2>
     <p>
       {% blocktrans %}
       We encurage members to set up services or creating applications.
@@ -44,6 +52,6 @@ very welcome. Just hit us up on Slack or email and we help you setting up a repo
       Check it out on: <a href="https://api.kodkollektivet.se/unitime/">https://api.kodkollektivet.se/unitime/</a>
     </p>
     </article>
-
-
+  </div>
+</div>
 {% endblock %}

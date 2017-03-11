@@ -2,8 +2,10 @@ body,main,p,h1,h2,h3,h4,h5,aside,ul,li,header,footer,div
   margin: 0px
 
 body
-  background-color: $main-color-grey
+  background-color: white
   font-family: 'Poppoins', sans-serif
+  max-width: 3000px
+  margin: 0 auto
 
 main
   background-color: white
@@ -50,6 +52,7 @@ main
 
 .events
   @include outer-container()
+  padding-bottom: 50px
   .articles
     @include span-columns(6)
     padding: 0 50px
@@ -61,6 +64,22 @@ main
         margin-bottom: 20px
   aside
     @include span-columns(6)
+
+.projects
+  @include outer-container()
+  padding: 50px
+  h3
+    margin-top: 50px
+  .creating
+    @include span-columns(6)
+    ul
+      li
+        margin-top: 7px
+        a
+          font-size: 20px
+  .services-apps
+    @include span-columns(6)
+    
 
     
 h1,h2,h3,h4,h5
