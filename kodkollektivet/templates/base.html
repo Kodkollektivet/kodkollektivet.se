@@ -188,7 +188,7 @@
           </div>
 
           <div class="links">
-            <ul class="events">
+            <ul class="event-links">
 	      {% if upcomming_events %}
               <h4>Events</h4>	      
 	      {% for event in upcomming_events %}
@@ -201,7 +201,7 @@
 	      {% endfor %}
 	      {% endif %}
             </ul>   
-            <ul class="projects">   
+            <ul class="project-links">   
               <h4>Projects</h4>
 	      {% for project in projects %}
               <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{project}}</a></li>
