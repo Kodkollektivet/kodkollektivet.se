@@ -6,25 +6,63 @@ body
   font-family: 'Poppoins', sans-serif
 
 main
-  padding: 0 0 40px 40px
   background-color: white
   min-height: 300px
-  @include outer-container()
-  article
-    @include span-columns(7)
-    text-align: center
-    section
-      text-align: left
-      display: inline-block
-      margin-top: 50px
-      h2
-        display: inline-block
-        span
-          font-size: 26px
-      img
-        display: inline-block
-        max-width: 60%
 
+  .what-is
+    
+    padding: 20px
+    @include outer-container()
+    img
+      @include span-columns(6)
+    .split
+      @include span-columns(1)
+      text-align: right
+      i
+        font-size: 78px
+    article
+      @include span-columns(5)
+      padding-right: 50px
+      p:first-of-type
+        color: darkblue
+
+  .student-company
+    @include outer-container()
+    background-color: #DDD
+    padding: 120px 50px
+    h2
+      text-transform: uppercase
+      font-size: 24px
+    article
+      text-align: center
+      section
+        display: inline-block
+        text-align: left
+    .student
+      @include span-columns(5)
+    .split
+      @include span-columns(2)
+      text-align: center
+      i
+        font-size: 78px
+    .company
+      @include span-columns(5)
+
+.events
+  @include outer-container()
+  .articles
+    @include span-columns(6)
+    padding: 0 50px
+    article
+      margin-top: 50px
+      &:not(:last-of-type)
+        border-bottom: solid 2px $main-color-dark
+      h2
+        margin-bottom: 20px
+  aside
+    @include span-columns(6)
+
+    
 h1,h2,h3,h4,h5
   margin-bottom: 30px
   letter-spacing: 0px

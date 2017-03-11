@@ -12,7 +12,7 @@ class FooterView(ContextMixin):
 
     def get_context_data(self, **kwargs):
         context = super(FooterView, self).get_context_data(**kwargs)
-        context['upcomming_events'] = models.Event.objects.filter(
+        context['upcoming_events'] = models.Event.objects.filter(
             date__gte=datetime.now())
         context['next_event'] = context['upcoming_events'].first
         context['old_events'] = models.Event.objects.all().order_by('date')
@@ -26,7 +26,6 @@ class IndexView(FooterView, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['header_text'] = 'Kodkollektivet'
-        context['focused_projects'] = models.Project.objects.filter(in_focus=1)
         return context
 
 
@@ -55,6 +54,7 @@ class EventsListView(FooterView, ListView):
     def get_context_data(self, **kwargs):
         context = super(EventsListView, self).get_context_data(**kwargs)
         context['header_text'] = _('Events')
+        context['focused_projects'] = models.Project.objects.filter(in_focus=1)
         return context
 
 
