@@ -17,16 +17,15 @@
 
     {% if object_list %}
     <h3>{% trans "Current" %}</h3>
-    {% for project in object_list %}
     <section class="projectlist">
+    {% for project in object_list %}
       <ul>
 	<li>
 	  <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
 	</li>
       </ul>
-    <section>
     {% endfor %}
-
+    </section>
     {% else %}
     <p>No projects</p>
     {% endif %}

@@ -12,7 +12,8 @@ main
   min-height: 300px
 
   .what-is
-    
+    h2
+      font-size: 36px
     padding: 20px
     @include outer-container()
     img
@@ -77,10 +78,24 @@ main
         margin-top: 7px
         a
           font-size: 20px
+    .projectlist
+      background-color: #E8E8E8
+      padding: 20px 0
+      border-radius: 5px
   .services-apps
     @include span-columns(6)
     
-
+.board
+  @include display-flex
+  @include flex-wrap(wrap)
+  margin: 30px auto
+  max-width: 800px
+  section
+    @include flex(1)
+    margin-bottom: 40px
+.center
+  text-align: center
+  margin: 15px auto
     
 h1,h2,h3,h4,h5
   margin-bottom: 30px
@@ -88,8 +103,8 @@ h1,h2,h3,h4,h5
   color: $main-color-dark
 
 h2
-  font-size: 36px
-  letter-spacing: -1px
+  font-size: 26px
+
 h3
   font-size: 26px
   
