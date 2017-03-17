@@ -36,7 +36,6 @@ class Event(models.Model):
             self.slug = slugify(self.title)
         super(Event, self).save(*args, **kwargs)
 
-
     def __str__(self):
         return self.title
 
@@ -185,4 +184,3 @@ class ProRol(models.Model):
 
     class Meta:
         verbose_name = 'Project-Role-Contributor relation'
-
