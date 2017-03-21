@@ -14,18 +14,41 @@
     <meta property="og:type" content="organization" />
     <meta property="og:url" content="http://kodkollektivet.se" />
     <meta property="og:image" content="{% static 'img/logo.png' %}" />
-
+    
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
-
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    
+    <script src="https://use.fontawesome.com/5c79208c6f.js"></script>
 
   </head>
 
   <body>
     <header>
-      <h1>KODK<>LLEKTIVET</h1>
-      <a class="btn-open logo" href="{% url 'home' %}"><img src="{% static 'img/KK_logo.jpg' %}" /></a>
+      <div class="side">
+	<a class="btn-open logo" href="{% url 'home' %}">
+	  <img src="{% static 'img/logo_website.png' %}" />
+	</a>
+	
+	<div class="social-icons">
+	  <a href="https://www.facebook.com/kodkollektivet/" target="_blank">
+	    <i class="fa fa-facebook-square" aria-hidde="true"></i>
+	  </a>
+	  <a href="https://github.com/Kodkollektivet" target="_blank">
+	    <i class="fa fa-github" aria-hidde="true"></i>
+	  </a>
+	  <a href="https://twitter.com/kodkollektivet" target="_blank">
+	    <i class="fa fa-twitter" aria-hidde="true"></i>
+	  </a>
+	</div>
+      </div>
+
       {% include 'menu.html' %}
+
+      <div class="header-text">
+	<i class="fa fa-chevron-right" aria-hidde="true"></i>
+	<h1>We are<br>Kodkollektivet</h1>
+      </div>
+      
       <form action="{% url 'set_language' %}" method="post" id="changelang">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}" />
@@ -43,79 +66,83 @@
 
     <main>
       {% block content %}
-      <article>
-      	<section>
-          <h2 align="center">{% trans "What is Kodkollektivet" %}? </h2>
-          <p>
-            {% blocktrans %}
-            Kodkollektivet consists of a group of students with a great interest
-            in programming, computer networking and tons of other IT and business
-            related topics. We started in the summer of 2015 with tons of ideas
-            that we since then have been trying out, refined and most importantly
-            learned a great deal from in terms of cooperation, planning and
-            focus.
+      <div class="what-is">
+	<img src="{% static '/img/kodkollektivet-ppl2.jpg' %}"/>
+	<div class="split">
+	  <i class="fa fa-chevron-right" aria-hidde="true"></i>
+	</div>
+	<article>
+      	  <section>
+            <h2>{% trans "What is Kodkollektivet" %}? </h2>
+            <p>
+              {% blocktrans %}
+              Kodkollektivet consists of a group of students with a great interest
+              in programming, computer networking and tons of other IT and business
+              related topics.
+	    </p>
+	    <p>
+	      We started in the summer of 2015 with tons of ideas
+              that we since then have been trying out, refined and most importantly
+              learned a great deal from in terms of cooperation, planning and
+              focus.
 
-            With all of this Kodkollektivet is now taking the shape of a student
-            organization at Linnaeus University. Focus has shifted slightly from
-            project development and code meetups to more of a social platform
-            where students and local businesses can find, meet and get to know
-            each other through events and activities such as theme-nights,
-            hackathons, workshops, study visits, guest lectures and more.
+              With all of this Kodkollektivet is now taking the shape of a student
+              organization at Linnaeus University. Focus has shifted slightly from
+              project development and code meetups to more of a social platform
+              where students and local businesses can find, meet and get to know
+              each other through events and activities such as theme-nights,
+              hackathons, workshops, study visits, guest lectures and more.
 
-            As a result of this students at Linnaeus University are provided with
-            a place to find other students with a shared or similar interest,
-            while at the same time giving companies in the Vaxjo area the
-            opportunity to get a head start with potential employees.
-            {% endblocktrans %}
-          </p>
-        </section>
-       
-      	<section>
-          <h2 align="center">{% trans "Student, do you have what it takes" %}?</h2>
-          <p>
-            {% blocktrans %}
-            Absolutely! No previous experience or particular skills are required
-            to take part of Kodkollektivet. We welcome anyone who wants to learn,
-            share, improve their resume or just want to make more friends with
-            similar interests!
- 
-            Kodkollektivet puts no requirements on you as a student, but is rather
-            a provider of opportunities. You are free to decide for yourself how
-            much you would like to participate and how much time you want to put
-            into the activities and events we host.
-            {% endblocktrans %}
-          </p>
-        </section>
-
-      	<section>
-          <h2 align="center">{% trans "Employers, come and meet the future" %}!</h2>
-          <p>
-            {% blocktrans %}
-            The university students of today are the very people who will be
-            urging new thoughts and ideas in tomorrows businesses. Through
-            Kodkollektivet is the possibility to meet these students in a social,
-            comfortable environment without prestige. Kodkollektivet is always
-            open to any type of suggestions from you as a company, in regards of
-            ideas for events and activities.
-            {% endblocktrans %}
-          </p>
-      	</section>  
-      </article>
-
-      <aside>
-        <section>
-          {% if upcomming_events %}
-          <hr>
-          <h3>{% trans "Upcoming event" %}:</h3>
-          <ul>
-            {% for event in upcomming_events %}
-            <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a></li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </section>
-      </aside>
-
+              As a result of this students at Linnaeus University are provided with
+              a place to find other students with a shared or similar interest,
+              while at the same time giving companies in the Vaxjo area the
+              opportunity to get a head start with potential employees.
+              {% endblocktrans %}
+            </p>
+          </section>
+	</article>
+      </div>
+      
+      <div class="student-company">
+	<article class="student">
+      	  <section>
+            <h2>{% trans "Student, do you have what it takes" %}?</h2>
+            <p>
+              {% blocktrans %}
+              Absolutely! No previous experience or particular skills are required
+              to take part of Kodkollektivet. We welcome anyone who wants to learn,
+              share, improve their resume or just want to make more friends with
+              similar interests!
+	      
+              Kodkollektivet puts no requirements on you as a student, but is rather
+              a provider of opportunities. You are free to decide for yourself how
+              much you would like to participate and how much time you want to put
+              into the activities and events we host.
+              {% endblocktrans %}
+            </p>
+          </section>
+	</article>
+	
+	<div class="split">
+	  <i class="fa fa-chevron-left" aria-hidde="true"></i>
+	  <i class="fa fa-chevron-right" aria-hidde="true"></i>
+	</div>
+	<article class="company">
+      	  <section>
+            <h2>{% trans "Employers, come and meet the future" %}!</h2>
+            <p>
+              {% blocktrans %}
+              The university students of today are the very people who will be
+              urging new thoughts and ideas in tomorrows businesses. Through
+              Kodkollektivet is the possibility to meet these students in a social,
+              comfortable environment without prestige. Kodkollektivet is always
+              open to any type of suggestions from you as a company, in regards of
+              ideas for events and activities.
+              {% endblocktrans %}
+            </p>
+      	  </section>  
+	</article>
+      </div>
       {% endblock %}
     </main>
 
@@ -164,19 +191,20 @@
           </div>
 
           <div class="links">
-            <ul class="events">
+            <ul class="event-links">
 	      {% if upcomming_events %}
               <h4>Events</h4>	      
 	      {% for event in upcomming_events %}
               <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
 	      {% endfor %}
 	      {% else %}
+	      <h4>Events</h4>
 	      {% for event in old_events %}
               <li><a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{event}}</a></li>
 	      {% endfor %}
 	      {% endif %}
             </ul>   
-            <ul class="projects">   
+            <ul class="project-links">   
               <h4>Projects</h4>
 	      {% for project in projects %}
               <li><a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{project}}</a></li>

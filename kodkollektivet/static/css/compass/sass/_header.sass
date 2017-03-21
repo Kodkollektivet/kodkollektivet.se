@@ -2,51 +2,71 @@ header
   position: relative
   height: 400px
   padding: 15px
-  @include background(image_url("kk_background.jpg"), no-repeat)
+  @include background(image_url("kk_background2.png"), no-repeat)
   @include background-size(cover)
-  h1
-    display: inline-block
+  .header-text
     position: absolute
-    left: 50% 
-    top: 37% 
-    color: white
-    font-size: 82px
-    font-weight: 700
-    margin-left: -368px
-    letter-spacing: -10px
-  .logo
-    display: inline-block
-    padding: 3px
-    background-color: white
-    border: 2px solid white
-    img
-      width: 50px
-    &:hover
-      border-color: $main-color-light
+    left: 140px
+    top: 140px 
+    i
+      display:inline-block
+      font-size: 160px
+      color: #d5d6d8
+      vertical-align: 7px
+    h1
+      display: inline-block
+      
+      color: #d5d6d8
+      font-size: 72px
+     
+      letter-spacing: -2px  
+
+  .side
+    background-color: rgba(255,255,255,0.1)
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100px
+    text-align: center
+    .logo
+      display: inline-block
+      margin-top: 20px
+      img
+        width: 100px
+      &:hover
+        background-color: $main-color-light
+    .social-icons
+      width: 60px
+      margin: 40px auto
+      a
+        color: black
+        &:hover
+          color: $main-color-light
+        i
+          font-size: 48px
+          display: inline-block
+          text-align: center
+          &:not(first)
+            margin-top: 10px
   nav
     display: inline-block
     position: absolute
-    top: 40px
-    left: 80px
+    top: 55px
+    left: 120px
     ul
       li
-        background-color: white
-        border-radius: 5px
-        padding: 3px 5px
         display: inline-block
         &:not(:first-child)
-          margin-left: 10px  
-        border: 1px solid white
-        &:hover
-          border-color: $main-color-light
+          margin-left: 25px
         a
-          color: $main-color-dark
-          font-weight: 600
+          color: white
+          font-size: 20px
           text-transform: uppercase
           text-decoration: none
-          letter-spacing: 1px
+          letter-spacing: 0px
           &:visited
-            color: $main-color-dark
+            color: white
           &:hover  
             color: $main-color-light
 
