@@ -17,6 +17,7 @@ try:
 except ImportError:
     from settings.settings import OAUTH_TOKEN
 
+
 log = logging.getLogger(__name__)
 
 
@@ -25,18 +26,31 @@ def getrepos():
     This function collects all the repos from
     GitHub and store them in the database
     """
-    projects = requests.get('https://api.github.com/orgs/kodkollektivet/repos' + OAUTH_TOKEN).json()
+    req = requests.get('https://api.github.com/orgs/kodkollektivet/repos' + OAUTH_TOKEN)
+
+    if req.status_code is not 200:
+        log.warning(req.text)
+        return
+
+    projects = req.json()
 
     log.debug('Getting repos...')
 
     for project in projects:
 
-        readme = requests.get(
-            'https://api.github.com/repos/kodkollektivet/' + project['name'] + '/readme' + OAUTH_TOKEN).json()
+        req = requests.get(
+            'https://api.github.com/repos/kodkollektivet/' +
+            project['name'] +
+            '/readme' +
+            OAUTH_TOKEN)
 
-        try:
-            readme = b64decode(readme['content'])
-        except:
+        if req.status_code is 200:
+            try:
+                readme = req.json()
+                readme = b64decode(readme['content'])
+            except Exception as e:
+                log.debug(e)
+        else:
             readme = ''
 
         form = ProjectForm({
@@ -47,18 +61,25 @@ def getrepos():
         })
 
         if form.is_valid():
-            # Creates or updates a project. It fist looks it match on gh_name
-            pro, created = Project.objects.update_or_create(gh_name=form.data['gh_name'], defaults=form.data)
+            # Creates or updates a project. It first looks it match on gh_name
+            pro, created = Project.objects.update_or_create(
+                gh_name=form.data['gh_name'],
+                defaults=form.data)
 
-            languages = requests.get('https://api.github.com/repos/kodkollektivet/'+project['name']+'/languages' + OAUTH_TOKEN).json()
+            req = requests.get(
+                'https://api.github.com/repos/kodkollektivet/' +
+                project['name'] + '/languages' + OAUTH_TOKEN)
 
-            for key, value in languages.items():
-                lan, created = Language.objects.update_or_create(name=key)
-                obj, created = ProLan.objects.update_or_create(project=pro, language=lan)
-
+            if req.status_code is 200:
+                languages = req.json()
+                for key, value in languages.items():
+                    lan, created = Language.objects.update_or_create(name=key)
+                    obj, created = ProLan.objects.update_or_create(project=pro, language=lan)
+            else:
+                log.debug(req.text)
         else:
-            log.debug('Form is not valid')
-            log.debug(str(form.errors))
+            log.warning('Form is not valid')
+            log.warning(str(form.errors))
 
 
 def getcontribs():
@@ -71,39 +92,49 @@ def getcontribs():
 
     log.debug('Getting contributors...')
 
-    projects = Project.objects.all()  # Get all projects
+    for project in Project.objects.all():  # Get all projects
 
-    for project in projects:  # iterate over them
+        # go in here if gh_name or gh_id
+        if (len(project.gh_name) > 2) or (project.gh_id is not None):
+            req = requests.get(
+                'https://api.github.com/repos/kodkollektivet/' +
+                project.gh_name +
+                '/contributors' +
+                OAUTH_TOKEN)
 
-        if (len(project.gh_name) > 2) or (project.gh_id is not None):  # go in here if gh_name or gh_id
-
-            request = requests.get('https://api.github.com/repos/kodkollektivet/'+project.gh_name+'/contributors' + OAUTH_TOKEN).json()
-
-            for data in request:
-                Contributor.objects.update_or_create(
-                    gh_login=data['login'],
-                    gh_url=data['url'],
-                    gh_id=data['id'],
-                    gh_html=data['html_url'],
-                    gh_avatar=data['avatar_url']
-                )
+            if req.status_code is 200:
+                for contributor in req.json():
+                    import pdb; pdb.set_trace()
+                    Contributor.objects.update_or_create(
+                        gh_login=contributor['login'],
+                        gh_url=contributor['url'],
+                        gh_id=contributor['id'],
+                        gh_html=contributor['html_url'],
+                        gh_avatar=contributor['avatar_url'])
+            else:
+                log.debug(req.text)
 
 
 def getprocon():
     """Get the project contributor relations."""
-    
+
     log.debug('Getting procons...')
-    
-    projects = Project.objects.all()
 
-    for project in projects:
+    for project in Project.objects.all():
+        # If it is a github project
+        if (len(project.gh_name) > 2) or (project.gh_id is not None):
+            req = requests.get(
+                'https://api.github.com/repos/kodkollektivet/' +
+                project.gh_name +
+                '/contributors' +
+                OAUTH_TOKEN)
 
-        if (len(project.gh_name) > 2) or (project.gh_id is not None):  # If it is a github project
-            request = requests.get('https://api.github.com/repos/kodkollektivet/'+project.gh_name+'/contributors' + OAUTH_TOKEN).json()
-
-            for data in request:
-                contributor = Contributor.objects.get(gh_id=data['id'])
-                ProCon.objects.get_or_create(contributor=contributor, project=project)
+            if req.status_code is 200:
+                for data in req.json():
+                    contributor = Contributor.objects.get(gh_id=data['id'])
+                    ProCon.objects.get_or_create(contributor=contributor, project=project)
+            else:
+                log.debug(req.status_code)
 
 
 class GithubHook(APIView):
