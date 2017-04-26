@@ -4,59 +4,54 @@
 {% block content %}
 
 <div class="events">
-  <div class="articles">
-    {% if object_list %}
-      {% for object in object_list %}
-        <article>
-          <h2>{{ object.title }}</h2>
-          <p>Date: {{ object.date|date }}</p>
-          <p>Time: {{ object.time|time:"H:i" }}</p>        
-          <p>{{ object.body | markdown }}</p>
-        </article>
-      {% endfor %}
-    {% else %}
-      No events
-    {% endif %}
-  </div>
-
-  <aside>
-    <section>
+  <div class="new-events">
+    <div class="next-event">
+      {% if next_event %}
+      <h2>Next Event</h2>
+      <p class="event-datetime">
+        {{ next_event.date }}, {{ next_event.time }}
+      </p>
+      <h4>{{ next_event.title }}</h4>
+      <p>{{ next_event.body|truncatechars:300 }}</p>
+      <a href="{% url "kodkollektivet:eventdetailview" next_event.slug %}" class="next-event-link">read more</a>
+      {% endif %}
+    </div>
+    
+    <div class="upcoming-events">
       {% if upcoming_events %}
-      <h3>Next Event</h3>
-      <a href="{% url "kodkollektivet:eventdetailview" next_event.slug %}" class="next-event">
- 
-        <h4>{{ next_event.title }}</h4>
-        <p>{{ next_event.body|truncatechars:300 }}</p>
-        <span class="event-datetime">
- 	  {{ next_event.date }}, {{ next_event.time }}
-        </span>  
-      </a>
-      <ul class="upcoming-events">
-        <span>More upcoming:</span>
+      <h3>Upcoming Events</h3>
+      <ul>
         {% for event in upcoming_events %}
         <li>
- 	 <a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a>
+          <h4>{{ event.title }}</h4>
+          <p>{{ event.body|truncatechars:300 }}</p>
+          <span class="event-datetime">
+            {{ event.date }}, {{ event.time }}
+          </span>
+          <a href="{% url "kodkollektivet:eventdetailview" event.slug %}">read more</a>
         </li>
         {% endfor %}
       </ul>
       {% endif %}
-    </section>
-   
-    <section class="right-now">
-      {% if focused_projects %}
-      <h3>Right Now</h3>
-      <ul>
-        {% for project in focused_projects %}
-        <li>
- 	  <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
- 	  <p>{{ project.gh_readme|truncatechars:200 }}</p>
-        </li>
+    </div>
+  </div>
+  
+  <div class="old-events">
+    {% if old_events %}
+      <h3>Old Events</h3>
+      <div>
+        {% for event in old_events %}
+        <article>
+          <h4>{{ event.title|truncatechars:20 }}</h4>
+          <p>{{ event.date|date }}</p>
+          <a href="{% url "kodkollektivet:eventdetailview" event.slug %}">read more</a>
+        </article>
         {% endfor %}
-      </ul>
-      {% endif %}
-    </section>
-  </aside>
-
+      </div>
+    {% else %}
+      <p>No events</p>
+    {% endif %}
+  </div>
 </div>
 
 {% endblock %}

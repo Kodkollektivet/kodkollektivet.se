@@ -1,0 +1,37 @@
+<aside>
+  <section>
+    {% if upcoming_events %}
+    <h3>Next Event</h3>
+    <a href="{% url "kodkollektivet:eventdetailview" next_event.slug %}" class="next-event">
+
+      <h4>{{ next_event.title }}</h4>
+      <p>{{ next_event.body|truncatechars:300 }}</p>
+      <span class="event-datetime">
+  {{ next_event.date }}, {{ next_event.time }}
+      </span>  
+    </a>
+    <ul class="upcoming-events">
+      <span>More upcoming:</span>
+      {% for event in upcoming_events %}
+      <li>
+ <a href="{% url "kodkollektivet:eventdetailview" event.slug %}">{{ event.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+ 
+  <section class="right-now">
+    {% if focused_projects %}
+    <h3>Right Now</h3>
+    <ul>
+      {% for project in focused_projects %}
+      <li>
+  <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
+  <p>{{ project.gh_readme|truncatechars:200 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</aside>
