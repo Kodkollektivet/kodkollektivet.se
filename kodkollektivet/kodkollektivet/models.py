@@ -6,10 +6,33 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
 
+from wand.image import Image
+
 
 class PostQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish=True)
+
+
+class BoardMember(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254, blank=True)
+    telephone = models.CharField(max_length=50, blank=True)
+    photo = models.ImageField(upload_to='board-images/')
+
+    def save(self, *args, **kwargs):
+        super(BoardMember, self).save(*args, **kwargs)
+        if self.photo:
+            with Image(filename=self.photo.path) as img:
+                img.save(filename=self.photo.path+'.ORGINAL')
+                img.transform(resize='x250')
+                img.compression_quality = 90
+                img.save(filename=self.photo.path)
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
 
 
 class Event(models.Model):
