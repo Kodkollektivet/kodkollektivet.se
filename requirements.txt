@@ -5,3 +5,4 @@ requests
 django-markdown-deux
 Pillow
 gunicorn
+Wand

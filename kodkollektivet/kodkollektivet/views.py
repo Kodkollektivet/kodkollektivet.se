@@ -29,8 +29,9 @@ class IndexView(FooterView, TemplateView):
         return context
 
 
-class BoardTemplateView(FooterView, TemplateView):
+class BoardTemplateView(FooterView, ListView):
     template_name = 'board.html'
+    queryset = models.BoardMember.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super(BoardTemplateView, self).get_context_data(**kwargs)
