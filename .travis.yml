@@ -5,9 +5,12 @@ python:
   - "3.5"
   - "3.6"
 
+before_install:
+  - mkdir ../logs
+  - touch ../logs/all.log
+
 install:
   - pip install -r requirements.txt
-  - mkdir logs
   - python kodkollektivet/manage.py makemigrations
   - python kodkollektivet/manage.py migrate
 
@@ -21,7 +24,7 @@ branches:
 notifications:
   webhooks:
     urls:
-      - https://ci.kodkollektivet.se/fduexoxsuxhzjskjgqly/
+      - https://ci.kodkollektivet.se/ljwhwlbwjhaumdernpmx/
     on_success: always
     on_failure: never
     on_start: never
