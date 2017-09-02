@@ -46,3 +46,15 @@ python manage.py compilemessages -l sv -l en
 Added here as a note! Maybe we should have a page for publications?
 
 - http://iec2020.se/det-ar-vi-som-ar-framtidens-utvecklare/
+* Docker environment
+
+  You can choose to use Docker to get the development environment up and running. If you
+  wanna go for Docker, install Docker and docker-compose.
+  When thats installed and working. Start the project by:
+
+  #+BEGIN_SRC shell
+    docker-compose up
+  #+END_SRC
+
+  Docker will build everything for you and you can access the page from
+  http://localhost:8000/ when the build process is done.
