@@ -1,6 +1,8 @@
 #+TITLE: kodkollektivet.se
 #+AUTHOR: kodkollektivet
 
+[[https://travis-ci.org/Kodkollektivet/kodkollektivet.se][https://travis-ci.org/Kodkollektivet/kodkollektivet.se.svg?branch=master]]
+
 * Development environment
 
   Its highly recommended to use [[https://virtualenv.pypa.io/en/stable/][virtualenv]] but its optional.
