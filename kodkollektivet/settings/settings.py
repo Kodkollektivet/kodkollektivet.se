@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'userprofile',
     'kodkollektivet',
 
     'rest_framework',
@@ -113,21 +112,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTH_PROFILE_MODUL
-#AUTH_USER_MODEL = 'userprofile.Member'
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
-
 LANGUAGE_CODE = 'en'
-
 TIME_ZONE = 'Europe/Stockholm'
-
 USE_I18N = True
-
 USE_L10N = True
-
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "locale"),
 )
