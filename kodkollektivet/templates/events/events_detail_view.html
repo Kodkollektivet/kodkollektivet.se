@@ -2,12 +2,13 @@
 {% load markdown_deux_tags %}
 
 {% block content %}
-
-  <article>
-    <h1>{{ object.title }}</h1>
-    <p>Date: {{ object.date|date }}</p>
-    <p>Time: {{ object.time|time:"H:i" }}</p>        
-    <p>{{ object.body | markdown }}</p>
-  </article>
+  <div class="show-event">
+    <article>
+      <h1>{{ object.title }}</h1>
+      <p class="date"><strong>Date: {{ object.date|date }}</strong></p>
+      <p class="time"><strong>Time: {{ object.time|time:"H:i" }}</strong></p>        
+      <p>{{ object.body | markdown }}</p>
+    </article>
+  </div>
 
 {% endblock %}

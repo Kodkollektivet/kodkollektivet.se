@@ -1,0 +1,65 @@
+.events
+  .new-events
+    margin: 50px auto
+    h2,h3,h4
+      text-align: center
+    
+    @include outer-container()
+    padding-bottom: 50px
+    .next-event
+      @include span-columns(6)
+      padding: 0 50px
+      h2
+        font-size: 32px
+        margin-bottom: 10px
+        color: #b92626
+      h4
+        font-size: 24px
+      article
+        margin-top: 50px
+        &:not(:last-of-type)
+          border-bottom: solid 2px $main-color-dark
+        h2
+          margin-bottom: 20px
+      .event-datetime
+        text-align: center
+        margin-bottom: 20px
+        font-size: 28px
+    .upcoming-events
+      padding: 0 50px 0 0
+      @include span-columns(6)
+      h4
+        font-size: 20px
+      ul
+        li:not(first)
+          margin-top: 30px
+  
+  .old-events
+    border-top: solid 3px black
+    margin-bottom: 50px
+    h3
+      margin: 50px auto
+      text-align: center
+    div
+      margin: 0 50px
+      @include display-flex()
+      @include flex-wrap(wrap)
+      article
+        padding: 20px
+        border: solid 1px black
+        width: 200px
+        text-align: center
+.show-event
+  margin: 50px
+  text-align: center
+  article
+    display: inline-block
+    text-align: left
+    h1
+      font-size: 28px
+      letter-spacing: 1px
+    .date,.time
+      font-size: 18px
+      letter-spacing: 0.5px
+        
+      
