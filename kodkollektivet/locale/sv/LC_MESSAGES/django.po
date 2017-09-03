@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 20:23+0100\n"
+"POT-Creation-Date: 2017-09-03 08:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,220 +18,148 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: kodkollektivet/views.py:26 templates/menu.html:7
+#: kodkollektivet/kodkollektivet/views.py:38
+#: kodkollektivet/templates/base.html:156 kodkollektivet/templates/menu.html:6
 msgid "Board"
 msgstr "Styrelsen"
 
-#: kodkollektivet/views.py:36 templates/menu.html:6
+#: kodkollektivet/kodkollektivet/views.py:47
+msgid "Thanks"
+msgstr ""
+
+#: kodkollektivet/kodkollektivet/views.py:57
+#: kodkollektivet/templates/base.html:155 kodkollektivet/templates/menu.html:4
 msgid "Events"
 msgstr "Events"
 
-#: kodkollektivet/views.py:52 templates/menu.html:8
+#: kodkollektivet/kodkollektivet/views.py:74
+#: kodkollektivet/templates/base.html:157 kodkollektivet/templates/menu.html:5
+#: kodkollektivet/templates/projects/projects.html:8
 msgid "Projects"
 msgstr "Projekt"
 
-#: settings/settings.py:137
+#: kodkollektivet/settings/settings.py:127
 msgid "English"
 msgstr "Engelska"
 
-#: settings/settings.py:138
+#: kodkollektivet/settings/settings.py:128
 msgid "Swedish"
 msgstr "Svenska"
 
-#: templates/base.html:41
+#: kodkollektivet/templates/base.html:76
 msgid "What is Kodkollektivet"
 msgstr "Vad är Kodkollektivet"
 
-#: templates/base.html:43
-msgid ""
-"\n"
-"          Kodkollektivet consists of a group of students with a great "
-"interest\n"
-"          in programming, computer networking and tons of other IT and "
-"business\n"
-"          related topics. We started in the summer of 2015 with tons of "
-"ideas\n"
-"          that we since then have been trying out, refined and most "
-"importantly\n"
-"          learned a great deal from in terms of cooperation, planning and\n"
-"          focus.\n"
-"\n"
-"          With all of this Kodkollektivet is now taking the shape of a "
-"student\n"
-"          organization at Linnaeus University. Focus has shifted slightly "
-"from\n"
-"          project development and code meetups to more of a social platform\n"
-"          where students and local businesses can find, meet and get to "
-"know\n"
-"          each other through events and activities such as theme-nights,\n"
-"          hackathons, workshops, study visits, guest lectures and more.\n"
-"\n"
-"          As a result of this students at Linnaeus University are provided "
-"with\n"
-"          a place to find other students with a shared or similar interest,\n"
-"          while at the same time giving companies in the Vaxjo area the\n"
-"          opportunity to get a head start with potential employees.\n"
-"          "
+#: kodkollektivet/templates/base.html:78
+msgid "what-is-kod-part-1"
 msgstr ""
-"\n"
 "Kodkollektivet består av en grupp studenter med ett brinnande intresse, "
-"främst inom programmering, nätverk och andra IT-relaterade ämnen. Vi "
-"startade under sommaren 2015 med ett hav av idéer som vi sedan dess har "
+"främst inom programmering, nätverk och andra IT-relaterade ämnen."
+
+#: kodkollektivet/templates/base.html:81
+msgid "what-is-kod-part-2"
+msgstr ""
+"Vi startade under sommaren 2015 med ett hav av idéer som vi sedan dess har "
 "provat på, finslipat men framför allt lärt oss en hel del av gällande både "
-"samarbete, planering och fokus.\n"
-"\n"
+"samarbete, planering och fokus."
+
+#: kodkollektivet/templates/base.html:83
+msgid "what-is-kod-part-3"
+msgstr ""
 "Med detta i bagaget startar Kodkollektivet nu som studentförening och "
 "skiftar fokus en aning från projektarbeten och kodträffar till en mer social "
 "platform inriktad på studenter (med ingen till full kompetens inom sitt "
 "område) likaväl som företag med intresse av att komma i tidig kontakt med "
-"framtida arbetstagare.\n"
-"\n"
+"framtida arbetstagare."
+
+#: kodkollektivet/templates/base.html:85
+msgid "what-is-kod-part-4"
+msgstr ""
 "Detta gör vi med hjälp av en mötesplats där studenter får komma i kontakt "
 "med båda varandra och näringsliv genom diverse aktiviteter såsom tema-"
 "kvällar, hackathons, workshops, studiebesök och kortare gästföreläsningar "
-"från företag i regionen.\n"
-"          "
+"från företag i regionen."
 
-#: templates/base.html:65
+#: kodkollektivet/templates/base.html:94
 msgid "Student, do you have what it takes"
 msgstr "Student, har du var som krävs"
 
-#: templates/base.html:67
-msgid ""
-"\n"
-"          Absolutely! No previous experience or particular skills are "
-"required\n"
-"          to take part of Kodkollektivet. We welcome anyone who wants to "
-"learn,\n"
-"          share, improve their resume or just want to make more friends "
-"with\n"
-"          similar interests!\n"
-"\n"
-"          Kodkollektivet puts no requirements on you as a student, but is "
-"rather\n"
-"          a provider of opportunities. You are free to decide for yourself "
-"how\n"
-"          much you would like to participate and how much time you want to "
-"put\n"
-"          into the activities and events we host.\n"
-"          "
+#: kodkollektivet/templates/base.html:96
+msgid "do-you-have-what-it-takes"
 msgstr ""
-"\n"
 "Absolut! För att ta del av Kodkollektivet krävs inga som helst tidigare "
 "erfarenheter eller särskilda talanger. Vi välkomnar alla som vill lära sig "
-"mer, förbättra sitt CV, eller bara träffa nya vänner med liknande "
-"intressen!\n"
-"\n"
+"mer, förbättra sitt CV, eller bara träffa nya vänner med liknande intressen! "
 "Kodkollektivet ställer inga krav på dig som student, utan ger dig bara "
 "möjligheten. Du bestämmer själv hur mycket du vill delta och hur mycket tid "
-"du vill lägga ner på de aktiviteter och träffar vi erbjuder.\n"
-"          "
+"du vill lägga ner på de aktiviteter och träffar vi erbjuder."
 
-#: templates/base.html:80
+#: kodkollektivet/templates/base.html:107
 msgid "Employers, come and meet the future"
 msgstr "Företag, kom och träffa framtiden"
 
-#: templates/base.html:82
-msgid ""
-"\n"
-"          The university students of today are the very people who will be\n"
-"          urging new thoughts and ideas in tomorrows businesses. Through\n"
-"          Kodkollektivet is the possibility to meet these students in a "
-"social,\n"
-"          comfortable environment without prestige. Kodkollektivet is "
-"always\n"
-"          open to any type of suggestions from you as a company, in regards "
-"of\n"
-"          ideas for events and activities.\n"
-"          "
-msgstr ""
-"\n"
-"Dagens studenter är de som kommer att driva nya ideer och tankar i "
-"morgondagens företag. Genom Kodkollektivet finns möjligheten att på ett "
-"prestigelöst och socialt sätt träffa dem. Kodkollektivet ser gärna att ni "
-"kommer med ideer på events, föreläsningar eller studiebesök! Vill ni vara "
-"med och sponsra Kodkollektivet och få din logo på hemsidan?\n"
-"          "
+#: kodkollektivet/templates/base.html:109
+msgid "come-and-meet-the-future"
+msgstr "Dagens studenter är de som kommer att driva nya ideer och tankar i morgondagens företag. Genom Kodkollektivet finns möjligheten att på ett prestigelöst och socialt sätt träffa dem. Kodkollektivet ser gärna att ni kommer med ideer på events, föreläsningar eller studiebesök! Vill ni vara med och sponsra Kodkollektivet och få din logo på hemsidan?"
 
-#: templates/base.html:97
-msgid "Upcoming event"
-msgstr "Kommande event"
-
-#: templates/base.html:110
+#: kodkollektivet/templates/base.html:129
 msgid "Get in contact"
 msgstr "Kontakta oss"
 
-#: templates/base.html:112
+#: kodkollektivet/templates/base.html:134
 msgid "We are using Slack"
 msgstr "Vi använder Slack"
 
-#: templates/base.html:115
+#: kodkollektivet/templates/base.html:140
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "          As for now you need to send a mail to info@kodkollektivet.se "
+#| "and get an invite!\n"
+#| "          Talk to you on Slack!\n"
+#| "          "
 msgid ""
 "\n"
-"          As for now you need to send a mail to info@kodkollektivet.se and "
+"            As for now you need to send a mail to info@kodkollektivet.se and "
 "get an invite!\n"
-"          Talk to you on Slack!\n"
-"          "
+"            Talk to you on Slack!\n"
+"            "
 msgstr ""
 "\n"
 "          För att få tillgång till Slacken, skicka ett mail till "
 "info@kodkollektivet.se så får du en inbjudan!          Vi hörs i Slack!\n"
 "          "
 
-#: templates/board.html:10
-msgid "President"
-msgstr "Ordförande"
-
-#: templates/board.html:21
-msgid "Vice President"
-msgstr "Vice ordförande"
-
-#: templates/board.html:32
-msgid "Finance officer"
-msgstr "Ekonomiansvarig"
-
-#: templates/board.html:43
-msgid "External relations"
-msgstr "Externa relationer"
-
-#: templates/board.html:53
-msgid "Auditor"
-msgstr "Revisor"
-
-#: templates/board.html:64 templates/board.html:75 templates/board.html:86
-#: templates/board.html:97
-#, fuzzy
-#| msgid "Not member"
-msgid "Board Member"
-msgstr "Styrelseledamot"
-
-#: templates/board.html:106
-msgid "Bilderna är tagna av"
-msgstr "Pictures are taken by"
-
-#: templates/menu.html:5
+#: kodkollektivet/templates/base.html:154
 msgid "Home"
 msgstr "Hem"
 
-#: templates/menu.html:11
+#: kodkollektivet/templates/base.html:163
 msgid "Statutes"
 msgstr "Stadgar"
 
-#: templates/projects/projects.html:6
+#: kodkollektivet/templates/projects/projects.html:10
 msgid ""
 "\n"
-"Members of Kodkollektivet can get together and create projects.\n"
-"Below is a list of the projects that we have in our GitHub organization.\n"
-"If you wanna make a project within the Kodkollektivet organization you are\n"
-"very welcome. Just hit us up on Slack or email and we help you setting up a "
-"repo!\n"
+"    Members of Kodkollektivet can get together and create projects.\n"
+"    Below is a list of the projects that we have in our GitHub "
+"organization.\n"
+"    If you wanna make a project within the Kodkollektivet organization you "
+"are\n"
+"    very welcome. Just hit us up on Slack or email and we help you setting "
+"up a repo!\n"
+"    "
 msgstr ""
 
-#: templates/projects/projects.html:29
+#: kodkollektivet/templates/projects/projects.html:19
+msgid "Current"
+msgstr ""
+
+#: kodkollektivet/templates/projects/projects.html:36
 msgid "Services and applications"
 msgstr "Tjänster och applikationer"
 
-#: templates/projects/projects.html:31
+#: kodkollektivet/templates/projects/projects.html:38
 msgid ""
 "\n"
 "      We encurage members to set up services or creating applications.\n"
@@ -242,90 +170,236 @@ msgid ""
 "      "
 msgstr ""
 "\n"
-"      Vi vill uppmuntra medlemar att skapa tjänster och bygga applikationer.\n"
+"      Vi vill uppmuntra medlemar att skapa tjänster och bygga "
+"applikationer.\n"
 "      Om du har något som du gärna vill att vi ska publicera i listan\n"
-"      kontakta oss på Slack eller email. Om du har projekt som du vill hosta under\n"
-"      https://api.kodkollektivet.se/YOUR_PROJECT_NAME kan vi hjälpa till med det!\n"
+"      kontakta oss på Slack eller email. Om du har projekt som du vill hosta "
+"under\n"
+"      https://api.kodkollektivet.se/YOUR_PROJECT_NAME kan vi hjälpa till med "
+"det!\n"
 "      "
 
-#: templates/registration/activate.html:6
+#: kodkollektivet/templates/registration/activate.html:6
 msgid "Account activation failed"
 msgstr "Kontot kan inte aktiveras"
 
-#: templates/registration/activation_complete.html:5
+#: kodkollektivet/templates/registration/activation_complete.html:5
 msgid "Your account is now activated."
 msgstr "Ditt konto är nu aktiverat"
 
-#: templates/registration/activation_email.txt:2
+#: kodkollektivet/templates/registration/activation_email.txt:2
 msgid "Activate account at"
 msgstr "Aktivt konto på"
 
-#: templates/registration/activation_email.txt:6
+#: kodkollektivet/templates/registration/activation_email.txt:6
 #, python-format
 msgid "Link is valid for %(expiration_days)s days."
 msgstr ""
 
-#: templates/registration/activation_email_subject.txt:1
+#: kodkollektivet/templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
 msgstr ""
 
-#: templates/registration/login.html:9
-#: templates/registration/password_reset_complete.html:8
+#: kodkollektivet/templates/registration/login.html:9
+#: kodkollektivet/templates/registration/password_reset_complete.html:8
 msgid "Log in"
 msgstr "Logga in"
 
-#: templates/registration/login.html:13
+#: kodkollektivet/templates/registration/login.html:13
 msgid "Forgot password"
 msgstr "Glömt lösenord"
 
-#: templates/registration/login.html:13
+#: kodkollektivet/templates/registration/login.html:13
 msgid "Reset it"
 msgstr "Återställ"
 
-#: templates/registration/login.html:14
+#: kodkollektivet/templates/registration/login.html:14
 msgid "Not member"
 msgstr "Inte medlem"
 
-#: templates/registration/login.html:14
+#: kodkollektivet/templates/registration/login.html:14
 msgid "Register"
 msgstr "Registrera"
 
-#: templates/registration/logout.html:5
+#: kodkollektivet/templates/registration/logout.html:5
 msgid "Logged out"
 msgstr "Logga ut"
 
-#: templates/registration/password_change_done.html:5
+#: kodkollektivet/templates/registration/password_change_done.html:5
 msgid "Password changed"
 msgstr "Lösenord ändrat"
 
-#: templates/registration/password_change_form.html:9
-#: templates/registration/password_reset_confirm.html:12
-#: templates/registration/password_reset_form.html:9
-#: templates/registration/registration_form.html:9
+#: kodkollektivet/templates/registration/password_change_form.html:9
+#: kodkollektivet/templates/registration/password_reset_confirm.html:12
+#: kodkollektivet/templates/registration/password_reset_form.html:9
+#: kodkollektivet/templates/registration/registration_form.html:9
 msgid "Submit"
 msgstr "Skapa"
 
-#: templates/registration/password_reset_complete.html:6
+#: kodkollektivet/templates/registration/password_reset_complete.html:6
 msgid "Password reset successfully"
 msgstr ""
 
-#: templates/registration/password_reset_confirm.html:17
+#: kodkollektivet/templates/registration/password_reset_confirm.html:17
 msgid "Password reset failed"
 msgstr ""
 
-#: templates/registration/password_reset_done.html:5
+#: kodkollektivet/templates/registration/password_reset_done.html:5
 msgid "Email with password reset instructions has been sent."
 msgstr ""
 
-#: templates/registration/password_reset_email.html:2
+#: kodkollektivet/templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
 msgstr ""
 
-#: templates/registration/registration_closed.html:5
+#: kodkollektivet/templates/registration/registration_closed.html:5
 msgid "Registration is currently closed."
 msgstr ""
 
-#: templates/registration/registration_complete.html:5
+#: kodkollektivet/templates/registration/registration_complete.html:5
 msgid "You are now registered. Activation email sent."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "          The university students of today are the very people who will "
+#~| "be\n"
+#~| "          urging new thoughts and ideas in tomorrows businesses. "
+#~| "Through\n"
+#~| "          Kodkollektivet is the possibility to meet these students in a "
+#~| "social,\n"
+#~| "          comfortable environment without prestige. Kodkollektivet is "
+#~| "always\n"
+#~| "          open to any type of suggestions from you as a company, in "
+#~| "regards of\n"
+#~| "          ideas for events and activities.\n"
+#~| "          "
+#~ msgid ""
+#~ "\n"
+#~ "              The university students of today are the very people who "
+#~ "will be\n"
+#~ "              urging new thoughts and ideas in tomorrows businesses. "
+#~ "Through\n"
+#~ "              Kodkollektivet is the possibility to meet these students in "
+#~ "a social,\n"
+#~ "              comfortable environment without prestige. Kodkollektivet is "
+#~ "always\n"
+#~ "              open to any type of suggestions from you as a company, in "
+#~ "regards of\n"
+#~ "              ideas for events and activities.\n"
+#~ "              "
+#~ msgstr ""
+#~ "\n"
+#~ "\n"
+#~ "          "
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "          Absolutely! No previous experience or particular skills are "
+#~| "required\n"
+#~| "          to take part of Kodkollektivet. We welcome anyone who wants to "
+#~| "learn,\n"
+#~| "          share, improve their resume or just want to make more friends "
+#~| "with\n"
+#~| "          similar interests!\n"
+#~| "\n"
+#~| "          Kodkollektivet puts no requirements on you as a student, but "
+#~| "is rather\n"
+#~| "          a provider of opportunities. You are free to decide for "
+#~| "yourself how\n"
+#~| "          much you would like to participate and how much time you want "
+#~| "to put\n"
+#~| "          into the activities and events we host.\n"
+#~| "          "
+#~ msgid ""
+#~ "\n"
+#~ "              Absolutely! No previous experience or particular skills are "
+#~ "required\n"
+#~ "              to take part of Kodkollektivet. We welcome anyone who wants "
+#~ "to learn,\n"
+#~ "              share, improve their resume or just want to make more "
+#~ "friends with\n"
+#~ "              similar interests!\n"
+#~ "\n"
+#~ "              Kodkollektivet puts no requirements on you as a student, "
+#~ "but is rather\n"
+#~ "              a provider of opportunities. You are free to decide for "
+#~ "yourself how\n"
+#~ "              much you would like to participate and how much time you "
+#~ "want to put\n"
+#~ "              into the activities and events we host.\n"
+#~ "              "
+#~ msgstr ""
+#~ "\n"
+#~ "\n"
+#~ "          "
+
+#~ msgid ""
+#~ "\n"
+#~ "          Kodkollektivet consists of a group of students with a great "
+#~ "interest\n"
+#~ "          in programming, computer networking and tons of other IT and "
+#~ "business\n"
+#~ "          related topics. We started in the summer of 2015 with tons of "
+#~ "ideas\n"
+#~ "          that we since then have been trying out, refined and most "
+#~ "importantly\n"
+#~ "          learned a great deal from in terms of cooperation, planning "
+#~ "and\n"
+#~ "          focus.\n"
+#~ "\n"
+#~ "          With all of this Kodkollektivet is now taking the shape of a "
+#~ "student\n"
+#~ "          organization at Linnaeus University. Focus has shifted slightly "
+#~ "from\n"
+#~ "          project development and code meetups to more of a social "
+#~ "platform\n"
+#~ "          where students and local businesses can find, meet and get to "
+#~ "know\n"
+#~ "          each other through events and activities such as theme-nights,\n"
+#~ "          hackathons, workshops, study visits, guest lectures and more.\n"
+#~ "\n"
+#~ "          As a result of this students at Linnaeus University are "
+#~ "provided with\n"
+#~ "          a place to find other students with a shared or similar "
+#~ "interest,\n"
+#~ "          while at the same time giving companies in the Vaxjo area the\n"
+#~ "          opportunity to get a head start with potential employees.\n"
+#~ "          "
+#~ msgstr ""
+#~ "\n"
+#~ "  .\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "          "
+
+#~ msgid "Upcoming event"
+#~ msgstr "Kommande event"
+
+#~ msgid "President"
+#~ msgstr "Ordförande"
+
+#~ msgid "Vice President"
+#~ msgstr "Vice ordförande"
+
+#~ msgid "Finance officer"
+#~ msgstr "Ekonomiansvarig"
+
+#~ msgid "External relations"
+#~ msgstr "Externa relationer"
+
+#~ msgid "Auditor"
+#~ msgstr "Revisor"
+
+#, fuzzy
+#~| msgid "Not member"
+#~ msgid "Board Member"
+#~ msgstr "Styrelseledamot"
+
+#~ msgid "Bilderna är tagna av"
+#~ msgstr "Pictures are taken by"

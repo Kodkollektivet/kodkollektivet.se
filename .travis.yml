@@ -1,0 +1,30 @@
+language: python
+
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+before_install:
+  - mkdir ../logs
+  - touch ../logs/all.log
+
+install:
+  - pip install -r requirements.txt
+  - python kodkollektivet/manage.py makemigrations
+  - python kodkollektivet/manage.py migrate
+
+script:
+  - python kodkollektivet/manage.py test
+
+branches:
+  only:
+    - master
+
+notifications:
+  webhooks:
+    urls:
+      - https://ci.kodkollektivet.se/ljwhwlbwjhaumdernpmx/
+    on_success: always
+    on_failure: never
+    on_start: never

@@ -50,6 +50,7 @@ class ProRolAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Event, EventAdmin)
+admin.site.register(models.BoardMember)
 
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Language, LanguageAdmin)

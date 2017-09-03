@@ -2,90 +2,23 @@
 {% load staticfiles %}
 {% load i18n %}
 
-{% block content %} 
+{% block content %}
+
+
 <div class="board">
+  {% for member in object_list %}
   <section>
     <div align="center">
-      <h2>{% trans "President" %}</h2>
-      <img src="{% static 'img/board/john_resized.jpg' %}" alt="image of John Herrlin" />
-      John Herrlin</br>
-      john@kodkollektivet.se</br>
-      <div>
+      <h2>{{ member.position|title }}</h2>
+      <img src={{ member.photo.url }} />
+      <p>{{ member.first_name }} {{ member.last_name }}</p>
+      {% if member.email %}<p>Email:{{ member.email }}</p>{% endif %}
+      {% if member.telephone %}<p>Tel:{{ member.telephone }}</p>{% endif %}
+    </div>
   </section>
-  
-  <section>
-    <div align="center">
-      <h2>{% trans "Vice President" %}</h2>
-      <img src="{% static 'img/board/rasmus_resized.jpg' %}" alt="image of Rasmus Sjöström" />
-      Rasmus Sjöström</br>
-      rasmus@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Finance officer" %}</h2>
-      <img src="{% static 'img/board/vahida_resized.jpg' %}" alt="image of Vahida" />
-      Vahida Ahmic</br>
-      vahida@kodkollektivet.se</br>
-      <div>
-  </section>
-  
-  <section>
-    <div align="center">
-      <h2>{% trans "External relations" %}</h2>
-      Johan Rovala </br>
-      johan@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Auditor" %}</h2>
-      <img src="{% static 'img/board/abdi_resized.jpg' %}" alt="image of Abdi" />
-      Abdirauf Ahmed</br>
-      abdi@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Board Member" %}</h2>
-      <img src="{% static 'img/board/malte_resized.jpg' %}" alt="image of Malte" />
-      Malte Dammann</br>
-      malte@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Board Member" %}</h2>
-      <img src="{% static 'img/board/alex_resized.jpg' %}" alt="image of Alex" />
-      Alexander Spottka </br>
-      alex@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Board Member" %}</h2>
-      <img src="{% static 'img/board/otto_resized.jpg' %}" alt="image of Otto" />
-      Otto Bergman</br>
-      otto@kodkollektivet.se</br>
-      <div>
-  </section>
-
-  <section>
-    <div align="center">
-      <h2>{% trans "Board Member" %}</h2>
-      <img src="{% static 'img/board/peter_resized.jpg' %}" alt="image of Peter" />
-      Peter Danielsson</br>
-      peter@kodkollektivet.se</br>
-      <div>
-  </section>
+  {% endfor %}
 </div>
 
 <p class="center">Bilderna är tagna av Petter Hammarbäck, IEC</p>
 
 {% endblock content %}
-  
