@@ -4,7 +4,7 @@ MAINTAINER jherrlin@gmail.com
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential imagemagick libmagickwand-dev libmagickcore-dev
+    apt-get install -y build-essential imagemagick libmagickwand-dev libmagickcore-dev gettext
 
 ADD requirements.txt /app/
 WORKDIR /app
