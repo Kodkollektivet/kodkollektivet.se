@@ -41,9 +41,14 @@ footer
             color: white
             font-size: 12px
           text-align: left
-@media screen and (max-width: $breakpoint-tablet)
-
-  .contact,.goto,.logo-footer
-    @include span-columns(12)   
-    &:not(:first-child)
-      margin-top: 30px
+  @media screen and (max-width: 1135px)
+    padding: 0 50px 50px 50px
+    .logo-footer
+      display: none
+    .contact,.goto
+      @include span-columns(6)
+      &:not(:first-child)
+        margin-top: 30px
+      h3 
+        margin: 50px
+        text-align: center
