@@ -6,6 +6,7 @@ body
   font-family: 'Poppoins', sans-serif
   max-width: 3000px
   margin: 0 auto
+  min-width: 580px
 
 main
   background-color: white
@@ -20,14 +21,32 @@ main
       @include span-columns(6)
     .split
       @include span-columns(1)
+
       text-align: right
       i
         font-size: 78px
+      @media screen and (max-width: 915px)
+        i
+          font-size: 40px
     article
       @include span-columns(5)
       padding-right: 50px
       p:first-of-type
         color: darkblue
+    @media screen and (max-width: 915px)
+      .split
+        i
+          font-size: 40px
+      article
+        section
+          h2
+            font-size: 28px
+    @media screen and (max-width: 820px)
+      .split
+        display: none
+      article
+        @include span-columns(6)
+        padding-right: 10px
 
   .student-company
     @include outer-container()
@@ -48,6 +67,9 @@ main
       text-align: center
       i
         font-size: 78px
+      @media screen and (max-width: 915px)
+        i
+          font-size: 40px
     .company
       @include span-columns(5)
 

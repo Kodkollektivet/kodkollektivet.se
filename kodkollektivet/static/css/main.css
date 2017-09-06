@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,700");
-/* line 2, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_grid.scss */
+/* line 2, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_grid.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -17,42 +17,43 @@ body {
   font-family: "Poppoins", sans-serif;
   max-width: 3000px;
   margin: 0 auto;
+  min-width: 580px;
 }
 
-/* line 10, compass/sass/_base.sass */
+/* line 11, compass/sass/_base.sass */
 main {
   background-color: white;
   min-height: 300px;
 }
-/* line 14, compass/sass/_base.sass */
+/* line 15, compass/sass/_base.sass */
 main .what-is {
   padding: 20px;
   max-width: 3000px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 15, compass/sass/_base.sass */
+/* line 16, compass/sass/_base.sass */
 main .what-is h2 {
   font-size: 36px;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 main .what-is:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 19, compass/sass/_base.sass */
+/* line 20, compass/sass/_base.sass */
 main .what-is img {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is img:last-child {
   margin-right: 0;
 }
-/* line 21, compass/sass/_base.sass */
+/* line 22, compass/sass/_base.sass */
 main .what-is .split {
   float: left;
   display: block;
@@ -60,15 +61,21 @@ main .what-is .split {
   width: 6.17215%;
   text-align: right;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is .split:last-child {
   margin-right: 0;
 }
-/* line 24, compass/sass/_base.sass */
+/* line 26, compass/sass/_base.sass */
 main .what-is .split i {
   font-size: 78px;
 }
-/* line 26, compass/sass/_base.sass */
+@media screen and (max-width: 915px) {
+  /* line 29, compass/sass/_base.sass */
+  main .what-is .split i {
+    font-size: 40px;
+  }
+}
+/* line 31, compass/sass/_base.sass */
 main .what-is article {
   float: left;
   display: block;
@@ -76,15 +83,43 @@ main .what-is article {
   width: 40.29137%;
   padding-right: 50px;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is article:last-child {
   margin-right: 0;
 }
-/* line 29, compass/sass/_base.sass */
+/* line 34, compass/sass/_base.sass */
 main .what-is article p:first-of-type {
   color: darkblue;
 }
-/* line 32, compass/sass/_base.sass */
+@media screen and (max-width: 915px) {
+  /* line 38, compass/sass/_base.sass */
+  main .what-is .split i {
+    font-size: 40px;
+  }
+  /* line 42, compass/sass/_base.sass */
+  main .what-is article section h2 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 820px) {
+  /* line 45, compass/sass/_base.sass */
+  main .what-is .split {
+    display: none;
+  }
+  /* line 47, compass/sass/_base.sass */
+  main .what-is article {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    padding-right: 10px;
+  }
+  /* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+  main .what-is article:last-child {
+    margin-right: 0;
+  }
+}
+/* line 51, compass/sass/_base.sass */
 main .student-company {
   max-width: 3000px;
   margin-left: auto;
@@ -92,38 +127,38 @@ main .student-company {
   background-color: #DDD;
   padding: 120px 50px;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 main .student-company:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 36, compass/sass/_base.sass */
+/* line 55, compass/sass/_base.sass */
 main .student-company h2 {
   text-transform: uppercase;
   font-size: 24px;
 }
-/* line 39, compass/sass/_base.sass */
+/* line 58, compass/sass/_base.sass */
 main .student-company article {
   text-align: center;
 }
-/* line 41, compass/sass/_base.sass */
+/* line 60, compass/sass/_base.sass */
 main .student-company article section {
   display: inline-block;
   text-align: left;
 }
-/* line 44, compass/sass/_base.sass */
+/* line 63, compass/sass/_base.sass */
 main .student-company .student {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 40.29137%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .student:last-child {
   margin-right: 0;
 }
-/* line 46, compass/sass/_base.sass */
+/* line 65, compass/sass/_base.sass */
 main .student-company .split {
   float: left;
   display: block;
@@ -131,81 +166,87 @@ main .student-company .split {
   width: 14.70196%;
   text-align: center;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .split:last-child {
   margin-right: 0;
 }
-/* line 49, compass/sass/_base.sass */
+/* line 68, compass/sass/_base.sass */
 main .student-company .split i {
   font-size: 78px;
 }
-/* line 51, compass/sass/_base.sass */
+@media screen and (max-width: 915px) {
+  /* line 71, compass/sass/_base.sass */
+  main .student-company .split i {
+    font-size: 40px;
+  }
+}
+/* line 73, compass/sass/_base.sass */
 main .student-company .company {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 40.29137%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .company:last-child {
   margin-right: 0;
 }
 
-/* line 55, compass/sass/_base.sass */
+/* line 77, compass/sass/_base.sass */
 .projects {
   max-width: 3000px;
   margin-left: auto;
   margin-right: auto;
   padding: 50px;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 .projects:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 58, compass/sass/_base.sass */
+/* line 80, compass/sass/_base.sass */
 .projects h3 {
   margin-top: 50px;
 }
-/* line 60, compass/sass/_base.sass */
+/* line 82, compass/sass/_base.sass */
 .projects .creating {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .projects .creating:last-child {
   margin-right: 0;
 }
-/* line 63, compass/sass/_base.sass */
+/* line 85, compass/sass/_base.sass */
 .projects .creating ul li {
   margin-top: 7px;
 }
-/* line 65, compass/sass/_base.sass */
+/* line 87, compass/sass/_base.sass */
 .projects .creating ul li a {
   font-size: 20px;
 }
-/* line 67, compass/sass/_base.sass */
+/* line 89, compass/sass/_base.sass */
 .projects .creating .projectlist {
   background-color: #E8E8E8;
   padding: 20px 0;
   border-radius: 5px;
 }
-/* line 71, compass/sass/_base.sass */
+/* line 93, compass/sass/_base.sass */
 .projects .services-apps {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .projects .services-apps:last-child {
   margin-right: 0;
 }
 
-/* line 74, compass/sass/_base.sass */
+/* line 96, compass/sass/_base.sass */
 .board {
   display: -webkit-flex;
   display: flex;
@@ -214,64 +255,64 @@ main .student-company .company:last-child {
   margin: 30px auto;
   max-width: 800px;
 }
-/* line 79, compass/sass/_base.sass */
+/* line 101, compass/sass/_base.sass */
 .board section {
   -webkit-flex: 1;
   flex: 1;
   margin-bottom: 40px;
 }
 
-/* line 82, compass/sass/_base.sass */
+/* line 104, compass/sass/_base.sass */
 .center {
   text-align: center;
   margin: 15px auto;
 }
 
-/* line 86, compass/sass/_base.sass */
+/* line 108, compass/sass/_base.sass */
 h1, h2, h3, h4, h5 {
   margin-bottom: 30px;
   letter-spacing: 0px;
   color: #1F3D6A;
 }
 
-/* line 90, compass/sass/_base.sass */
+/* line 112, compass/sass/_base.sass */
 h3, h4, h5 {
   margin-bottom: 20px;
 }
 
-/* line 92, compass/sass/_base.sass */
+/* line 114, compass/sass/_base.sass */
 h2 {
   font-size: 26px;
 }
 
-/* line 95, compass/sass/_base.sass */
+/* line 117, compass/sass/_base.sass */
 h3 {
   font-size: 26px;
 }
 
-/* line 98, compass/sass/_base.sass */
+/* line 120, compass/sass/_base.sass */
 p {
   margin-bottom: 15px;
   font-weight: 300;
   max-width: 600px;
 }
 
-/* line 103, compass/sass/_base.sass */
+/* line 125, compass/sass/_base.sass */
 a {
   color: #8CB3ED;
   text-decoration: none;
   letter-spacing: 1px;
 }
-/* line 107, compass/sass/_base.sass */
+/* line 129, compass/sass/_base.sass */
 a:hover {
   color: white;
 }
-/* line 109, compass/sass/_base.sass */
+/* line 131, compass/sass/_base.sass */
 a:visited {
   color: #8CB3ED;
 }
 
-/* line 112, compass/sass/_base.sass */
+/* line 134, compass/sass/_base.sass */
 ul {
   list-style-type: none;
 }
@@ -340,7 +381,7 @@ header {
   position: relative;
   height: 400px;
   padding: 15px;
-  background: url('../img/kk_background2.png?1492960029'), no-repeat;
+  background: url('../img/kk_background2.png?1504446464'), no-repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -453,11 +494,14 @@ header #changelang select {
   font-size: 12px;
 }
 @media screen and (max-width: 830px) {
-  /* line 80, compass/sass/_header.sass */
-  header h1 {
-    font-size: 48px;
-    letter-spacing: -6px;
-    margin-left: -215px;
+  /* line 81, compass/sass/_header.sass */
+  header .header-text i {
+    font-size: 108px;
+  }
+  /* line 83, compass/sass/_header.sass */
+  header .header-text h1 {
+    font-size: 54px;
+    margin-left: -15px;
   }
 }
 
@@ -471,7 +515,7 @@ footer {
   max-height: 450px;
   overflow: hidden;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 footer:after {
   content: "";
   display: table;
@@ -484,7 +528,7 @@ footer .contact, footer .goto {
   margin-right: 2.35765%;
   width: 31.76157%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .contact:last-child, footer .goto:last-child {
   margin-right: 0;
 }
@@ -510,7 +554,7 @@ footer .logo-footer {
   margin-right: 2.35765%;
   width: 31.76157%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .logo-footer:last-child {
   margin-right: 0;
 }
@@ -530,7 +574,7 @@ footer .goto div .links {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 footer .goto div .links:after {
   content: "";
   display: table;
@@ -552,7 +596,7 @@ footer .goto div .links ul {
   font-size: 16px;
   text-align: left;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .goto div .links ul:last-child {
   margin-right: 0;
 }
@@ -562,24 +606,37 @@ footer .goto div .links ul h4 {
   color: white;
   font-size: 12px;
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1135px) {
+  /* line 1, compass/sass/_footer.sass */
+  footer {
+    padding: 0 50px 50px 50px;
+  }
   /* line 46, compass/sass/_footer.sass */
-  .contact, .goto, .logo-footer {
+  footer .logo-footer {
+    display: none;
+  }
+  /* line 48, compass/sass/_footer.sass */
+  footer .contact, footer .goto {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%;
+    width: 48.82117%;
   }
-  /* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
-  .contact:last-child, .goto:last-child, .logo-footer:last-child {
+  /* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+  footer .contact:last-child, footer .goto:last-child {
     margin-right: 0;
   }
-  /* line 48, compass/sass/_footer.sass */
-  .contact:not(:first-child), .goto:not(:first-child), .logo-footer:not(:first-child) {
+  /* line 50, compass/sass/_footer.sass */
+  footer .contact:not(:first-child), footer .goto:not(:first-child) {
     margin-top: 30px;
   }
+  /* line 52, compass/sass/_footer.sass */
+  footer .contact h3, footer .goto h3 {
+    margin: 50px;
+    text-align: center;
+  }
 }
+
 /* line 2, compass/sass/_event.sass */
 .events .new-events {
   margin: 50px auto;
@@ -592,7 +649,7 @@ footer .goto div .links ul h4 {
 .events .new-events h2, .events .new-events h3, .events .new-events h4 {
   text-align: center;
 }
-/* line 15, ../../../../../../.rvm/gems/ruby-2.2.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 .events .new-events:after {
   content: "";
   display: table;
@@ -606,7 +663,7 @@ footer .goto div .links ul h4 {
   width: 48.82117%;
   padding: 0 50px;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .events .new-events .next-event:last-child {
   margin-right: 0;
 }
@@ -646,7 +703,7 @@ footer .goto div .links ul h4 {
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-2.2.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .events .new-events .upcoming-events:last-child {
   margin-right: 0;
 }
