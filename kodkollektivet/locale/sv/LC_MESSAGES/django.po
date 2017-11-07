@@ -82,7 +82,7 @@ msgstr ""
 
 #: kodkollektivet/templates/base.html:94
 msgid "Student, do you have what it takes"
-msgstr "Student, har du var som krävs"
+msgstr "Student, har du vad som krävs"
 
 #: kodkollektivet/templates/base.html:96
 msgid "do-you-have-what-it-takes"
