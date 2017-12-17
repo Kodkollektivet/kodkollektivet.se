@@ -1,5 +1,4 @@
 django
-django-registration
 djangorestframework
 requests
 django-markdown-deux

@@ -177,33 +177,33 @@ class Framework(models.Model):
 
 
 class ProFra(models.Model):
-    project = models.ForeignKey(Project)
-    framework = models.ForeignKey(Framework)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    framework = models.ForeignKey(Framework, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Project-Framework relation'
 
 
 class ProCon(models.Model):
-    project = models.ForeignKey(Project)
-    contributor = models.ForeignKey(Contributor)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    contributor = models.ForeignKey(Contributor, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Project-Contributor relation'
 
 
 class ProLan(models.Model):
-    project = models.ForeignKey(Project)
-    language = models.ForeignKey(Language)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Project-Language relation'
 
 
 class ProRol(models.Model):
-    project = models.ForeignKey(Project)
-    contributor = models.ForeignKey(Contributor)
-    role = models.ForeignKey(Role)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    contributor = models.ForeignKey(Contributor, on_delete=models.CASCADE)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Project-Role-Contributor relation'
