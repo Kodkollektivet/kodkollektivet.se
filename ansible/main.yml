@@ -1,0 +1,8 @@
+---
+
+- name: Site
+  hosts: servers
+  max_fail_percentage: 0
+  roles:
+    - roles/python
+    - roles/postgres    
