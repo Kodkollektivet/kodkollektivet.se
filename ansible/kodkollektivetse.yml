@@ -4,5 +4,6 @@
   hosts: servers
   max_fail_percentage: 0
   roles:
+    - roles/base
     - roles/python
-    - roles/postgres    
+    - roles/postgres

@@ -1,0 +1,15 @@
+---
+#
+# Base handlers
+#
+
+
+- name: Systemd reload
+  systemd: daemon_reload=yes
+
+
+- name: Enable iptables timer
+  systemd:
+    name: start_iptables.timer
+    state: started
+    enabled: True
