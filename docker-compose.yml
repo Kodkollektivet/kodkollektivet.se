@@ -1,5 +1,10 @@
 version: '3'
 services:
+  koddb:
+    image: postgres
+    hostname: koddb
+    container_name: koddb
+
   koddjango:
     build: .
     container_name: koddjango
@@ -10,3 +15,5 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    depends_on:
+      - koddb
