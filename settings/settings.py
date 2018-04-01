@@ -159,6 +159,10 @@ REST_FRAMEWORK = {
     )
 }
 
+# Logging
+# Create logdir if it doesnt exists.
+if not os.path.exists(BASE_DIR + "/logs/"):
+    os.makedirs(BASE_DIR + "/logs/")
 
 # Logging
 LOGGING = {
