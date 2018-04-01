@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'markdown_deux',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -127,14 +128,12 @@ LANGUAGES = (
 )
 
 
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "../static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "../media")
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
@@ -151,13 +150,16 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     )
 }
+
+
+# compressor / sass
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 
 # Logging
 # Create logdir if it doesnt exists.
