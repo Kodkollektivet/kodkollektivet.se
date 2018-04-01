@@ -3,6 +3,21 @@
 
 [[https://travis-ci.org/Kodkollektivet/kodkollektivet.se][https://travis-ci.org/Kodkollektivet/kodkollektivet.se.svg?branch=master]]
 
+* Ansible notes
+** Secrets
+
+   There is a folder with secrets for the project but it's not under version control. The
+   secrets are users/passwords/certificates for the service. Ask in Kodkollektivet slack
+   to get hold of it.
+
+   After you have the archive, extract it to: =<project_dir>/ansible/secrets=.
+
+** Execute the playbook
+
+   #+BEGIN_SRC shell
+     ansible-playbook -e @secrets/production.json kodkollektivetse.yml
+   #+END_SRC
+
 * Development environment
 
   Its highly recommended to use [[https://virtualenv.pypa.io/en/stable/][virtualenv]] but its optional.
