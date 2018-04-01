@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     'kodkollektivet',
 
-    'rest_framework',
     'markdown_deux',
 ]
 
@@ -115,8 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Europe/Stockholm'
+
 USE_I18N = True
 USE_L10N = True
+USE_TZ = True
+
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "locale"),
 )
@@ -125,10 +127,6 @@ LANGUAGES = (
     ('en', _('English')),
     ('sv', _('Swedish'))
 )
-
-
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -143,21 +141,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "media"),
 ]
-
-# Django-registration
-ACCOUNT_ACTIVATION_DAYS = 7
-
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    )
-}
 
 # Logging
 # Create logdir if it doesnt exists.

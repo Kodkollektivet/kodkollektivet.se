@@ -2,11 +2,6 @@ import requests
 from base64 import b64decode
 import logging
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import AllowAny
-
 from kodkollektivet.models import Project, Contributor, ProCon, ProLan, Language
 from kodkollektivet.forms import ProjectForm
 
@@ -135,15 +130,3 @@ def getprocon():
                     ProCon.objects.get_or_create(contributor=contributor, project=project)
             else:
                 log.debug(req.status_code)
-
-
-class GithubHook(APIView):
-
-    permission_classes = (AllowAny,)
-
-    def post(self, *args):
-        getrepos()
-        getcontribs()
-        getprocon()
-        log.debug('Getting repos... DONE')
-        return Response(status=status.HTTP_200_OK)

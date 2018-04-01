@@ -14,5 +14,4 @@ urlpatterns = [
         views.EventsDetailView.as_view(), name="eventdetailview"),
     url(r'^contributor/(?P<slug>\S+)/$',
         views.ContributorDetailView.as_view(), name="contributordetailview"),
-    url(r'^github/webhook$', github.GithubHook.as_view(), name='githubwebhook'),
 ]
