@@ -1,6 +1,9 @@
 django
+psycopg2-binary
 requests
 django-markdown-deux
 Pillow
 gunicorn
 Wand
+redis
+celery

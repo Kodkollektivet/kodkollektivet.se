@@ -1,12 +1,53 @@
 version: '3'
 services:
+  koddb:
+    image: postgres
+    hostname: koddb
+    container_name: koddb
+  kodredis:
+    image: redis
+    hostname: kodredis
+    container_name: kodredis
+  kodrabbit:
+    container_name: kodrabbit
+    hostname: kodrabbit
+    image: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    ports:
+      - "5672:5672"  # we forward this port because it's useful for debugging
+      - "15672:15672"  # here, we can access rabbitmq management plugin
   koddjango:
     build: .
     container_name: koddjango
     stdin_open: true
-    command: bash -c "python3 manage.py runserver 0.0.0.0:8000 && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py compilemessages -l sv -l en"
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py compilemessages -l sv -l en && python3 manage.py runserver 0.0.0.0:8000"
     tty: true
     ports:
       - "8000:8000"
     volumes:
       - .:/app
+    environment:
+      - PYTHON_ENV=docker
+    depends_on:
+      - koddb
+      - kodredis
+      - kodrabbit
+  kodworker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "sleep 10 && celery -A settings worker -l info -B"
+    environment:
+      - PYTHON_ENV=docker
+    volumes:
+      - .:/app
+    links:
+      - koddb
+      - kodrabbit
+      - kodredis
+    depends_on:
+      - koddb
+      - kodrabbit
+      - kodredis

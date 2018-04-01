@@ -12,6 +12,8 @@ try:
 except ImportError:
     from settings.settings import OAUTH_TOKEN
 
+OAUTH_TOKEN='?client_id=866d6c83aea0c92a7a6f&client_secret=09b7bc4c122fed3d13562ac173a985fa6c8406f2'
+
 
 log = logging.getLogger(__name__)
 
@@ -99,7 +101,6 @@ def getcontribs():
 
             if req.status_code is 200:
                 for contributor in req.json():
-                    import pdb; pdb.set_trace()
                     Contributor.objects.update_or_create(
                         gh_login=contributor['login'],
                         gh_url=contributor['url'],
@@ -130,3 +131,9 @@ def getprocon():
                     ProCon.objects.get_or_create(contributor=contributor, project=project)
             else:
                 log.debug(req.status_code)
+
+
+def collect_github_data():
+    getrepos()
+    getcontribs()
+    getprocon()
