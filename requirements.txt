@@ -1,5 +1,4 @@
 django
-djangorestframework
 requests
 django-markdown-deux
 Pillow
