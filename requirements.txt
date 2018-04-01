@@ -5,3 +5,5 @@ django-markdown-deux
 Pillow
 gunicorn
 Wand
+redis
+celery
