@@ -4,8 +4,7 @@ services:
     build: .
     container_name: koddjango
     stdin_open: true
-    entrypoint: ./entrypoint.sh
-    command: python3 kodkollektivet/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000 && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py compilemessages -l sv -l en"
     tty: true
     ports:
       - "8000:8000"

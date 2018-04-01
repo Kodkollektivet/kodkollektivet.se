@@ -5,17 +5,13 @@ python:
   - "3.5"
   - "3.6"
 
-before_install:
-  - mkdir ../logs
-  - touch ../logs/all.log
-
 install:
   - pip install -r requirements.txt
-  - python kodkollektivet/manage.py makemigrations
-  - python kodkollektivet/manage.py migrate
+  - python manage.py makemigrations
+  - python manage.py migrate
 
 script:
-  - python kodkollektivet/manage.py test
+  - python manage.py test
 
 branches:
   only:

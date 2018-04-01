@@ -1,6 +1,6 @@
 from unittest import skip
 from django.test import TestCase, Client
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 
 from kodkollektivet.models import Project, Contributor
 
