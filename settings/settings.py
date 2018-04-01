@@ -180,7 +180,7 @@ LOGGING = {
         'django': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/all.log',
+            'filename': './logs/all.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'standard'
@@ -188,7 +188,7 @@ LOGGING = {
         'django-requests': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/django-requests.log',
+            'filename': './logs/django-requests.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'standard'
@@ -196,7 +196,7 @@ LOGGING = {
         'django-template': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/django-template.log',
+            'filename': './logs/django-template.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'standard'
@@ -204,7 +204,7 @@ LOGGING = {
         'django-server': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/django-server.log',
+            'filename': './logs/django-server.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'standard'
@@ -212,7 +212,7 @@ LOGGING = {
         'django-security': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/django-security.log',
+            'filename': './logs/django-security.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'standard'
@@ -220,7 +220,7 @@ LOGGING = {
         'kodkollektivet': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '../logs/kodkollektivet.log',
+            'filename': './logs/kodkollektivet.log',
             'maxBytes': 1024 * 1024 * 5,  # 5MB
             'backupCount': 5,
             'formatter': 'verbose'
