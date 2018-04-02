@@ -5,5 +5,10 @@
   max_fail_percentage: 0
   roles:
     - roles/base
+    - roles/users
     - roles/python
     - roles/postgres
+    - roles/fail2ban
+    - roles/redis
+    - roles/rabbitmq
+    - roles/kodkollektivetse
