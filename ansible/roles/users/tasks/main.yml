@@ -48,12 +48,12 @@
     line: "{{ item }}"
     state: present
   with_items:
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl enable unitime-celery.service"
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl enable unitime.service"
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl status unitime-celery.service"
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl status unitime.service"
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart unitime-celery.service"
-    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart unitime.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl enable kodkollektivetse-celery.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl enable kodkollektivetse.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl status kodkollektivetse-celery.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl status kodkollektivetse.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart kodkollektivetse-celery.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart kodkollektivetse.service"
 
 
 - name: Create bashrc
