@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /srv/kodkollektivetse/current
+venv/bin/python manage.py dumpdata > /srv/kodkollektivetse/backups/dumpdata-$(date '+%Y-%m-%d-%H-%M').json

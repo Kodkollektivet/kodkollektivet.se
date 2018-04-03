@@ -3,7 +3,22 @@
 # Kodkollektivet.se project related tasks
 #
 
-# Systemd stuff
+- name: Install kodkollektivetse dependencies
+  apt: "name={{ item }} state=present"
+  with_items:
+    - libmagickwand-dev
+    - gettext
+
+
+- name: Create base folder and set permissions
+  file:
+    path: "{{ projectpaths.base }}"
+    state: directory
+    owner: "{{ deploy.username }}"
+    group: "{{ deploy.username }}"
+    recurse: yes
+
+
 - name: Copy kodkollektivetse.service to systemd folder
   template:
     src: kodkollektivetse.service.j2
@@ -18,58 +33,28 @@
   notify: Reload systemd daemon
 
 
-# Project directories
-- name: Create base folder and set permissions
-  file:
-    path: "{{ projectpaths.base }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
+- name: Copy kodkollektivetse backup service
+  template:
+    src: kodkollektivetse-backup.service.j2
+    dest: /etc/systemd/system/kodkollektivetse-backup.service
+  notify: Reload systemd daemon
 
 
-- name: Create repo folder and set permissions
-  file:
-    path: "{{ projectpaths.repo }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
+- name: Copy kodkollektivetse backup timer
+  template:
+    src: kodkollektivetse-backup.timer.j2
+    dest: /etc/systemd/system/kodkollektivetse-backup.timer
+  notify: Reload systemd daemon
 
 
-- name: Create current folder and set permissions
-  file:
-    path: "{{ projectpaths.current }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
+- name: Enable kodkollektivetse backup timer
+  systemd:
+    name: kodkollektivetse-backup.timer
+    state: started
+    enabled: True
 
 
-- name: Create backup folder and set permissions
-  file:
-    path: "{{ projectpaths.backup }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
-
-
-- name: Create secrets folder and set permissions
-  file:
-    path: "{{ projectpaths.secrets }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
-
-
-- name: Create tmp folder and set permissions
-  file:
-    path: "{{ projectpaths.tmp }}"
-    state: directory
-    owner: "{{ deploy.username }}"
-    group: "{{ deploy.username }}"
-
-
-# Git clone
-- git:
-    repo: '{{ gitrepo }}'
-    dest: "{{ projectpaths.repo }}"
-    clone: yes
-    update: no
+- name: Copy kodkollektivetse backup script
+  template:
+    src: backup-kodkollektivetse.sh.j2
+    dest: /var/lib/deploy-kodkollektivet/backup-kodkollektivetse.sh

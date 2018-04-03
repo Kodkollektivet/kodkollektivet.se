@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for org files backup
+
+[Timer]
+OnCalendar=*-*-* 23:00:00
+Persistent=yes
+Unit=kodkollektivetse-backup.service
+
+[Install]
+WantedBy=timers.target
