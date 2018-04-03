@@ -25,7 +25,7 @@
     role_attr_flags: CREATEDB,NOSUPERUSER
     state: present
 
-- name: Create Unitime database
+- name: Create database
   become: true
   become_user: postgres
   become_method: sudo
@@ -33,7 +33,7 @@
     name: "{{ postgres.db }}"
     encoding: UTF-8
 
-- name: Grant all privileges on Unitime
+- name: Grant all privileges on db
   become: true
   become_user: postgres
   become_method: sudo

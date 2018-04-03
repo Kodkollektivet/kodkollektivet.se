@@ -8,3 +8,5 @@
   with_items:
     - build-essential
     - htop
+    - tree
+    - emacs-nox

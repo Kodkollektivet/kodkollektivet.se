@@ -1,0 +1,60 @@
+---
+#
+# Kodkollektivet.se project related tasks
+#
+
+- name: Install kodkollektivetse dependencies
+  apt: "name={{ item }} state=present"
+  with_items:
+    - libmagickwand-dev
+    - gettext
+
+
+- name: Create base folder and set permissions
+  file:
+    path: "{{ projectpaths.base }}"
+    state: directory
+    owner: "{{ deploy.username }}"
+    group: "{{ deploy.username }}"
+    recurse: yes
+
+
+- name: Copy kodkollektivetse.service to systemd folder
+  template:
+    src: kodkollektivetse.service.j2
+    dest: /etc/systemd/system/kodkollektivetse.service
+  notify: Reload systemd daemon
+
+
+- name: Copy kodkollektivetse-celery.service to systemd folder
+  template:
+    src: kodkollektivetse-celery.service.j2
+    dest: /etc/systemd/system/kodkollektivetse-celery.service
+  notify: Reload systemd daemon
+
+
+- name: Copy kodkollektivetse backup service
+  template:
+    src: kodkollektivetse-backup.service.j2
+    dest: /etc/systemd/system/kodkollektivetse-backup.service
+  notify: Reload systemd daemon
+
+
+- name: Copy kodkollektivetse backup timer
+  template:
+    src: kodkollektivetse-backup.timer.j2
+    dest: /etc/systemd/system/kodkollektivetse-backup.timer
+  notify: Reload systemd daemon
+
+
+- name: Enable kodkollektivetse backup timer
+  systemd:
+    name: kodkollektivetse-backup.timer
+    state: started
+    enabled: True
+
+
+- name: Copy kodkollektivetse backup script
+  template:
+    src: backup-kodkollektivetse.sh.j2
+    dest: /var/lib/deploy-kodkollektivet/backup-kodkollektivetse.sh

@@ -1,0 +1,14 @@
+[Unit]
+Description={{ projectname }} gunicorn daemon
+After=network.target
+
+[Service]
+User={{ deploy.username }}
+Group={{ deploy.group }}
+Restart=on-failure
+RestartSec=5
+WorkingDirectory={{ projectpaths.current }}
+ExecStart={{ projectpaths.current }}/venv/bin/gunicorn --workers 4 --bind unix:{{ projectpaths.tmp }}/kodkollektivetse.sock settings.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

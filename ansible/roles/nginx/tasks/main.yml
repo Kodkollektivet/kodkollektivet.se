@@ -1,0 +1,30 @@
+---
+#
+# Nginx
+#
+
+- name: Install Nginx
+  apt: update_cache=yes name="{{ item }}" state=present
+  with_items:
+    - nginx
+    - nginx-full
+
+- name: Start Nginx
+  service: name=nginx enabled=yes state=started
+
+
+- name: Disable Default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: Reload Nginx
+
+- name: Copy nginx unitime conf to sites-available
+  template:
+      src: kodkollektivetse-http.j2
+      dest: /etc/nginx/sites-available/kodkollektivetse-http
+
+
+- name: Link unitime to sites-available
+  file: src=/etc/nginx/sites-available/kodkollektivetse-http
+        dest=/etc/nginx/sites-enabled/kodkollektivetse-http
+        state=link
+  notify: Reload Nginx
