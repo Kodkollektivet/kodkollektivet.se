@@ -1,0 +1,120 @@
+---
+#
+# Let's encrypt
+#
+
+- name: Remove kodkollektivetse http from sites-enabled
+  file:
+    path: /etc/nginx/sites-enabled/kodkollektivetse-http
+    state: absent
+
+
+- name: Remove kodkollektivetse https from sites-enabled
+  file:
+    path: /etc/nginx/sites-enabled/kodkollektivetse-https
+    state: absent
+
+
+- name: Remove kodkollektivetse http from sites-available
+  file:
+    path: /etc/nginx/sites-available/kodkollektivetse-http
+    state: absent
+
+
+- name: Remove kodkollektivetse https from sites-available
+  notify: Reload Nginx
+  file:
+    path: /etc/nginx/sites-available/kodkollektivetse-https
+    state: absent
+
+
+- name: Install letsencrypt
+  apt: name=letsencrypt state=latest
+
+
+- name: Create letsencrypt directory
+  file: name=/var/www/letsencrypt state=directory
+
+
+- name: Create nginx snippets directory
+  file: name=/etc/nginx/snippets/ state=directory
+
+
+- name: Copy letsencrypt ini file
+  template:
+    src: cli.ini.j2
+    dest: /etc/letsencrypt/cli.ini
+
+
+- name: Copy nginx kodkollektivetse certs snippet
+  template:
+    src: kodkollektivetse-certs.conf.j2
+    dest: /etc/nginx/snippets/kodkollektivetse-certs.conf
+
+
+- name: Copy nginx kodkollektivetse ssl params snippet
+  copy:
+    src: kodkollektivetse-ssl-params.conf
+    dest: /etc/nginx/snippets/kodkollektivetse-ssl-params.conf
+
+
+- name: Copy nginx well known snippet
+  copy:
+    src: well-known.conf
+    dest: /etc/nginx/snippets/well-known.conf
+
+
+- name: Copy kodkollektivetse https template
+  template:
+    src: kodkollektivetse-https.j2
+    dest: /etc/nginx/sites-available/kodkollektivetse-https
+
+
+- name: Generate dhparams
+  shell: openssl dhparam -out /etc/nginx/dhparam.pem 2048
+
+
+- name: Copy config for letsencrypt requests
+  notify: Restart Nginx
+  template:
+    src: templates/letsencrypt-http.j2
+    dest: /etc/nginx/sites-available/letsencrypt-http
+
+
+- name: Enable config for letsencrypt requests
+  notify: Reload Nginx
+  file:
+    src=/etc/nginx/sites-available/letsencrypt-http
+    dest=/etc/nginx/sites-enabled/letsencrypt-http
+    state=link
+
+
+- name: Create letsencrypt certificate
+  notify: Reload Nginx
+  shell: letsencrypt certonly
+  # shell: letsencrypt certonly --dry-run --noninteractive --staging  # Only for testing
+
+
+- name: Remove letsencrypt http nginx config
+  notify: Reload Nginx
+  file:
+    path: /etc/nginx/sites-enabled/letsencrypt-http
+    state: absent
+
+
+- name: Enable nginx kodkollektivetse https
+  notify: Reload Nginx
+  file:
+    src=/etc/nginx/sites-available/kodkollektivetse-https
+    dest=/etc/nginx/sites-enabled/kodkollektivetse-https
+    state=link
+
+
+- name: Add letsencrypt cronjob for cert renewal
+  notify: Reload Nginx
+  cron:
+    name: letsencrypt_renewal
+    weekday: "1,4"
+    minute: 0
+    hour: 3
+    job: certbot renew
