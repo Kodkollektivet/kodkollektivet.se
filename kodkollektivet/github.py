@@ -12,7 +12,7 @@ try:
 except ImportError:
     from settings.settings import OAUTH_TOKEN
 
-OAUTH_TOKEN='?client_id=866d6c83aea0c92a7a6f&client_secret=09b7bc4c122fed3d13562ac173a985fa6c8406f2'
+OAUTH_TOKEN=''
 
 
 log = logging.getLogger(__name__)
