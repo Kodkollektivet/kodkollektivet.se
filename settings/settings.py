@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'kodkollektivet',
 
     'markdown_deux',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -146,11 +147,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "../media")
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "media"),
-]
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
 
 # Celery
 if os.getenv('PYTHON_ENV') == 'docker':

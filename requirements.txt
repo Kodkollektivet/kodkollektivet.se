@@ -7,3 +7,6 @@ gunicorn
 Wand
 redis
 celery
+libsass
+django-compressor
+django-sass-processor

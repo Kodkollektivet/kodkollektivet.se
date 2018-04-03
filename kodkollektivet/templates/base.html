@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load sass_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +18,7 @@
 
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
-
-    <script src="https://use.fontawesome.com/5c79208c6f.js"></script>
+    <link href="{% sass_src 'css/new.scss' %}" rel="stylesheet" type="text/css" />
 
   </head>
 
