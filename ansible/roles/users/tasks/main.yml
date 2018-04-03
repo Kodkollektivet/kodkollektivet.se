@@ -42,7 +42,7 @@
   register: result
 
 
-- name: Configure systemd permissions for {{ deploy.unsername }}
+- name: Configure systemd permissions for deploy.username
   lineinfile:
     dest: /etc/sudoers
     line: "{{ item }}"
@@ -54,6 +54,7 @@
     - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl status kodkollektivetse.service"
     - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart kodkollektivetse-celery.service"
     - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart kodkollektivetse.service"
+    - "{{ deploy.username }} ALL=NOPASSWD: /bin/systemctl restart nginx.service"
 
 
 - name: Create bashrc
