@@ -11,4 +11,6 @@
     - roles/fail2ban
     - roles/redis
     - roles/rabbitmq
+    - roles/nginx
     - roles/kodkollektivetse
+    - roles/letsencrypt
