@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% load i18n %}
 
 {% block content %}
-
 
 <div class="board">
   {% for member in object_list %}
@@ -18,7 +15,5 @@
   </section>
   {% endfor %}
 </div>
-
-<p class="center">Bilderna är tagna av Petter Hammarbäck, IEC</p>
 
 {% endblock content %}
