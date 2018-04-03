@@ -1,0 +1,13 @@
+---
+#
+# Nginx handlers.
+#
+
+- name: Reload Nginx
+  service: name=nginx state=reloaded
+
+- name: Restart Nginx
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: nginx

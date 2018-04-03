@@ -15,3 +15,4 @@ production.py
 *.swp
 
 .sass-cache
+.ropeproject/
