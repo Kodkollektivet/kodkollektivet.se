@@ -2,11 +2,6 @@ import requests
 from base64 import b64decode
 import logging
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import AllowAny
-
 from kodkollektivet.models import Project, Contributor, ProCon, ProLan, Language
 from kodkollektivet.forms import ProjectForm
 
@@ -16,6 +11,8 @@ try:
     from settings.production import OAUTH_TOKEN
 except ImportError:
     from settings.settings import OAUTH_TOKEN
+
+OAUTH_TOKEN=''
 
 
 log = logging.getLogger(__name__)
@@ -104,7 +101,6 @@ def getcontribs():
 
             if req.status_code is 200:
                 for contributor in req.json():
-                    import pdb; pdb.set_trace()
                     Contributor.objects.update_or_create(
                         gh_login=contributor['login'],
                         gh_url=contributor['url'],
@@ -137,13 +133,7 @@ def getprocon():
                 log.debug(req.status_code)
 
 
-class GithubHook(APIView):
-
-    permission_classes = (AllowAny,)
-
-    def post(self, *args):
-        getrepos()
-        getcontribs()
-        getprocon()
-        log.debug('Getting repos... DONE')
-        return Response(status=status.HTTP_200_OK)
+def collect_github_data():
+    getrepos()
+    getcontribs()
+    getprocon()

@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     'kodkollektivet',
 
-    'rest_framework',
     'markdown_deux',
 ]
 
@@ -84,12 +83,25 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+env = os.getenv('PYTHON_ENV')
+if env == 'travis':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'HOST': 'koddb',
+            'PORT': 5432,
+        }
+    }
 
 
 # Password validation
@@ -115,22 +127,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Europe/Stockholm'
+
 USE_I18N = True
 USE_L10N = True
-USE_TZ = False
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "locale"),
-)
+USE_TZ = True
 
 LANGUAGES = (
     ('en', _('English')),
     ('sv', _('Swedish'))
 )
-
-
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -146,25 +151,39 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "media"),
 ]
 
-# Django-registration
-ACCOUNT_ACTIVATION_DAYS = 7
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Celery
+if os.getenv('PYTHON_ENV') == 'docker':
+    CELERY_BROKER_URL = 'amqp://admin:mypass@kodrabbit/'
+    CELERY_RESULT_BACKEND = 'redis://kodredis:6379/0'
+else:
+    CELERY_BROKER_URL = 'amqp://localhost'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Stockholm'
+CELERY_ALWAYS_EAGER = True  # Debug
 
+CELERY_IMPORTS = (
+    'kodkollektivet.tasks',
+)
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    )
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'task-number-one': {
+        'task': 'kodkollektivet.tasks.daily_update',
+        'schedule': crontab(minute='15', hour='21', day_of_week='*')
+        # time.now() - 1 hour to get the execution to start.
+    },
 }
 
-# Logging
+
 # Create logdir if it doesnt exists.
 if not os.path.exists(BASE_DIR + "/logs/"):
-    os.makedirs(BASE_DIR + "/logs/")
+    os.makedirs(BASE_DIR + "/logs")
 
 # Logging
 LOGGING = {
