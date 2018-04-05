@@ -10,6 +10,8 @@ server {
 
     server_name www.{{ domain_name }} {{ domain_name }};
 
+    client_max_body_size 20M;
+
     include snippets/kodkollektivetse-certs.conf;
     include snippets/kodkollektivetse-ssl-params.conf;
     include snippets/well-known.conf;
