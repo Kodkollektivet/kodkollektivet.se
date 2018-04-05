@@ -21,7 +21,7 @@
     {% for project in object_list %}
       <ul>
 	<li>
-	  <a href="{% url "kodkollektivet:projectdetailview" project.slug %}">{{ project.name }}</a>
+	  <a href={{ project.github_url }}>{{ project.name }}</a>
 	</li>
       </ul>
     {% endfor %}
