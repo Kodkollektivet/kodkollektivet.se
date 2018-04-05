@@ -12,11 +12,23 @@ try:
 except ImportError:
     from settings.settings import OAUTH_TOKEN
 
-OAUTH_TOKEN=''
-
 
 log = logging.getLogger(__name__)
 
+def _get_repo_data():
+    req = requests.get('https://api.github.com/orgs/kodkollektivet/repos' + OAUTH_TOKEN)
+
+    if req.status_code is 200:
+        return [{'name': i['name'],
+                 'stars': i['stargazers_count'],
+                 'language': i['language'] if i['language'] else "",
+                 'github_id': i['id'],
+                 'github_url': i['url']
+        } for i in req.json()]
+    else:
+        log.debug('Could not get repos from GitHub.')
+        log.debug(req.text)
+        return None
 
 def getrepos():
     """
