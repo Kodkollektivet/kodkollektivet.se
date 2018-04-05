@@ -18,4 +18,5 @@ log = logging.getLogger(__name__)
 
 @shared_task
 def daily_update():
+    log.debub('Starting daily celery task...')
     collect_github_data()
