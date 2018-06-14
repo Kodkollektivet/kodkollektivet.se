@@ -7,7 +7,7 @@ footer
   .contact,.goto
     @include span-columns(4)
     h3
-      margin: 100px 0 20px 0
+      margin: 60px 0 20px 0
       letter-spacing: 2px
       color: white
   .contact
@@ -20,6 +20,7 @@ footer
     @include span-columns(4)
  
   .goto
+    margin-top: 60px
     h3
       margin-left: 30px
     div
@@ -39,8 +40,17 @@ footer
           h4
             margin: 0 0 5px -5px
             color: white
-            font-size: 12px
+            font-size: 18px
           text-align: left
+          &.event-links
+            width: 100%
+            max-width: 300px
+            li
+              white-space: nowrap
+              text-overflow: ellipsis
+              overflow: hidden
+              margin-bottom: 5px
+
   @media screen and (max-width: 1135px)
     padding: 0 50px 50px 50px
     .logo-footer
@@ -48,7 +58,7 @@ footer
     .contact,.goto
       @include span-columns(6)
       &:not(:first-child)
-        margin-top: 30px
+        margin-top: 40px
       h3 
-        margin: 50px
+        margin: 0 0 50px 0
         text-align: center
