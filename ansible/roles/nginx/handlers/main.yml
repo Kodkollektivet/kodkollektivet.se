@@ -4,7 +4,11 @@
 #
 
 - name: Reload Nginx
-  service: name=nginx state=reloaded
+  become: true
+  service:
+    name: nginx
+    state: restarted
+
 
 - name: Restart Nginx
   systemd:

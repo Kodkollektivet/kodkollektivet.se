@@ -3,26 +3,22 @@
 
 [[https://travis-ci.org/Kodkollektivet/kodkollektivet.se][https://travis-ci.org/Kodkollektivet/kodkollektivet.se.svg?branch=master]]
 
-* Ansible notes
-** Secrets
+* Development environment with Docker, recommended
 
-   There is a folder with secrets for the project but it's not under version control. The
-   secrets are users/passwords/certificates for the service. Ask in Kodkollektivet slack
-   to get hold of it.
+  You can choose to use Docker to get the development environment up and running. If you
+  wanna go for Docker, install Docker and docker-compose. When thats installed and
+  working. Start the project by:
 
-   After you have the archive, extract it to: =<project_dir>/ansible/secrets=.
+  #+BEGIN_SRC shell
+    docker-compose up
+  #+END_SRC
 
-** Execute the playbook
+  Docker will build everything for you and you can access the page from
+  http://localhost:8000/ when the build process is done.
 
-   #+BEGIN_SRC shell
-     ansible-playbook -e @secrets/production.json kodkollektivetse.yml
-   #+END_SRC
+* Plain old development environment, NOT RECOMMENDED
 
-* Development environment
-
-  Its highly recommended to use [[https://virtualenv.pypa.io/en/stable/][virtualenv]] but its optional.
-  =pip= may need to be installed depending on OS.
-  Navigate to folder where the project is located.
+  Only if you really know what you are doing, unless, use Docker.
 
   #+BEGIN_SRC sh
     pip install -r requirements.txt  # Install dependencies
@@ -31,6 +27,8 @@
     python manage.py makemigrations  # Make a migration scheme
     python manage.py migrate  # Create a DB with the scheme
     python manage.py createsuperuser  # Create a superuser
+    python manage.py makemessages -l en -l sv
+    python manage.py compilemessages -l sv -l en
     python manage.py runserver  # Start development server
   #+END_SRC
 
@@ -47,31 +45,75 @@
   #+END_SRC
 
 
-* Create translations
+* Setup a new production server
 
-#+BEGIN_SRC sh
-# Create .po files
-python manage.py makemessages -l en -l sv
+  This part will give instructions on how to setup kodkollektivet.se on a new host. Some
+  of the stuff needs correct DNS settings to work, those are stuff like Lets Encrypt
+  (SSL/TLS/HTTPS).
 
-# Compile the files
-python manage.py compilemessages -l sv -l en
-#+END_SRC
+  To setup the server we are using [[https://www.ansible.com/][Ansible]], to deploy the project and updates we are using
+  [[http://www.fabfile.org/][Fabric]].
 
+** Start a new server
+
+   Start a new Debian (yes it must be Debian) server somewhere. I mostly use [[https://www.digitalocean.com/][digitalocean]].
+   Log in to the server via SSH and make sure that you can login with password as root.
+   This is needed for Ansible to work. When you are sure that you can login to the root
+   account with a password. Logout.
+
+** Generate SSH key
+
+   Navigate to the secrets folder within the project directory. Take a look at the files
+   and what they contains. Generate a new SSH key. Move the public key to ansible users
+   filder. This key will be used for deploy. If it asks you to overwrite the existing
+   file, choose =y=. Dont enter a passphrase.
+
+   #+BEGIN_SRC
+     cd kodkollektivet.se/ansible/secrets
+     ssh-keygen -t ed25519 -f kodkollektivetse-deploy-user -C kodkollektivetse-deploy-user
+     cp kodkollektivetse-deploy-user.pub ../roles/users/files/authorized_keys
+   #+END_SRC
+
+   We are doing this steps so that we later on can put new code on the server via the
+   "kodkollektivetse-deploy-user" user and do that without a password.
+
+** Update secrets
+
+   In =secrets/inventory= you shall now update some secrets.
+
+   | ansible_ssh_host | The IP address to reflect your host.                 |
+   | ansible_ssh_pass | The root password                                    |
+   | ansible_port     | 22 is the default, but could be changed on your host |
+
+
+   In =secrets/production.json= change:
+
+   | email              | Your email                |
+   | deploy -> password | To a good random password |
+   | postgres -> pass   | To a good random password |
+
+** Configure the server
+
+   To configure the server run:
+
+   #+BEGIN_SRC sh
+     cd kodkollektivet.se/ansible
+     docker build -t kodans:0.1 -f Dockerfile-ansible .
+     docker run -it -v $PWD:/app --rm -w /app kodans:0.1 ansible-playbook -e @secrets/production.json kodkollektivetse.yml
+   #+END_SRC
+
+** Bootstrap the kodkollektivet.se application
+
+   This will put the project to the server and start the services.
+
+   #+BEGIN_SRC sh
+     cd kodkollektivet.se/ansible
+     docker build -t kodfab:0.1 -f Dockerfile-fabric .
+     docker run -it -v $PWD:/app --rm -w /app kodfab:0.1 fab bootstrap
+   #+END_SRC
 
 * Publications
 
 Added here as a note! Maybe we should have a page for publications?
 
 - http://iec2020.se/det-ar-vi-som-ar-framtidens-utvecklare/
-* Docker environment
-
-  You can choose to use Docker to get the development environment up and running. If you
-  wanna go for Docker, install Docker and docker-compose.
-  When thats installed and working. Start the project by:
-
-  #+BEGIN_SRC shell
-    docker-compose up
-  #+END_SRC
-
-  Docker will build everything for you and you can access the page from
-  http://localhost:8000/ when the build process is done.

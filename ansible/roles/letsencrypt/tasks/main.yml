@@ -75,7 +75,7 @@
 
 
 - name: Copy config for letsencrypt requests
-  notify: Restart Nginx
+  notify: Reload Nginx
   template:
     src: templates/letsencrypt-http.j2
     dest: /etc/nginx/sites-available/letsencrypt-http
@@ -96,25 +96,24 @@
 
 
 - name: Remove letsencrypt http nginx config
-  notify: Reload Nginx
   file:
     path: /etc/nginx/sites-enabled/letsencrypt-http
     state: absent
 
 
 - name: Enable nginx kodkollektivetse https
-  notify: Reload Nginx
   file:
     src=/etc/nginx/sites-available/kodkollektivetse-https
     dest=/etc/nginx/sites-enabled/kodkollektivetse-https
     state=link
+  notify: Reload Nginx
 
 
 - name: Add letsencrypt cronjob for cert renewal
-  notify: Reload Nginx
   cron:
     name: letsencrypt_renewal
     weekday: "1,4"
     minute: 0
     hour: 3
     job: certbot renew
+  notify: Reload Nginx
