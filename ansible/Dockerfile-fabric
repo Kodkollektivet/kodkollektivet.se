@@ -1,2 +1,2 @@
 FROM python:2.7
-RUN pip install fabric
+RUN pip install fabric==1.14.0
