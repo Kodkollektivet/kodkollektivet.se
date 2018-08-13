@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,700");
-/* line 2, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_grid.scss */
+/* line 2, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_grid.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,7 +36,7 @@ main .what-is {
 main .what-is h2 {
   font-size: 36px;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 main .what-is:after {
   content: "";
   display: table;
@@ -49,7 +49,7 @@ main .what-is img {
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is img:last-child {
   margin-right: 0;
 }
@@ -61,7 +61,7 @@ main .what-is .split {
   width: 6.17215%;
   text-align: right;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is .split:last-child {
   margin-right: 0;
 }
@@ -83,7 +83,7 @@ main .what-is article {
   width: 40.29137%;
   padding-right: 50px;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .what-is article:last-child {
   margin-right: 0;
 }
@@ -114,7 +114,7 @@ main .what-is article p:first-of-type {
     width: 48.82117%;
     padding-right: 10px;
   }
-  /* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+  /* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
   main .what-is article:last-child {
     margin-right: 0;
   }
@@ -127,7 +127,7 @@ main .student-company {
   background-color: #DDD;
   padding: 120px 50px;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 main .student-company:after {
   content: "";
   display: table;
@@ -154,7 +154,7 @@ main .student-company .student {
   margin-right: 2.35765%;
   width: 40.29137%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .student:last-child {
   margin-right: 0;
 }
@@ -166,7 +166,7 @@ main .student-company .split {
   width: 14.70196%;
   text-align: center;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .split:last-child {
   margin-right: 0;
 }
@@ -187,7 +187,7 @@ main .student-company .company {
   margin-right: 2.35765%;
   width: 40.29137%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 main .student-company .company:last-child {
   margin-right: 0;
 }
@@ -199,7 +199,7 @@ main .student-company .company:last-child {
   margin-right: auto;
   padding: 50px;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 .projects:after {
   content: "";
   display: table;
@@ -216,7 +216,7 @@ main .student-company .company:last-child {
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .projects .creating:last-child {
   margin-right: 0;
 }
@@ -241,7 +241,7 @@ main .student-company .company:last-child {
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .projects .services-apps:last-child {
   margin-right: 0;
 }
@@ -304,12 +304,12 @@ a {
   letter-spacing: 1px;
 }
 /* line 129, compass/sass/_base.sass */
-a:hover {
-  color: white;
-}
-/* line 131, compass/sass/_base.sass */
 a:visited {
   color: #8CB3ED;
+}
+/* line 131, compass/sass/_base.sass */
+a:hover {
+  color: white;
 }
 
 /* line 134, compass/sass/_base.sass */
@@ -381,7 +381,7 @@ header {
   position: relative;
   height: 400px;
   padding: 15px;
-  background: url('../img/kk_background2.png?1504446464'), no-repeat;
+  background: url('../img/kk_background2.png?1528903549'), no-repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -515,7 +515,7 @@ footer {
   max-height: 450px;
   overflow: hidden;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 footer:after {
   content: "";
   display: table;
@@ -528,13 +528,13 @@ footer .contact, footer .goto {
   margin-right: 2.35765%;
   width: 31.76157%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .contact:last-child, footer .goto:last-child {
   margin-right: 0;
 }
 /* line 9, compass/sass/_footer.sass */
 footer .contact h3, footer .goto h3 {
-  margin: 100px 0 20px 0;
+  margin: 60px 0 20px 0;
   letter-spacing: 2px;
   color: white;
 }
@@ -554,37 +554,41 @@ footer .logo-footer {
   margin-right: 2.35765%;
   width: 31.76157%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .logo-footer:last-child {
   margin-right: 0;
 }
-/* line 23, compass/sass/_footer.sass */
+/* line 22, compass/sass/_footer.sass */
+footer .goto {
+  margin-top: 60px;
+}
+/* line 24, compass/sass/_footer.sass */
 footer .goto h3 {
   margin-left: 30px;
 }
-/* line 25, compass/sass/_footer.sass */
+/* line 26, compass/sass/_footer.sass */
 footer .goto div {
   display: inline-block;
   margin: 0 auto;
 }
-/* line 28, compass/sass/_footer.sass */
+/* line 29, compass/sass/_footer.sass */
 footer .goto div .links {
   display: block;
   max-width: 3000px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 footer .goto div .links:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 31, compass/sass/_footer.sass */
+/* line 32, compass/sass/_footer.sass */
 footer .goto div .links:last-child {
   margin-top: 10px;
 }
-/* line 33, compass/sass/_footer.sass */
+/* line 34, compass/sass/_footer.sass */
 footer .goto div .links ul {
   float: left;
   display: block;
@@ -596,43 +600,55 @@ footer .goto div .links ul {
   font-size: 16px;
   text-align: left;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 footer .goto div .links ul:last-child {
   margin-right: 0;
 }
-/* line 39, compass/sass/_footer.sass */
+/* line 40, compass/sass/_footer.sass */
 footer .goto div .links ul h4 {
   margin: 0 0 5px -5px;
   color: white;
-  font-size: 12px;
+  font-size: 18px;
+}
+/* line 45, compass/sass/_footer.sass */
+footer .goto div .links ul.event-links {
+  width: 100%;
+  max-width: 300px;
+}
+/* line 48, compass/sass/_footer.sass */
+footer .goto div .links ul.event-links li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
 @media screen and (max-width: 1135px) {
   /* line 1, compass/sass/_footer.sass */
   footer {
     padding: 0 50px 50px 50px;
   }
-  /* line 46, compass/sass/_footer.sass */
+  /* line 56, compass/sass/_footer.sass */
   footer .logo-footer {
     display: none;
   }
-  /* line 48, compass/sass/_footer.sass */
+  /* line 58, compass/sass/_footer.sass */
   footer .contact, footer .goto {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  /* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+  /* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
   footer .contact:last-child, footer .goto:last-child {
     margin-right: 0;
   }
-  /* line 50, compass/sass/_footer.sass */
+  /* line 60, compass/sass/_footer.sass */
   footer .contact:not(:first-child), footer .goto:not(:first-child) {
-    margin-top: 30px;
+    margin-top: 40px;
   }
-  /* line 52, compass/sass/_footer.sass */
+  /* line 62, compass/sass/_footer.sass */
   footer .contact h3, footer .goto h3 {
-    margin: 50px;
+    margin: 0 0 50px 0;
     text-align: center;
   }
 }
@@ -649,7 +665,7 @@ footer .goto div .links ul h4 {
 .events .new-events h2, .events .new-events h3, .events .new-events h4 {
   text-align: center;
 }
-/* line 15, ../../../../../.rvm/gems/ruby-2.4.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
+/* line 15, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/bourbon-compass-4.0.2/stylesheets/bourbon/addons/_clearfix.scss */
 .events .new-events:after {
   content: "";
   display: table;
@@ -663,7 +679,7 @@ footer .goto div .links ul h4 {
   width: 48.82117%;
   padding: 0 50px;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .events .new-events .next-event:last-child {
   margin-right: 0;
 }
@@ -703,7 +719,7 @@ footer .goto div .links ul h4 {
   margin-right: 2.35765%;
   width: 48.82117%;
 }
-/* line 38, ../../../../../.rvm/gems/ruby-2.4.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
+/* line 38, ../../../../../../../Ruby25-x64/lib/ruby/gems/2.5.0/gems/neat-compass-1.6.0/stylesheets/neat/grid/_span-columns.scss */
 .events .new-events .upcoming-events:last-child {
   margin-right: 0;
 }
