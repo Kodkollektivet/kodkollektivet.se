@@ -6,7 +6,9 @@
 * Development environment with Docker, recommended
 
   You can choose to use Docker to get the development environment up and running. If you
-  wanna go for Docker, install Docker and docker-compose. When thats installed and
+  wanna go for Docker, [[https://docs.docker.com/compose/install/][install Docker and docker-compose]].
+  
+  When you have docker and docker-compose installed and
   working. Start the project by:
 
   #+BEGIN_SRC shell
