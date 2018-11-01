@@ -12,13 +12,11 @@
       <h2>{{ member.position|title }}</h2>
       <img src={{ member.photo.url }} />
       <p>{{ member.first_name }} {{ member.last_name }}</p>
-      {% if member.email %}<p>Email:{{ member.email }}</p>{% endif %}
+      {% if member.email %}<p>Email: <img src="/media/board-images/{{ member.last_name}}.email.png"/></p>{% endif %}
       {% if member.telephone %}<p>Tel:{{ member.telephone }}</p>{% endif %}
     </div>
   </section>
   {% endfor %}
 </div>
-
-<p class="center">Bilderna är tagna av Petter Hammarbäck, IEC</p>
 
 {% endblock content %}
