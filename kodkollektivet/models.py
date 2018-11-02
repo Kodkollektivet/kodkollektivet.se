@@ -1,13 +1,21 @@
 # -*- coding: utf-8 -*-
 
 from datetime import datetime, timedelta
+import os
 
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
+from django.conf import settings
 
 from wand.image import Image
+from wand.drawing import Drawing
+from wand.color import Color
 
+def handle_uploaded_file(fname, f):
+    with open(fname, 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
 
 class PostQuerySet(models.QuerySet):
     def published(self):
@@ -30,6 +38,19 @@ class BoardMember(models.Model):
                 img.transform(resize='x250')
                 img.compression_quality = 90
                 img.save(filename=self.photo.path)
+        if self.email:
+            with Drawing() as draw:
+                with Image(width=300,
+                           height=30,
+                           background=Color('white')) as emailimg:
+
+                    draw.font = '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'
+                    draw.font_color = 'black'
+                    draw.font_size = 16
+                    draw.text(5, int(emailimg.height * 12 / 13), self.email)
+
+                    draw.draw(emailimg)
+                    emailimg.save(filename=os.path.dirname(self.photo.path) +'/' + self.last_name + '.email.png')
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
