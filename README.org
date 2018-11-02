@@ -18,6 +18,14 @@
   Docker will build everything for you and you can access the page from
   http://localhost:8000/ when the build process is done.
 
+  To be able to login at http://localhost:8000/admin , enter the docker env and then
+  create a superuser.
+
+  #+BEGIN_SRC shell
+    docker exec -it koddjango bash
+    python manage.py createsuperuser  # Create a superuser
+  #+END_SRC
+
 * Plain old development environment, NOT RECOMMENDED
 
   Only if you really know what you are doing, unless, use Docker.
@@ -114,7 +122,7 @@
      docker run -it -v $PWD:/app --rm -w /app kodfab:0.1 fab bootstrap
    #+END_SRC
 
-* Update the application
+* Update the production application
 
   Ask John for secret files.
 
