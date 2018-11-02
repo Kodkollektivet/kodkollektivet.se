@@ -114,6 +114,21 @@
      docker run -it -v $PWD:/app --rm -w /app kodfab:0.1 fab bootstrap
    #+END_SRC
 
+* Update the application
+
+  Ask John for secret files.
+
+  The secret files contains usernames passwords and that kind of stuff.
+
+  #+BEGIN_SRC shell
+    cd ansible/
+    docker build -t kodfab:0.1 -f Dockerfile-fabric .
+    docker run -it -v $PWD:/app --rm -w /app kodfab:0.1 fab deploy
+  #+END_SRC
+
+  Afer this commands have run with succcess the application will restart itself with the
+  new updates. You dont need to do anything else.
+
 * Publications
 
 Added here as a note! Maybe we should have a page for publications?
